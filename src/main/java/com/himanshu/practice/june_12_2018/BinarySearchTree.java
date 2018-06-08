@@ -1,4 +1,4 @@
-package com.himanshu.practice.com.himanshu.practice.june_12_2018;
+package com.himanshu.practice.june_12_2018;
 
 
 import lombok.Getter;
