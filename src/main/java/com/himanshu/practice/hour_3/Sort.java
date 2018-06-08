@@ -1,6 +1,4 @@
-package com.himanshu.practice.com.himanshu.practice.june_8.hour_3;
-
-import java.util.Queue;
+package com.himanshu.practice.hour_3;
 
 /**
  * Created by himanshubhardwaj on 08/06/18.
