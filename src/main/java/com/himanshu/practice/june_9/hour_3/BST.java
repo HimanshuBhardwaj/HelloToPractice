@@ -4,7 +4,10 @@ import com.sun.glass.events.mac.NpapiEvent;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import sun.awt.image.ImageWatched;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Stack;
 
 /**
@@ -25,17 +28,38 @@ public class BST {
         Node.print(root);
         System.out.println();
 
-        root = Node.delete(root, 5);
-        System.out.println("root.value: " + root.getValue());
-        root = Node.delete(root, 6);
-        System.out.println("root.value: " + root.getValue());
+        System.out.println(Node.inorder(root, null));
+        System.out.println(Node.preOrder(root, null));
+        Node newRoot = Node.constructTree(null, Node.inorder(root, null), Node.preOrder(root, null));
+        System.out.print("Constructing tree: ");
+        System.out.println(Node.inorder(newRoot, null));
 
 
-        Node.inorderWithourRecursion(root);
-        root = Node.delete(root, 11);
-        System.out.println();
-        Node.inorderWithourRecursion(root);
+        // Deletion wala code
+//        root = Node.delete(root, 5);
+//        System.out.println("root.value: " + root.getValue());
+//        root = Node.delete(root, 6);
+//        System.out.println("root.value: " + root.getValue());
+//
+//
+//        Node.inorderWithourRecursion(root);
+//        root = Node.delete(root, 11);
+//        System.out.println();
+//        Node.inorderWithourRecursion(root);
 
+
+//        LinkedList<Integer> linkedList = new LinkedList<Integer>();
+//        linkedList.add(5);
+//        System.out.println(linkedList.subList(0, 0));
+//        System.out.println(linkedList.subList(1, 0));
+
+//        linkedList.add(25);
+//        linkedList.add(53);
+//        linkedList.add(51);
+//        linkedList.add(27);
+//        System.out.println(linkedList.toString());
+//        System.out.println(linkedList.subList(1, 3 + 1));
+//        System.out.println(linkedList.indexOf(51));
     }
 
 }
@@ -52,6 +76,36 @@ class Node {
         this.left = null;
         this.right = null;
     }
+
+    public static LinkedList<Integer> inorder(Node node, LinkedList<Integer> inorderT) {
+        if (node == null) {
+            return inorderT;
+        }
+
+        if (inorderT == null) {
+            inorderT = new LinkedList<Integer>();
+        }
+
+
+        inorder(node.left, inorderT);
+        inorderT.add(node.getValue());
+        inorder(node.right, inorderT);
+        return inorderT;
+    }
+
+    public static LinkedList<Integer> preOrder(Node node, LinkedList<Integer> preOrderT) {
+        if (node == null) {
+            return preOrderT;
+        }
+        if (preOrderT == null) {
+            preOrderT = new LinkedList<>();
+        }
+        preOrderT.add(node.getValue());
+        preOrder(node.left, preOrderT);
+        preOrder(node.right, preOrderT);
+        return preOrderT;
+    }
+
 
     public static Node insert(Node node, int value) {
 
@@ -151,5 +205,40 @@ class Node {
         }
     }
 
+
+    //Inorder and pre order se tree construct karo
+    //6 00 PM --> 6:10 PM
+    //6:30 -->
+
+    //Assume no repetation
+    public static Node constructTree(Node node, List<Integer> inorder, List<Integer> preorder) {
+        if (inorder.size() == 0 || preorder.size() == 0) {
+            return null;
+        }
+
+        int value = preorder.get(0);
+        preorder.remove(0);
+        int index = inorder.indexOf(value);
+
+        Node node1 = new Node(value);
+        //preorder.remove(0);
+
+
+        if (inorder.size() >= 0) {
+            node1.left = constructTree(node1, inorder.subList(0, index), preorder);
+
+        } else {
+            node1.left = null;
+        }
+
+
+        if ((index + 1) < inorder.size()) {
+            node1.right = constructTree(node1, inorder.subList(index + 1, inorder.size()), preorder);
+        } else {
+            node1.right = null;
+        }
+
+        return node1;
+    }
 
 }
