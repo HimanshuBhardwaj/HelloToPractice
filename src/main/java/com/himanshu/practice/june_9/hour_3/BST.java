@@ -1,13 +1,13 @@
 package com.himanshu.practice.june_9.hour_3;
 
 import com.sun.glass.events.mac.NpapiEvent;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import sun.awt.TracedEventQueue;
 import sun.awt.image.ImageWatched;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 import java.util.Stack;
 
 /**
@@ -24,6 +24,16 @@ public class BST {
         root = Node.insert(root, 27);
         root = Node.insert(root, 28);
         root = Node.insert(root, -29);
+        root = Node.insert(root, -31);
+        root = Node.insert(root, -28);
+
+        Node root2 = new Node(6);
+        root2 = Node.insert(root2, 16);
+        root2 = Node.insert(root2, 11);
+        root2 = Node.insert(root2, 26);
+        root2 = Node.insert(root2, 27);
+        root2 = Node.insert(root2, 28);
+
 
         Node.print(root);
         System.out.println();
@@ -33,6 +43,22 @@ public class BST {
         Node newRoot = Node.constructTree(null, Node.inorder(root, null), Node.preOrder(root, null));
         System.out.print("Constructing tree: ");
         System.out.println(Node.inorder(newRoot, null));
+        Node.width(root);
+        Node.print(root);
+        Queue<Node> rooot = new LinkedList<Node>();
+        rooot.add(root);
+
+        System.out.println("Level order:");
+        Node.levelOrderTraversal(rooot);
+        System.out.println("Printing nodes at distance 2 from root");
+        Node.printNodeLevelwise(root, 3);
+
+        System.out.println("Path from root to node");
+        Node.pathFromRoot(root, new LinkedList<Node>(), 11);
+
+
+        System.out.println("Checking identicality");
+        System.out.println(Node.areBinaryTreesIdentical(root, root));
 
 
         // Deletion wala code
@@ -60,6 +86,8 @@ public class BST {
 //        System.out.println(linkedList.toString());
 //        System.out.println(linkedList.subList(1, 3 + 1));
 //        System.out.println(linkedList.indexOf(51));
+
+        System.out.println("Checking for subtree: " + Node.isSubtree(root, root2));
     }
 
 }
@@ -70,6 +98,8 @@ class Node {
     int value;
     Node left;
     Node right;
+    int widthSlot;
+    int level;
 
     public Node(int value) {
         this.value = value;
@@ -175,7 +205,7 @@ class Node {
             return;
         }
         print(node.left);
-        System.out.print(node.getValue() + " ");
+        System.out.print("(" + node.getValue() + ", " + node.getWidthSlot() + ")\t");
         print(node.right);
     }
 
@@ -208,7 +238,8 @@ class Node {
 
     //Inorder and pre order se tree construct karo
     //6 00 PM --> 6:10 PM
-    //6:30 -->
+    //6:30 -->7:20
+
 
     //Assume no repetation
     public static Node constructTree(Node node, List<Integer> inorder, List<Integer> preorder) {
@@ -240,5 +271,117 @@ class Node {
 
         return node1;
     }
+
+
+    //left, right width will not be null
+    //widthSlot is the width slot of node
+    public static void width(Node node) {
+        if (node == null) {
+            return;
+        }
+
+        if (node.left == null && node.right == null) {
+            return;
+        }
+
+        if (node.left != null) {
+            node.left.setWidthSlot(node.getWidthSlot() - 1);
+            width(node.left);
+        }
+
+        if (node.right != null) {
+            node.right.setWidthSlot(node.getWidthSlot() + 1);
+            width(node.right);
+        }
+    }
+
+    public static void levelOrderTraversal(Queue<Node> levelOrder) {
+        if (levelOrder.isEmpty()) {
+            return;
+        }
+
+        Node node = levelOrder.poll();
+        int nodeLevel = node.getLevel();
+        System.out.println("<" + node.value + ", " + nodeLevel + ">");
+
+        if (node.left != null) {
+            node.left.setLevel(nodeLevel + 1);
+            levelOrder.add(node.left);
+        }
+
+        if (node.right != null) {
+            node.right.setLevel(nodeLevel + 1);
+            levelOrder.add(node.right);
+        }
+        levelOrderTraversal(levelOrder);
+    }
+
+    public static void printNodeLevelwise(Node node, int distance) {
+        if (node == null) {
+            return;
+        }
+
+        if (distance == 0) {
+            System.out.println(node.getValue());
+            return;
+        } else {
+            printNodeLevelwise(node.left, distance - 1);
+            printNodeLevelwise(node.right, distance - 1);
+
+        }
+
+    }
+
+    public static void pathFromRoot(Node node, LinkedList<Node> path, int requiredNode) {
+        if (node == null) {
+            return;
+        }
+        if (node.value == requiredNode) {
+            for (Node node1 : path) {
+                System.out.print(node1.getValue() + "-->");
+            }
+            System.out.println(requiredNode);
+        }
+        path.add(node);
+        if (node.left != null) {
+            pathFromRoot(node.left, path, requiredNode);
+        }
+        if (node.right != null) {
+            pathFromRoot(node.right, path, requiredNode);
+        }
+        path.remove(node);
+    }
+
+    public static boolean areBinaryTreesIdentical(Node node1, Node node2) {
+        if (node1 == null && node2 == null) {
+            return true;
+        }
+        if ((node1 == null && node2 != null) || (node2 == null && node1 != null) || (node1.value != node2.value)) {
+            return false;
+        }
+        return areBinaryTreesIdentical(node1.right, node2.right) && areBinaryTreesIdentical(node1.left, node2.left);
+    }
+
+    public static boolean isSubtree(Node root1, Node root2) {
+        if (root1 == null && root2 == null) {
+            return true;
+        }
+        if ((root1 == null && root2 != null) || (root2 == null && root1 != null)) {
+            return false;
+        }
+
+        return areBinaryTreesIdentical(root1, root2) || isSubtree(root1.getLeft(), root2) || isSubtree(root1.getRight(), root2);
+
+
+    }
+}
+
+@AllArgsConstructor
+@Getter
+@Setter
+class Width {
+    int maxLeft = 0;
+    int maxRight = 0;
+    int widthSlot = 0;
 
 }
