@@ -7,7 +7,6 @@ import lombok.Setter;
 
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Stack;
 
 public class BinarySearchTree {
     public static void main(String[] args) {

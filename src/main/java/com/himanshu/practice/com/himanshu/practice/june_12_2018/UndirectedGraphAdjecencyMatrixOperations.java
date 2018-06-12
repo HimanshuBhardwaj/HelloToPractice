@@ -1,11 +1,6 @@
 package com.himanshu.practice.com.himanshu.practice.june_12_2018;
 
 
-import com.sun.deploy.util.StringUtils;
-
-import java.sql.SQLOutput;
-import java.util.Scanner;
-
 public class UndirectedGraphAdjecencyMatrixOperations {
     static int adjMatrix[][] = {{0, 1, 0, 0, 1},
 

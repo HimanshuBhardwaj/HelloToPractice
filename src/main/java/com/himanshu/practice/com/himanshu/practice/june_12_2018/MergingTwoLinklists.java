@@ -1,10 +1,5 @@
 package com.himanshu.practice.com.himanshu.practice.june_12_2018;
 
-import com.sun.tools.doclets.formats.html.SourceToHTMLConverter;
-import com.sun.tools.javah.LLNI;
-
-import java.text.MessageFormat;
-
 /**
  * Created by himanshubhardwaj on 12/06/18.
  */
