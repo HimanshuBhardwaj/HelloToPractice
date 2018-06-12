@@ -1,4 +1,4 @@
-package com.himanshu.practice.com.himanshu.practice.june_12_2018.com.himanshu.practice.com.himanshu.practice.june_12_2018.time_11;
+package com.himanshu.practice.june_12_2018.com.himanshu.practice.com.himanshu.practice.june_12_2018.time_11;
 
 import java.util.Scanner;
 
