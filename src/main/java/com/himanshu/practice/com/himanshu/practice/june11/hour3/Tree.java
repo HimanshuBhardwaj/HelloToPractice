@@ -1,10 +1,4 @@
-package com.himanshu.practice.com.himanshu.practice.june11;
-
-import javafx.scene.media.SubtitleTrack;
-import org.omg.CORBA.INTERNAL;
-
-import javax.swing.text.Segment;
-import java.net.Inet4Address;
+package com.himanshu.practice.com.himanshu.practice.june11.hour3;
 
 /**
  * Created by himanshubhardwaj on 11/06/18.
