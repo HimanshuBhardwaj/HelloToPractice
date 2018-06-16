@@ -1,4 +1,4 @@
-package com.himanshu.practice.com.himanshu.practice.June12;
+package com.himanshu.practice.June12;
 
 import java.util.LinkedList;
 import java.util.Queue;

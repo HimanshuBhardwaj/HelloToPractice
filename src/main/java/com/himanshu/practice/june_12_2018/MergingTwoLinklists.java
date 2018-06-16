@@ -261,11 +261,11 @@ class NNode {
         NNode secondListHead = middle.next;
         middle.next = null;
 
-//        System.out.print("start:" + start.value);
-//        System.out.print(" middle:" + middle.value);
-//        System.out.print("\t");
-//        System.out.print("start:" + secondListHead.value);
-//        System.out.print(" end:" + end.value);
+//        System.out.inorder("start:" + start.value);
+//        System.out.inorder(" middle:" + middle.value);
+//        System.out.inorder("\t");
+//        System.out.inorder("start:" + secondListHead.value);
+//        System.out.inorder(" end:" + end.value);
 //        System.out.println();
 
         NNode leftList = actualMergeSort(start, middle);

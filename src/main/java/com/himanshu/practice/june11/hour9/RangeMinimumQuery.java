@@ -1,8 +1,4 @@
-package com.himanshu.practice.com.himanshu.practice.june11.hour9;
-
-import org.omg.CORBA.INTERNAL;
-
-import javax.swing.text.Segment;
+package com.himanshu.practice.june11.hour9;
 
 /**
  * Created by himanshubhardwaj on 11/06/18.

@@ -7,7 +7,7 @@ import lombok.Getter;
  * Created by himanshubhardwaj on 13/06/18.
  */
 
-//Add(keep sorting), remove, size, print,
+//Add(keep sorting), remove, size, inorder,
 
 public class CircularList {
     public static void main(String[] args) {
@@ -107,7 +107,7 @@ class CircularLinkList {
         Node temp = list.head;
 
         if (temp == null) {
-            System.out.println("null list; nothing to print");
+            System.out.println("null list; nothing to inorder");
 
         }
 

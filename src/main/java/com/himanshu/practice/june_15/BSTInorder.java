@@ -1,6 +1,4 @@
-package com.himanshu.practice.com.himanshu.practice.june_15;
-
-import lombok.NoArgsConstructor;
+package com.himanshu.practice.june_15;
 
 import java.util.Stack;
 

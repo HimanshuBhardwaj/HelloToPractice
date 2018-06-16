@@ -1,4 +1,4 @@
-package com.himanshu.practice.com.himanshu.practice.June12;
+package com.himanshu.practice.June12;
 
 /**
  * Created by himanshubhardwaj on 12/06/18.

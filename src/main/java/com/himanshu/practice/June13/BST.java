@@ -1,6 +1,4 @@
-package com.himanshu.practice.com.himanshu.practice.June13;
-
-import lombok.NoArgsConstructor;
+package com.himanshu.practice.June13;
 
 /**
  * Created by himanshubhardwaj on 13/06/18.

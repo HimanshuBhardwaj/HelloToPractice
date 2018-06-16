@@ -1,4 +1,4 @@
-package com.himanshu.practice.com.himanshu.practice.june11.hour3;
+package com.himanshu.practice.june11.hour3;
 
 /**
  * Created by himanshubhardwaj on 11/06/18.
