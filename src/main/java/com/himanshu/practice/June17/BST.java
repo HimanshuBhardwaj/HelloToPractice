@@ -98,7 +98,7 @@ class Node {
             }
             Node successor = successor(root);
             swap(successor, root);
-            root.right=delete(successor, value);
+            root.right = delete(successor, value);
             return root;
         }
         if (root.value > value) {
