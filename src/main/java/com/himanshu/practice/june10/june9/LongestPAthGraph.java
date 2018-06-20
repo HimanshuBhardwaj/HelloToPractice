@@ -32,7 +32,7 @@ public class LongestPAthGraph {
 
 
         System.out.println();
-        System.out.println("Reversed Graph");
+        System.out.println("Reversed GraphOp");
         System.out.println();
         System.out.println();
 

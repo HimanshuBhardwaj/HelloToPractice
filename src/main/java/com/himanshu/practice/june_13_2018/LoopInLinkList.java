@@ -5,12 +5,12 @@ package com.himanshu.practice.june_13_2018;
 // */
 //public class LoopInLinkList {
 //    public static void main(String[] args) throws InterruptedException {
-//        com.himanshu.practice.june_13_2018.com.himanshu.practice.june_13_2018.hour_01.Node head = new com.himanshu.practice.june_13_2018.com.himanshu.practice.june_13_2018.hour_01.Node(5);
+//        june20.himanshu.practice.june_13_2018.june20.himanshu.practice.june_13_2018.hour_01.GraphOp head = new june20.himanshu.practice.june_13_2018.june20.himanshu.practice.june_13_2018.hour_01.GraphOp(5);
 //
 //        head = head.insert(head, 152);
 //        head = head.insert(head, 53);
 //        head = head.insert(head, 54);
-//        com.himanshu.practice.june_13_2018.com.himanshu.practice.june_13_2018.hour_01.Node temp = head;
+//        june20.himanshu.practice.june_13_2018.june20.himanshu.practice.june_13_2018.hour_01.GraphOp temp = head;
 //        head = head.insert(head, 252);
 //        head = head.insert(head, 533);
 //
@@ -18,7 +18,7 @@ package com.himanshu.practice.june_13_2018;
 //
 //        head.print(head,1);
 //
-//        com.himanshu.practice.june_13_2018.com.himanshu.practice.june_13_2018.hour_01.Node lastNode = head.lastNode(head);
+//        june20.himanshu.practice.june_13_2018.june20.himanshu.practice.june_13_2018.hour_01.GraphOp lastNode = head.lastNode(head);
 //
 //        System.out.println();
 //        System.out.println(head.isCyclePresent(head));
@@ -40,28 +40,28 @@ package com.himanshu.practice.june_13_2018;
 //}
 //
 //
-//class Node {
+//class GraphOp {
 //    int value;
-//    com.himanshu.practice.june_13_2018.com.himanshu.practice.june_13_2018.hour_01.Node next;
+//    june20.himanshu.practice.june_13_2018.june20.himanshu.practice.june_13_2018.hour_01.GraphOp next;
 //
-//    public Node(int value) {
+//    public GraphOp(int value) {
 //        this.value = value;
 //    }
 //
-//    public com.himanshu.practice.june_13_2018.com.himanshu.practice.june_13_2018.hour_01.Node lastNode(com.himanshu.practice.june_13_2018.com.himanshu.practice.june_13_2018.hour_01.Node node) {
+//    public june20.himanshu.practice.june_13_2018.june20.himanshu.practice.june_13_2018.hour_01.GraphOp lastNode(june20.himanshu.practice.june_13_2018.june20.himanshu.practice.june_13_2018.hour_01.GraphOp node) {
 //        if(node == null || node.next == null) {
 //            return node;
 //        }
 //        return lastNode(node.next);
 //    }
 //
-//    com.himanshu.practice.june_13_2018.com.himanshu.practice.june_13_2018.hour_01.Node insert(com.himanshu.practice.june_13_2018.com.himanshu.practice.june_13_2018.hour_01.Node node, int value) {
-//        com.himanshu.practice.june_13_2018.com.himanshu.practice.june_13_2018.hour_01.Node node1 = new com.himanshu.practice.june_13_2018.com.himanshu.practice.june_13_2018.hour_01.Node(value);
+//    june20.himanshu.practice.june_13_2018.june20.himanshu.practice.june_13_2018.hour_01.GraphOp insert(june20.himanshu.practice.june_13_2018.june20.himanshu.practice.june_13_2018.hour_01.GraphOp node, int value) {
+//        june20.himanshu.practice.june_13_2018.june20.himanshu.practice.june_13_2018.hour_01.GraphOp node1 = new june20.himanshu.practice.june_13_2018.june20.himanshu.practice.june_13_2018.hour_01.GraphOp(value);
 //        node1.next = node;
 //        return node1;
 //    }
 //
-//    void print(com.himanshu.practice.june_13_2018.com.himanshu.practice.june_13_2018.hour_01.Node node, int time) throws InterruptedException {
+//    void print(june20.himanshu.practice.june_13_2018.june20.himanshu.practice.june_13_2018.hour_01.GraphOp node, int time) throws InterruptedException {
 //        if (node == null) {
 //            return;
 //        }
@@ -70,12 +70,12 @@ package com.himanshu.practice.june_13_2018;
 //        print(node.next, time);
 //    }
 //
-//    boolean isCyclePresent(com.himanshu.practice.june_13_2018.com.himanshu.practice.june_13_2018.hour_01.Node node) {
+//    boolean isCyclePresent(june20.himanshu.practice.june_13_2018.june20.himanshu.practice.june_13_2018.hour_01.GraphOp node) {
 //        if (node == null || node.next == null)
 //            return false;
 //
-//        com.himanshu.practice.june_13_2018.com.himanshu.practice.june_13_2018.hour_01.Node tortoise = node;
-//        com.himanshu.practice.june_13_2018.com.himanshu.practice.june_13_2018.hour_01.Node hair = node;
+//        june20.himanshu.practice.june_13_2018.june20.himanshu.practice.june_13_2018.hour_01.GraphOp tortoise = node;
+//        june20.himanshu.practice.june_13_2018.june20.himanshu.practice.june_13_2018.hour_01.GraphOp hair = node;
 //
 //
 //

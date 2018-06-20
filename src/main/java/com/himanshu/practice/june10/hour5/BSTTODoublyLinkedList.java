@@ -39,13 +39,13 @@
 //
 ////7:27
 //class BST {
-//    Node root;
+//    GraphOp root;
 //
-//    public Node insert(Node root, int value) {
+//    public GraphOp insert(GraphOp root, int value) {
 //
 //
 //        if (root == null) {
-//            return new Node(value);
+//            return new GraphOp(value);
 //        }
 //
 //        if (value >= root.value) {
@@ -57,7 +57,7 @@
 //    }
 //
 //
-//    public void print(Node node) {
+//    public void print(GraphOp node) {
 //        if (node == null) {
 //            return;
 //        }
@@ -67,18 +67,18 @@
 //    }
 //
 //
-//    public Node BSTToDLL(Node root, Node head) {
+//    public GraphOp BSTToDLL(GraphOp root, GraphOp head) {
 //        if (root == null) {
 //            return head;
 //        }
 //
 //        if (root.left == null && root.right == null) {
-//            Node tempHead = DLL.simpleNodeToDoublyLinkedList(root);
+//            GraphOp tempHead = DLL.simpleNodeToDoublyLinkedList(root);
 //            head = DLL.mergeDLL(head, tempHead);
 //            return head;
 //        }
 //
-//        Node leftLinkedList = BST
+//        GraphOp leftLinkedList = BST
 //    }
 //}
 //
@@ -86,10 +86,10 @@
 ////5:20 am
 //class DLL {
 //    //assumption is that this head will always be sorted; and head will have minimum value
-//    Node head = null;
+//    GraphOp head = null;
 //
 //    public void insert(int value) {
-//        Node node = new Node(value);
+//        GraphOp node = new GraphOp(value);
 //        node = simpleNodeToDoublyLinkedList(node);
 //
 //        if (head == null) {
@@ -100,9 +100,9 @@
 //    }
 //
 //    //Both head and node can not be null
-//    public static Node mergeDLL(Node head, Node node) {
-//        Node prevHead = head.left;
-//        Node current = head;
+//    public static GraphOp mergeDLL(GraphOp head, GraphOp node) {
+//        GraphOp prevHead = head.left;
+//        GraphOp current = head;
 //
 //        //Case 1: only one node in head
 //        if (prevHead == current) {
@@ -140,7 +140,7 @@
 //
 //    }
 //
-//    static Node simpleNodeToDoublyLinkedList(Node node) {
+//    static GraphOp simpleNodeToDoublyLinkedList(GraphOp node) {
 //        if (node == null) {
 //            return null;
 //        }
@@ -159,7 +159,7 @@
 //            return;
 //        }
 //
-//        Node current = head.right;
+//        GraphOp current = head.right;
 //
 //        while (current != head) {
 //            System.out.print(" --> " + current.value);
@@ -170,13 +170,13 @@
 //}
 //
 //
-//class Node {
+//class GraphOp {
 //    int value;
-//    Node left;
-//    Node right;
+//    GraphOp left;
+//    GraphOp right;
 //
 //
-//    public Node(int value) {
+//    public GraphOp(int value) {
 //        this.value = value;
 //        this.left = null;
 //        this.right = null;

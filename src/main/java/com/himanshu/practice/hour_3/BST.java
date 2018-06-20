@@ -5,50 +5,50 @@
 // */
 //public class BST {
 //    public static void main(String[] args) {
-//        com.himanshu.practice.june_8.hour_8.Node node = com.himanshu.practice.june_8.hour_8.Node.insert(null, 4);
-//        node = com.himanshu.practice.june_8.hour_8.Node.insert(node, 4);
-//        node = com.himanshu.practice.june_8.hour_8.Node.insert(node, -14);
-//        node = com.himanshu.practice.june_8.hour_8.Node.insert(node, 24);
-//        node = com.himanshu.practice.june_8.hour_8.Node.insert(node, 43);
-//        node = com.himanshu.practice.june_8.hour_8.Node.insert(node, -214);
-//        node = com.himanshu.practice.june_8.hour_8.Node.insert(node, -13);
-//        node = com.himanshu.practice.june_8.hour_8.Node.insert(node, -133);
-//        node = com.himanshu.practice.june_8.hour_8.Node.insert(node, 133);
-//        node = com.himanshu.practice.june_8.hour_8.Node.insert(node, 5);
+//        june20.himanshu.practice.june_8.hour_8.GraphOp node = june20.himanshu.practice.june_8.hour_8.GraphOp.insert(null, 4);
+//        node = june20.himanshu.practice.june_8.hour_8.GraphOp.insert(node, 4);
+//        node = june20.himanshu.practice.june_8.hour_8.GraphOp.insert(node, -14);
+//        node = june20.himanshu.practice.june_8.hour_8.GraphOp.insert(node, 24);
+//        node = june20.himanshu.practice.june_8.hour_8.GraphOp.insert(node, 43);
+//        node = june20.himanshu.practice.june_8.hour_8.GraphOp.insert(node, -214);
+//        node = june20.himanshu.practice.june_8.hour_8.GraphOp.insert(node, -13);
+//        node = june20.himanshu.practice.june_8.hour_8.GraphOp.insert(node, -133);
+//        node = june20.himanshu.practice.june_8.hour_8.GraphOp.insert(node, 133);
+//        node = june20.himanshu.practice.june_8.hour_8.GraphOp.insert(node, 5);
 //
 //
-//        com.himanshu.practice.june_8.hour_8.Node.inorder(node);
+//        june20.himanshu.practice.june_8.hour_8.GraphOp.inorder(node);
 //        System.out.println();
 //
-//        node = com.himanshu.practice.june_8.hour_8.Node.delete(node, 4);
-//        com.himanshu.practice.june_8.hour_8.Node.inorder(node);
+//        node = june20.himanshu.practice.june_8.hour_8.GraphOp.delete(node, 4);
+//        june20.himanshu.practice.june_8.hour_8.GraphOp.inorder(node);
 //        System.out.println();
-//        node = com.himanshu.practice.june_8.hour_8.Node.delete(node, 4);
+//        node = june20.himanshu.practice.june_8.hour_8.GraphOp.delete(node, 4);
 //
 //        System.out.println("Root: "+node.value);
 //        System.out.println();
-//        com.himanshu.practice.june_8.hour_8.Node.inorder(node);
-//        node = com.himanshu.practice.june_8.hour_8.Node.delete(node, 5);
+//        june20.himanshu.practice.june_8.hour_8.GraphOp.inorder(node);
+//        node = june20.himanshu.practice.june_8.hour_8.GraphOp.delete(node, 5);
 //        System.out.println();
-//        com.himanshu.practice.june_8.hour_8.Node.inorder(node);
+//        june20.himanshu.practice.june_8.hour_8.GraphOp.inorder(node);
 //
 //    }
 //}
 //
 //
-//class Node {
+//class GraphOp {
 //    int value;
-//    com.himanshu.practice.june_8.hour_8.Node left;
-//    com.himanshu.practice.june_8.hour_8.Node right;
+//    june20.himanshu.practice.june_8.hour_8.GraphOp left;
+//    june20.himanshu.practice.june_8.hour_8.GraphOp right;
 //
-//    public Node(int value) {
+//    public GraphOp(int value) {
 //        this.value = value;
 //        this.left = null;
 //        this.right = null;
 //    }
 //
-//    static com.himanshu.practice.june_8.hour_8.Node insert(com.himanshu.practice.june_8.hour_8.Node root, int value) {
-//        com.himanshu.practice.june_8.hour_8.Node node = new com.himanshu.practice.june_8.hour_8.Node(value);
+//    static june20.himanshu.practice.june_8.hour_8.GraphOp insert(june20.himanshu.practice.june_8.hour_8.GraphOp root, int value) {
+//        june20.himanshu.practice.june_8.hour_8.GraphOp node = new june20.himanshu.practice.june_8.hour_8.GraphOp(value);
 //        if (root == null) {
 //            return node;
 //        }
@@ -62,7 +62,7 @@
 //    }
 //
 //
-//    static void inorder(com.himanshu.practice.june_8.hour_8.Node bst) {
+//    static void inorder(june20.himanshu.practice.june_8.hour_8.GraphOp bst) {
 //        if (bst == null) {
 //            return;
 //        }
@@ -71,7 +71,7 @@
 //        inorder(bst.right);
 //    }
 //
-//    static int height(com.himanshu.practice.june_8.hour_8.Node node) {
+//    static int height(june20.himanshu.practice.june_8.hour_8.GraphOp node) {
 //        if (node == null) {
 //            return 0;
 //        }
@@ -81,7 +81,7 @@
 //        return k;
 //    }
 //
-//    static com.himanshu.practice.june_8.hour_8.Node delete(com.himanshu.practice.june_8.hour_8.Node node, int value) {
+//    static june20.himanshu.practice.june_8.hour_8.GraphOp delete(june20.himanshu.practice.june_8.hour_8.GraphOp node, int value) {
 //        if (node == null) {
 //            return null;
 //        }
@@ -96,7 +96,7 @@
 //                return node.left;
 //            }
 //            //nothing is null
-//            com.himanshu.practice.june_8.hour_8.Node succ = successor(node);
+//            june20.himanshu.practice.june_8.hour_8.GraphOp succ = successor(node);
 //            int temp = node.value;
 //            node.value = succ.value;
 //            succ.value = temp;
@@ -110,7 +110,7 @@
 //    }
 //
 //    //assuming that node is not root node
-//    private static com.himanshu.practice.june_8.hour_8.Node successor(com.himanshu.practice.june_8.hour_8.Node node) {
+//    private static june20.himanshu.practice.june_8.hour_8.GraphOp successor(june20.himanshu.practice.june_8.hour_8.GraphOp node) {
 //        node = node.right;
 //
 //        while (node.left != null) {

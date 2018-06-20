@@ -62,16 +62,16 @@ public class BST {
 
 
         // Deletion wala code
-//        root = Node.delete(root, 5);
+//        root = GraphOp.delete(root, 5);
 //        System.out.println("root.value: " + root.getValue());
-//        root = Node.delete(root, 6);
+//        root = GraphOp.delete(root, 6);
 //        System.out.println("root.value: " + root.getValue());
 //
 //
-//        Node.inorderWithourRecursion(root);
-//        root = Node.delete(root, 11);
+//        GraphOp.inorderWithourRecursion(root);
+//        root = GraphOp.delete(root, 11);
 //        System.out.println();
-//        Node.inorderWithourRecursion(root);
+//        GraphOp.inorderWithourRecursion(root);
 
 
 //        LinkedList<Integer> linkedList = new LinkedList<Integer>();
