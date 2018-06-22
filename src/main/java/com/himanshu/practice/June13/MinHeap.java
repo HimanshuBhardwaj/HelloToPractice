@@ -43,7 +43,7 @@ class Heap {
     public Heap(int arr[]) {
         heapSize = (int) Math.pow(2, (Math.ceil(Math.log(arr.length) / Math.log(2))));
         heapSize = 2 * heapSize - 1;
-        System.out.printf("Heap Size %d\n", heapSize);
+        System.out.printf("MinimumElement Size %d\n", heapSize);
         heap = new int[heapSize];
 
         for (int i = 0; i < heapSize; i++) {
