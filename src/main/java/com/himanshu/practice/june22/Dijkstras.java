@@ -12,7 +12,7 @@ public class Dijkstras {
         Scanner sc = new Scanner(System.in);
         int numnode = Integer.parseInt(sc.next());
 
-        Graph graph = new Graph(numnode);
+        Graph  graph = new Graph (numnode);
 
         for (int i = 0; i < numnode; i++) {
             StringTokenizer st = new StringTokenizer(sc.next(), ",");
