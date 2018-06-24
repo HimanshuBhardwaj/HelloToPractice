@@ -18,7 +18,7 @@ public class Tree {
         System.out.print("Getting sum(3,4):\t ");
         System.out.println(segmentTree.getSum(5, 9));
 
-        //segmentTree.printSegmentTre();
+        //SegmentTree.printSegmentTre();
     }
 }
 
