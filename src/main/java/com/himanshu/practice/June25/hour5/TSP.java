@@ -94,14 +94,14 @@ class Graph {
             }
         } else {
             for (int i = 0; i < notvisited.size(); i++) {
-                LinkedList<Integer> tVisited = (LinkedList<Integer>) visited.clone();
                 int desNode = notvisited.get(i);
-                tVisited.addLast(desNode);
+                visited.addLast(desNode);
                 notvisited.remove(i);
                 if (isConnected(source, desNode)) {
-                    TSP(desNode, tVisited, currentWeight + weight(source, desNode), notvisited);
+                    TSP(desNode, visited, currentWeight + weight(source, desNode), notvisited);
                 }
                 notvisited.add(i, desNode);
+                visited.removeLast();
             }
         }
     }
