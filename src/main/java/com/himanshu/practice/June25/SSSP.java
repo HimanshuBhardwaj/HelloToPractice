@@ -1,10 +1,7 @@
 package com.himanshu.practice.June25;
 
 import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import sun.awt.image.ImageWatched;
 
-import javax.print.DocFlavor;
 import java.util.*;
 
 /**
