@@ -4,7 +4,7 @@ package com.himanshu.practice.June25.hour5;
 /**
  * Created by himanshubhardwaj on 25/06/18.
  */
-public class LinkedList {
+public class LLinkedList {
     public static void main(String[] args) {
         int size = 10;
         Node head = new Node(5);

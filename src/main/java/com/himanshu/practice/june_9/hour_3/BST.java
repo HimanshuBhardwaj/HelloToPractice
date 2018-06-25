@@ -74,7 +74,7 @@ public class BST {
 //        GraphOp.inorderWithourRecursion(root);
 
 
-//        LinkedList<Integer> linkedList = new LinkedList<Integer>();
+//        LLinkedList<Integer> linkedList = new LLinkedList<Integer>();
 //        linkedList.add(5);
 //        System.out.println(linkedList.subList(0, 0));
 //        System.out.println(linkedList.subList(1, 0));

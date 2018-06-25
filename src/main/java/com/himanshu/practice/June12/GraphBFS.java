@@ -35,7 +35,7 @@ public class GraphBFS {
         Queue<Integer> levelOrder = new LinkedList<>();
         levelOrder.add(0);
         levelOrder.add(-1);
-        //graph.levelOrderTraversal(levelOrder, new LinkedList<Integer>(), 0, new int[numberNodes]);
+        //graph.levelOrderTraversal(levelOrder, new LLinkedList<Integer>(), 0, new int[numberNodes]);
 
 
 
