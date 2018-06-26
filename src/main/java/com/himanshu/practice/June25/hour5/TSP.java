@@ -119,7 +119,6 @@ class Graph {
     }
 
     private boolean isConnected(int node1, int node2) {
-
         for (int i = 0; i < edgeList[node1].size(); i++) {
             Edge edge = edgeList[node1].get(i);
 
@@ -127,7 +126,6 @@ class Graph {
                 return true;
             }
         }
-
         return false;
     }
 
