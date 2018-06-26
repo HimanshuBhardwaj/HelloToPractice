@@ -7,12 +7,12 @@ package com.himanshu.practice.june_13_2018;
 //    public static void main(String[] args) throws InterruptedException {
 //        june20.himanshu.practice.june_13_2018.june20.himanshu.practice.june_13_2018.hour_01.GraphOp head = new june20.himanshu.practice.june_13_2018.june20.himanshu.practice.june_13_2018.hour_01.GraphOp(5);
 //
-//        head = head.insert(head, 152);
-//        head = head.insert(head, 53);
-//        head = head.insert(head, 54);
+//        head = head.insertHelper(head, 152);
+//        head = head.insertHelper(head, 53);
+//        head = head.insertHelper(head, 54);
 //        june20.himanshu.practice.june_13_2018.june20.himanshu.practice.june_13_2018.hour_01.GraphOp temp = head;
-//        head = head.insert(head, 252);
-//        head = head.insert(head, 533);
+//        head = head.insertHelper(head, 252);
+//        head = head.insertHelper(head, 533);
 //
 //
 //
@@ -55,7 +55,7 @@ package com.himanshu.practice.june_13_2018;
 //        return lastNode(node.next);
 //    }
 //
-//    june20.himanshu.practice.june_13_2018.june20.himanshu.practice.june_13_2018.hour_01.GraphOp insert(june20.himanshu.practice.june_13_2018.june20.himanshu.practice.june_13_2018.hour_01.GraphOp node, int value) {
+//    june20.himanshu.practice.june_13_2018.june20.himanshu.practice.june_13_2018.hour_01.GraphOp insertHelper(june20.himanshu.practice.june_13_2018.june20.himanshu.practice.june_13_2018.hour_01.GraphOp node, int value) {
 //        june20.himanshu.practice.june_13_2018.june20.himanshu.practice.june_13_2018.hour_01.GraphOp node1 = new june20.himanshu.practice.june_13_2018.june20.himanshu.practice.june_13_2018.hour_01.GraphOp(value);
 //        node1.next = node;
 //        return node1;

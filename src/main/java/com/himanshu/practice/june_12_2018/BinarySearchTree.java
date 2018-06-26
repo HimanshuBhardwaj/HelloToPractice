@@ -61,7 +61,7 @@ class Tree {
         return true;
     }
 
-    //insert this value into the tree
+    //insertHelper this value into the tree
     static Tree insert(Tree tree, int value) {
         tree.root = TreeNode.insert(tree.root, value);
         return tree;

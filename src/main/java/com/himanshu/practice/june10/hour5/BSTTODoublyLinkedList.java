@@ -9,26 +9,26 @@
 //public class BSTTODoublyLinkedList {
 //    public static void main(String[] args) {
 //        DLL dll = new DLL();
-//        dll.insert(12);
-//        dll.insert(2);
-//        dll.insert(5);
-//        dll.insert(4);
-//        dll.insert(6);
-//        dll.insert(22);
-//        dll.insert(1);
+//        dll.insertHelper(12);
+//        dll.insertHelper(2);
+//        dll.insertHelper(5);
+//        dll.insertHelper(4);
+//        dll.insertHelper(6);
+//        dll.insertHelper(22);
+//        dll.insertHelper(1);
 //        dll.print();
 //        System.out.println();
 //        System.out.println();
 //
 //
 //        BST bst = new BST();
-//        bst.root = bst.insert(bst.root, 12);
-//        bst.root = bst.insert(bst.root, 2);
-//        bst.root = bst.insert(bst.root, 5);
-//        bst.root = bst.insert(bst.root, 4);
-//        bst.root = bst.insert(bst.root, 6);
-//        bst.root = bst.insert(bst.root, 22);
-//        bst.root = bst.insert(bst.root, 1);
+//        bst.root = bst.insertHelper(bst.root, 12);
+//        bst.root = bst.insertHelper(bst.root, 2);
+//        bst.root = bst.insertHelper(bst.root, 5);
+//        bst.root = bst.insertHelper(bst.root, 4);
+//        bst.root = bst.insertHelper(bst.root, 6);
+//        bst.root = bst.insertHelper(bst.root, 22);
+//        bst.root = bst.insertHelper(bst.root, 1);
 //        bst.print(bst.root);
 //
 //
@@ -41,7 +41,7 @@
 //class BST {
 //    GraphOp root;
 //
-//    public GraphOp insert(GraphOp root, int value) {
+//    public GraphOp insertHelper(GraphOp root, int value) {
 //
 //
 //        if (root == null) {
@@ -49,9 +49,9 @@
 //        }
 //
 //        if (value >= root.value) {
-//            root.right = insert(root.right, value);
+//            root.right = insertHelper(root.right, value);
 //        } else {
-//            root.left = insert(root.left, value);
+//            root.left = insertHelper(root.left, value);
 //        }
 //        return root;
 //    }
@@ -88,7 +88,7 @@
 //    //assumption is that this head will always be sorted; and head will have minimum value
 //    GraphOp head = null;
 //
-//    public void insert(int value) {
+//    public void insertHelper(int value) {
 //        GraphOp node = new GraphOp(value);
 //        node = simpleNodeToDoublyLinkedList(node);
 //

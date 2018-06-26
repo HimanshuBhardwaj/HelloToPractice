@@ -5,16 +5,16 @@
 // */
 //public class BST {
 //    public static void main(String[] args) {
-//        june20.himanshu.practice.june_8.hour_8.GraphOp node = june20.himanshu.practice.june_8.hour_8.GraphOp.insert(null, 4);
-//        node = june20.himanshu.practice.june_8.hour_8.GraphOp.insert(node, 4);
-//        node = june20.himanshu.practice.june_8.hour_8.GraphOp.insert(node, -14);
-//        node = june20.himanshu.practice.june_8.hour_8.GraphOp.insert(node, 24);
-//        node = june20.himanshu.practice.june_8.hour_8.GraphOp.insert(node, 43);
-//        node = june20.himanshu.practice.june_8.hour_8.GraphOp.insert(node, -214);
-//        node = june20.himanshu.practice.june_8.hour_8.GraphOp.insert(node, -13);
-//        node = june20.himanshu.practice.june_8.hour_8.GraphOp.insert(node, -133);
-//        node = june20.himanshu.practice.june_8.hour_8.GraphOp.insert(node, 133);
-//        node = june20.himanshu.practice.june_8.hour_8.GraphOp.insert(node, 5);
+//        june20.himanshu.practice.june_8.hour_8.GraphOp node = june20.himanshu.practice.june_8.hour_8.GraphOp.insertHelper(null, 4);
+//        node = june20.himanshu.practice.june_8.hour_8.GraphOp.insertHelper(node, 4);
+//        node = june20.himanshu.practice.june_8.hour_8.GraphOp.insertHelper(node, -14);
+//        node = june20.himanshu.practice.june_8.hour_8.GraphOp.insertHelper(node, 24);
+//        node = june20.himanshu.practice.june_8.hour_8.GraphOp.insertHelper(node, 43);
+//        node = june20.himanshu.practice.june_8.hour_8.GraphOp.insertHelper(node, -214);
+//        node = june20.himanshu.practice.june_8.hour_8.GraphOp.insertHelper(node, -13);
+//        node = june20.himanshu.practice.june_8.hour_8.GraphOp.insertHelper(node, -133);
+//        node = june20.himanshu.practice.june_8.hour_8.GraphOp.insertHelper(node, 133);
+//        node = june20.himanshu.practice.june_8.hour_8.GraphOp.insertHelper(node, 5);
 //
 //
 //        june20.himanshu.practice.june_8.hour_8.GraphOp.inorder(node);
@@ -47,16 +47,16 @@
 //        this.right = null;
 //    }
 //
-//    static june20.himanshu.practice.june_8.hour_8.GraphOp insert(june20.himanshu.practice.june_8.hour_8.GraphOp root, int value) {
+//    static june20.himanshu.practice.june_8.hour_8.GraphOp insertHelper(june20.himanshu.practice.june_8.hour_8.GraphOp root, int value) {
 //        june20.himanshu.practice.june_8.hour_8.GraphOp node = new june20.himanshu.practice.june_8.hour_8.GraphOp(value);
 //        if (root == null) {
 //            return node;
 //        }
 //
 //        if (value >= root.value) {
-//            root.right = insert(root.right, value);
+//            root.right = insertHelper(root.right, value);
 //        } else {
-//            root.left = insert(root.left, value);
+//            root.left = insertHelper(root.left, value);
 //        }
 //        return root;
 //    }
