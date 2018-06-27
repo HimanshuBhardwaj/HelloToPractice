@@ -30,10 +30,15 @@ public class Dijkstras {
         }
 
         graph.print();
-        for (int i : graph.dijkstrasSSSP(3)) {
+        for (int i : graph.dijkstrasSSSP(0)) {
             System.out.print(i + "\t");
-
         }
+        System.out.println();
+        System.out.println();
+        for (int i : graph.bellmonfordSSSSP(0)) {
+            System.out.print(i + "\t");
+        }
+
     }
 
 }
@@ -67,6 +72,7 @@ class Graph {
     }
 
     public int[] dijkstrasSSSP(int source) {
+        System.out.println("@dijkstrasSSSP");
         int[] sssp = new int[numNode];
         PriorityQueue<Node> priorityQueue = new PriorityQueue<>();
         LinkedList<Node> linkedList = new LinkedList<Node>();
@@ -88,6 +94,27 @@ class Graph {
                     priorityQueue.remove(neighbour);
                     neighbour.sssp = nearsetNode.sssp + adjList[nearsetNode.index].get(i).weight;
                     priorityQueue.add(neighbour);
+                }
+            }
+        }
+        return sssp;
+    }
+
+
+    public int[] bellmonfordSSSSP(int source) {
+        System.out.println("@bellmonfordSSSSP");
+        int[] sssp = new int[numNode];
+        for (int i = 0; i < sssp.length; i++) {
+            sssp[i] = (i == source) ? 0 : Integer.MAX_VALUE;
+        }
+
+        for (int i = 0; i < adjList.length; i++) {
+            for (int j = 0; j < adjList.length; j++) {
+                for (int k = 0; k < adjList[j].size(); k++) {
+                    Edge edge = adjList[j].get(k);
+                    if (sssp[adjList[j].get(k).source] != Integer.MAX_VALUE) {
+                        sssp[adjList[j].get(k).destination] = Math.min(sssp[adjList[j].get(k).destination], sssp[adjList[j].get(k).source] + adjList[j].get(k).weight);
+                    }
                 }
             }
         }
