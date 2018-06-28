@@ -37,9 +37,9 @@ public class BinarySearchTree {
         System.out.println("BFS result " + result);
         System.out.println();
         System.out.println();
-        System.out.println("DFS: ");
+        System.out.println("topologicalSort: ");
         result = Tree.depthFirstSearch(tree, 504);
-        System.out.println("DFS result " + result);
+        System.out.println("topologicalSort result " + result);
 
 
 

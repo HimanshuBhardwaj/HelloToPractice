@@ -38,6 +38,12 @@ public class LevelOrderTraversal {
         linkedList.addLast(root);
         System.out.println();
         graph.BFS(queue, linkedList);
+        System.out.println("topologicalSort Time");
+        LinkedList<Integer> topologicalSort = new LinkedList<>();
+        graph.topologicalSort(0, new boolean[graph.adjList.length], topologicalSort);
+        System.out.println();
+        System.out.println(topologicalSort);
+
     }
 
 
@@ -88,9 +94,26 @@ class Graph {
                 queue.add(neighbour);
             }
         }
-        BFS(queue,visited);
+        BFS(queue, visited);
     }
 
+    //8:32 pm
+    //8:42
+    //undirected
+    public void topologicalSort(int root, boolean[] visited, LinkedList<Integer> topologicalSort) {
+        if (visited[root]) {
+            return;
+        }
+        visited[root] = true;
+        System.out.print(root + "-->");
+
+
+        for (int i = 0; i < adjList[root].size(); i++) {
+            int neighbour = (adjList[root].get(i).node1 == root) ? adjList[root].get(i).node2 : adjList[root].get(i).node1;
+            topologicalSort(neighbour, visited, topologicalSort);
+        }
+        topologicalSort.addLast(root);
+    }
 }
 
 
@@ -114,6 +137,8 @@ class Node {
     public String toString() {
         return "(" + index + ", " + level + ")\t";
     }
+
+
 }
 
 @AllArgsConstructor

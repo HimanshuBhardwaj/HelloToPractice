@@ -31,7 +31,7 @@ public class GraphOp {
 
         graph.printGraph();
         graph.DFS(0, new boolean[nodes]);
-        System.out.println("DFS done");
+        System.out.println("topologicalSort done");
 
         Queue<Integer> queue = new LinkedList<Integer>();
 
