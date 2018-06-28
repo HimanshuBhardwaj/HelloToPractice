@@ -3,6 +3,9 @@ package com.himanshu.practice.june28;
 /**
  * Created by himanshubhardwaj on 28/06/18.
  */
+
+//fastest way to reach a position from 0,0
+    //BFS
 public class KnightTour {
 
     public static void main(String[] args) {
