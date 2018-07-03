@@ -29,12 +29,22 @@ public class SSSP {
         }
 
         graph.print();
-        int[] sssp = graph.dijkstra(0);
+        int[] sssp = graph.dijkstra(4);
         System.out.println();
         for (int i = 0; i < sssp.length; i++) {
             System.out.print(sssp[i] + "\t");
         }
+        System.out.println();
+        System.out.println();
+        sssp = graph.bellmonford(4);
+        System.out.println();
+        for (int i = 0; i < sssp.length; i++) {
+            System.out.print(sssp[i] + "\t");
+        }
+
     }
+
+
 }
 
 
@@ -68,6 +78,7 @@ class Graph {
 
 
     public int[] dijkstra(int source) {
+        System.out.println("@dijkstra");
         int[] sssp = new int[numNodes];
         PriorityQueue<Node> priorityQueue = new PriorityQueue<>();
         LinkedList<Node> linkedList = new LinkedList<>();
@@ -99,6 +110,33 @@ class Graph {
                         priorityQueue.remove(neighbourNode);
                         neighbourNode.distance = nearest.distance + neighbourEdge.weight;
                         priorityQueue.add(neighbourNode);
+                    }
+                }
+            }
+        }
+        return sssp;
+    }
+
+
+    public int[] bellmonford(int source) {
+        int[] sssp = new int[numNodes];
+
+        for (int i = 0; i < numNodes; i++) {
+            sssp[i] = (i == source) ? 0 : Integer.MAX_VALUE;
+        }
+
+
+        for (int i = 0; i < numNodes; i++) {
+            for (int j = 0; j < numNodes; j++) {
+                for (int k = 0; k < adjList[j].size(); k++) {
+                    Edge edge = adjList[j].get(k);
+
+                    if (sssp[edge.source] != Integer.MAX_VALUE) {
+                        if (sssp[edge.destination] == Integer.MAX_VALUE) {
+                            sssp[edge.destination] = sssp[edge.source] + edge.weight;
+                        } else {
+                            sssp[edge.destination] = Math.min(sssp[edge.source] + edge.weight, sssp[edge.destination]);
+                        }
                     }
                 }
             }
