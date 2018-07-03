@@ -32,9 +32,10 @@ public class MST {
 
         System.out.println();
         System.out.println();
-        LinkedList<Edge> mst = graph.mst();
+        //LinkedList<Edge> mst = graph.mst();
 
-        System.out.println(mst);
+        System.out.println("Contains Cycle: " + graph.containsCycleHelperTest());
+        System.out.println(graph.mstKurashkal());
     }
 }
 
@@ -55,7 +56,32 @@ class Graph {
         edgeList[source].add(new Edge(source, destination, weight));
     }
 
-    public LinkedList<Edge> mst() {
+
+    public LinkedList<Edge> mstKurashkal() {
+        LinkedList<Edge> edges = new LinkedList<>();
+        LinkedList<Edge> mst = new LinkedList<>();
+
+        for (int i = 0; i < numNodes; i++) {
+            for (int j = 0; j < edgeList[i].size(); j++) {
+                edges.add(edgeList[i].get(j));
+            }
+        }
+
+        Collections.sort(edges);
+
+        for (int i = 0; (i < edges.size()) && mst.size() < (numNodes - 1); i++) {
+            Edge edge = edges.get(i);
+            mst.addLast(edge);
+            if (containsCycle(mst)) {
+                mst.removeLast();
+            }
+        }
+
+
+        return mst;
+    }
+
+    public LinkedList<Edge> mstPrism() {
         PriorityQueue<Edge> priorityQueue = new PriorityQueue<Edge>();
         LinkedList<Node> explored = new LinkedList<>();
         LinkedList<Node> yetToExplored = new LinkedList<>();
@@ -78,10 +104,11 @@ class Graph {
         }
         return null;
 
-//        return mstHelper(0, priorityQueue, explored, yetToExplored, mst, nodeList);
+//        return mstPrismHelper(0, priorityQueue, explored, yetToExplored, mst, nodeList);
     }
 
-//    private LinkedList<Edge> mstHelper(int node, PriorityQueue<Edge> priorityQueue, LinkedList<Node> explored,
+
+//    private LinkedList<Edge> mstPrismHelper(int node, PriorityQueue<Edge> priorityQueue, LinkedList<Node> explored,
 //                                       LinkedList<Node> yetToExplored, LinkedList<Edge> mst, ArrayList<Node> nodeList) {
 //
 //        if (yetToExplored.size() == 0) {
@@ -123,7 +150,59 @@ class Graph {
 //        return mstHelper(neigherestNode.index, priorityQueue, explored, yetToExplored, mst, nodeList);
 //    }
 
+
+    //directed
+
+    public boolean containsCycleHelperTest() {
+        LinkedList<Edge> edges = new LinkedList<>();
+
+        for (int i = 0; i < numNodes; i++) {
+            for (int j = 0; j < edgeList[i].size(); j++) {
+                edges.addLast(edgeList[i].get(j));
+            }
+        }
+
+        System.out.println(edges.size());
+
+        return containsCycle(edges);
+    }
+
     private boolean containsCycle(LinkedList<Edge> mst) {
+        if (mst == null || mst.size() < 2) {
+            return false;
+        }
+
+        int visited[] = new int[numNodes];
+        boolean containsCycle = false;
+
+        for (int i = 0; (i < numNodes) && !containsCycle; i++) {
+            if (visited[i] == 0) {
+                containsCycle = containsCycle || containsCycleHelper(i, mst, visited);
+            }
+        }
+
+        return containsCycle;
+    }
+
+    private boolean containsCycleHelper(int source, LinkedList<Edge> mst, int[] visited) {
+        if (visited[source] == 1) {
+            return true;
+        }
+        if (visited[source] == 2) {
+            return false;
+        }
+
+        visited[source] = 1;
+        boolean containsCycle = false;
+        for (Edge e : mst) {
+            if (e.source == source) {
+                containsCycle = containsCycleHelper(e.destination, mst, visited);
+            }
+            if (containsCycle) {
+                return containsCycle;
+            }
+        }
+        visited[source] = 2;
         return false;
     }
 
