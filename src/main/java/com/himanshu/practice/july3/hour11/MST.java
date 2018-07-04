@@ -36,6 +36,10 @@ public class MST {
 
         System.out.println("Contains Cycle: " + graph.containsCycleHelperTest());
         System.out.println(graph.mstKurashkal());
+
+        System.out.println(graph.mstPrism());
+
+
     }
 }
 
@@ -54,10 +58,13 @@ class Graph {
 
     public void insert(int source, int destination, int weight) {
         edgeList[source].add(new Edge(source, destination, weight));
+        edgeList[destination].add(new Edge(destination, source, weight));
     }
 
 
     public LinkedList<Edge> mstKurashkal() {
+        System.out.println();
+        System.out.println("@mstKurashkal");
         LinkedList<Edge> edges = new LinkedList<>();
         LinkedList<Edge> mst = new LinkedList<>();
 
@@ -66,6 +73,8 @@ class Graph {
                 edges.add(edgeList[i].get(j));
             }
         }
+
+        System.out.println(edges.size());
 
         Collections.sort(edges);
 
@@ -82,33 +91,43 @@ class Graph {
     }
 
     public LinkedList<Edge> mstPrism() {
+        System.out.println();
+        System.out.println("@mstPrism");
         PriorityQueue<Edge> priorityQueue = new PriorityQueue<Edge>();
-        LinkedList<Node> explored = new LinkedList<>();
-        LinkedList<Node> yetToExplored = new LinkedList<>();
+        LinkedList<Integer> explored = new LinkedList<>();
+        LinkedList<Integer> yetToExplored = new LinkedList<>();
         LinkedList<Edge> mst = new LinkedList<>();
-        ArrayList<Node> nodeList = new ArrayList<>();
-
 
         for (int i = 0; i < numNodes; i++) {
+            yetToExplored.addLast(i);
+        }
+        int random = yetToExplored.poll();
 
-            Node newNode = null;
-            if (i != 0) {
-                newNode = new Node(i, Integer.MAX_VALUE, null);
-                yetToExplored.add(newNode);
-            } else {
-                newNode = new Node(i, 0, null);
-                explored.addLast(newNode);
-            }
-
-            nodeList.add(i, newNode);
+        for (int i = 0; i < edgeList[random].size(); i++) {
+            //assuming no self loop
+            priorityQueue.add(edgeList[random].get(i));
         }
 
-        return mstPrismHelper(0, priorityQueue, explored, yetToExplored, mst, nodeList);
-    }
+        explored.addLast(random);
 
-    //TODO: Complete it
-    private LinkedList<Edge> mstPrismHelper(int index, PriorityQueue<Edge> priorityQueue, LinkedList<Node> explored, LinkedList<Node> yetToExplored, LinkedList<Edge> mst, ArrayList<Node> nodeList) {
-        return null;
+        while (!yetToExplored.isEmpty()) {
+            Edge shortest = priorityQueue.poll();
+            if (explored.contains(shortest.source) && explored.contains(shortest.destination)) {
+                continue;
+            }
+
+            explored.addLast(shortest.destination);
+            yetToExplored.removeFirstOccurrence(shortest.destination);
+
+            for (int i = 0; i < edgeList[shortest.destination].size(); i++) {
+                Edge edge = edgeList[shortest.destination].get(i);
+                if (!explored.contains(edge.destination)) {
+                    priorityQueue.add(edge);
+                }
+            }
+            mst.addLast(shortest);
+        }
+        return mst;
     }
 
 
@@ -185,7 +204,7 @@ class Graph {
 class Node implements Comparable<Node> {
     int index;
     int distance;
-    Edge nearestEdge;
+
 
     @Override
     public int compareTo(Node o) {
@@ -214,7 +233,7 @@ class Edge implements Comparable<Edge> {
 
     @Override
     public int compareTo(Edge o) {
-        return this.weight - o.destination;
+        return this.weight - o.weight;
     }
 
 
@@ -222,11 +241,15 @@ class Edge implements Comparable<Edge> {
         if (var1 instanceof Edge) {
             Edge edge1 = (Edge) var1;
 
-            if (edge1.destination == this.destination && edge1.source == this.source && this.weight == edge1.weight)
-
-            {
+            if (edge1.destination == this.destination && edge1.source == this.source && this.weight == edge1.weight) {
                 return true;
             }
+
+            if (edge1.destination == this.source && edge1.source == this.destination && this.weight == edge1.weight) {
+                return true;
+            }
+
+
         }
         return false;
     }
