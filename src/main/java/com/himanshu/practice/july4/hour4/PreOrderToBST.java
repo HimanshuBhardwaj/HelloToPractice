@@ -1,4 +1,4 @@
-package com.himanshu.practice.july4.hour1.hour4;
+package com.himanshu.practice.july4.hour4;
 
 import java.util.LinkedList;
 
