@@ -1,4 +1,4 @@
-package com.himanshu.practice.july04;
+package com.himanshu.practice.july4;
 
 import java.util.Scanner;
 import java.util.StringTokenizer;
