@@ -5,6 +5,8 @@ import java.util.LinkedList;
 /**
  * Created by himanshubhardwaj on 04/07/18.
  * 4:07
+ * 4:45
+ * could have improved by 13 mins
  */
 public class PreOrderToBST {
     public static void main(String[] args) {
@@ -51,6 +53,17 @@ public class PreOrderToBST {
         System.out.println(inorder);
         System.out.println(postOrder);
         System.out.println(Node.areTwoBinaryTreeIdentical(root, newRoot));
+
+        LinkedList<Integer> levelOrder[] = new LinkedList[Node.height(newRoot)];
+        Node.levelOrder(newRoot, 0, levelOrder);
+
+        for (int i = 0; i < levelOrder.length; i++) {
+            System.out.print(i + ": ");
+            for (int j = 0; j < levelOrder[i].size(); j++) {
+                System.out.print(levelOrder[i].get(j) + ", ");
+            }
+            System.out.println();
+        }
 
     }
 }
@@ -133,5 +146,26 @@ class Node {
         }
 
         return (root1.value == root2.value) && areTwoBinaryTreeIdentical(root1.left, root2.left) && areTwoBinaryTreeIdentical(root1.right, root2.right);
+    }
+
+    //4:47
+    public static void levelOrder(Node root, int level, LinkedList<Integer>[] levels) {
+        if (root == null) {
+            return;
+        }
+        if (levels[level] == null) {
+            levels[level] = new LinkedList<>();
+        }
+        levels[level].addLast(root.value);
+        levelOrder(root.left, level + 1, levels);
+        levelOrder(root.right, level + 1, levels);
+    }
+
+    public static int height(Node newRoot) {
+        if (newRoot == null) {
+            return 0;
+        }
+        return 1 + Math.max(height(newRoot.left), height(newRoot.right));
+
     }
 }
