@@ -102,53 +102,14 @@ class Graph {
 
             nodeList.add(i, newNode);
         }
-        return null;
 
-//        return mstPrismHelper(0, priorityQueue, explored, yetToExplored, mst, nodeList);
+        return mstPrismHelper(0, priorityQueue, explored, yetToExplored, mst, nodeList);
     }
 
-
-//    private LinkedList<Edge> mstPrismHelper(int node, PriorityQueue<Edge> priorityQueue, LinkedList<Node> explored,
-//                                       LinkedList<Node> yetToExplored, LinkedList<Edge> mst, ArrayList<Node> nodeList) {
-//
-//        if (yetToExplored.size() == 0) {
-//            return mst;
-//        }
-//
-//        for (int i = 0; i < edgeList[node].size(); i++) {
-//            Edge edge = edgeList[node].get(i);
-//
-//            if (mst.contains(edge) || explored.contains(edge.destination)) {
-//                continue;
-//            }
-//            //update its destination
-//
-//            Node node1 = nodeList.get(edge.destination);
-//            if (node1.distance != Integer.MAX_VALUE) {
-//                if (nodeList.get(node).distance != Integer.MAX_VALUE && node1.distance > nodeList.get(node).distance + edge.weight) {
-//                    Node nearestNode = nodeList.get(edge.destination);
-//                    priorityQueue.remove(nearestNode);
-//                    nearestNode.distance = nodeList.get(node).distance + edge.weight;
-//                    nearestNode.nearestEdge = edge;
-//                    priorityQueue.add(nearestNode);
-//                }
-//            } else {
-//                Node nearestNode = nodeList.get(edge.destination);
-//                priorityQueue.remove(nearestNode);
-//                nearestNode.distance = nodeList.get(node).distance + edge.weight;
-//                nearestNode.nearestEdge = edge;
-//                priorityQueue.add(nearestNode);
-//            }
-//        }
-//        System.out.println("NodeIndex: " + node + "\tExplored: " + explored + "\t" + "yetToExplored: " + yetToExplored);
-//
-//        Node neigherestNode = priorityQueue.poll();
-//        mst.addLast(neigherestNode.nearestEdge);
-//        explored.addLast(neigherestNode);
-//        yetToExplored.remove(neigherestNode);
-//
-//        return mstHelper(neigherestNode.index, priorityQueue, explored, yetToExplored, mst, nodeList);
-//    }
+    //TODO: Complete it
+    private LinkedList<Edge> mstPrismHelper(int index, PriorityQueue<Edge> priorityQueue, LinkedList<Node> explored, LinkedList<Node> yetToExplored, LinkedList<Edge> mst, ArrayList<Node> nodeList) {
+        return null;
+    }
 
 
     //directed
