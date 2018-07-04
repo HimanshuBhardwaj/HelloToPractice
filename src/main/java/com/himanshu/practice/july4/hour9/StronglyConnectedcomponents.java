@@ -10,6 +10,10 @@ import java.util.StringTokenizer;
 /**
  * Created by himanshubhardwaj on 04/07/18.
  * 9:24 pm
+ * 10:42 pm
+ *
+ *
+ * could have been done in  30 mins
  */
 public class StronglyConnectedcomponents {
     public static void main(String[] args) {
