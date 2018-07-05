@@ -6,7 +6,8 @@ import static jdk.nashorn.internal.objects.Global.print;
 
 /**
  * Created by himanshubhardwaj on 05/07/18.
- * 5:48
+ * 5:48 -- 6:38
+ * 20 mins could have reduced
  */
 public class RangeMinimumQuery {
     public static void main(String[] args) {
