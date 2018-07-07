@@ -4,7 +4,7 @@ import lombok.Data;
 import lombok.Getter;
 
 /**
- * Created by himanshubhardwaj on 13/06/18.
+ * Created by Himanshu Bhardwaj on 13/06/18.
  */
 
 //Add(keep sorting), remove, size, inorder,

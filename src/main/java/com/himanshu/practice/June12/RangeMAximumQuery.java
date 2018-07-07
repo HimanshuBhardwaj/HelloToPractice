@@ -1,7 +1,7 @@
 package com.himanshu.practice.June12;
 
 /**
- * Created by himanshubhardwaj on 12/06/18.
+ * Created by Himanshu Bhardwaj on 12/06/18.
  * 7:04
  */
 public class RangeMAximumQuery {

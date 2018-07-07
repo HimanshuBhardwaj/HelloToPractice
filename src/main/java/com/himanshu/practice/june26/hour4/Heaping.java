@@ -3,7 +3,7 @@ package com.himanshu.practice.june26.hour4;
 import java.util.Arrays;
 
 /**
- * Created by himanshubhardwaj on 26/06/18.
+ * Created by Himanshu Bhardwaj on 26/06/18.
  */
 public class Heaping {
     public static void main(String[] args) {

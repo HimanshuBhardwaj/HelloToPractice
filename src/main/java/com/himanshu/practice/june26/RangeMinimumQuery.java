@@ -1,7 +1,7 @@
 package com.himanshu.practice.june26;
 
 /**
- * Created by himanshubhardwaj on 26/06/18.
+ * Created by Himanshu Bhardwaj on 26/06/18.
  */
 public class RangeMinimumQuery {
     public static void main(String[] args) {

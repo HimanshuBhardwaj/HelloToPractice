@@ -1,7 +1,7 @@
 package com.himanshu.practice.june20;
 
 /**
- * Created by himanshubhardwaj on 20/06/18.
+ * Created by Himanshu Bhardwaj on 20/06/18.
  */
 public class Permutuation {
     public static void main(String[] args) {

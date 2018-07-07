@@ -3,7 +3,7 @@ package com.himanshu.practice.june_13_2018.com.himanshu.practice.june_13_2018.ho
 import lombok.Data;
 
 /**
- * Created by himanshubhardwaj on 13/06/18.
+ * Created by Himanshu Bhardwaj on 13/06/18.
  */
 public class AddingNumbers {
     public static void main(String[] args) {

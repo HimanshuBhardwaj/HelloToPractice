@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 /**
- * Created by himanshubhardwaj on 06/07/18.
+ * Created by Himanshu Bhardwaj on 06/07/18.
  * working :-)
  */
 public class StringWrapping {

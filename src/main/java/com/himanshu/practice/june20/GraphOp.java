@@ -8,7 +8,7 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 
 /**
- * Created by himanshubhardwaj on 20/06/18.
+ * Created by Himanshu Bhardwaj on 20/06/18.
  * dfs, bfs, hascycle
  */
 public class GraphOp {

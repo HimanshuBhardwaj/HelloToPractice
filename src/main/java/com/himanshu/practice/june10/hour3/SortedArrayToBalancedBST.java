@@ -3,7 +3,7 @@ package com.himanshu.practice.june10.hour3;
 import java.util.Arrays;
 
 /**
- * Created by himanshubhardwaj on 10/06/18.
+ * Created by Himanshu Bhardwaj on 10/06/18.
  */
 public class SortedArrayToBalancedBST {
     public static void main(String[] args) {

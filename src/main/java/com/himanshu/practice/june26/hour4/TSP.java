@@ -7,7 +7,7 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 
 /**
- * Created by himanshubhardwaj on 26/06/18.
+ * Created by Himanshu Bhardwaj on 26/06/18.
  */
 public class TSP {
     public static void main(String[] args) {

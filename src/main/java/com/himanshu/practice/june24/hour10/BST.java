@@ -3,7 +3,7 @@ package com.himanshu.practice.june24.hour10;
 import lombok.NoArgsConstructor;
 
 /**
- * Created by himanshubhardwaj on 25/06/18.
+ * Created by Himanshu Bhardwaj on 25/06/18.
  */
 public class BST {
     public static void main(String[] args) {

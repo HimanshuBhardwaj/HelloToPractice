@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * Created by himanshubhardwaj on 27/06/18.
+ * Created by Himanshu Bhardwaj on 27/06/18.
  */
 public class LinkSameLevelNodes {
     public static void main(String[] args) {

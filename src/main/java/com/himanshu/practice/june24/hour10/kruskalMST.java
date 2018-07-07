@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import java.util.*;
 
 /**
- * Created by himanshubhardwaj on 24/06/18.
+ * Created by Himanshu Bhardwaj on 24/06/18.
  */
 public class kruskalMST {
     public static void main(String[] args) {

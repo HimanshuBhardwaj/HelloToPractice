@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 
 /**
- * Created by himanshubhardwaj on 04/07/18.
+ * Created by Himanshu Bhardwaj on 04/07/18.
  * 2:12 am
  */
 public class RecursionsMatricExpo {

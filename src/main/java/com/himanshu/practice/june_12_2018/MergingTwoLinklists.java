@@ -1,7 +1,7 @@
 package com.himanshu.practice.june_12_2018;
 
 /**
- * Created by himanshubhardwaj on 12/06/18.
+ * Created by Himanshu Bhardwaj on 12/06/18.
  */
 public class MergingTwoLinklists {
 

@@ -1,7 +1,7 @@
 package com.himanshu.practice.june_13_2018;
 //
 ///**
-// * Created by himanshubhardwaj on 13/06/18.
+// * Created by Himanshu Bhardwaj on 13/06/18.
 // */
 //public class LoopInLinkList {
 //    public static void main(String[] args) throws InterruptedException {

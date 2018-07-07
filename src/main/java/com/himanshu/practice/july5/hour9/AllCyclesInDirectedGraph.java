@@ -5,7 +5,7 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 
 /**
- * Created by himanshubhardwaj on 05/07/18.
+ * Created by Himanshu Bhardwaj on 05/07/18.
  * 10:40
  * not completed; printng some but not all cycles
  */

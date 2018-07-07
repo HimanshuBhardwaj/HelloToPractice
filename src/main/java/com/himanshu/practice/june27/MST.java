@@ -8,7 +8,7 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 
 /**
- * Created by himanshubhardwaj on 27/06/18.
+ * Created by Himanshu Bhardwaj on 27/06/18.
  */
 public class MST {
     public static void main(String[] args) {

@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
- * Created by himanshubhardwaj on 08/06/18.
+ * Created by Himanshu Bhardwaj on 08/06/18.
  */
 public class BinaryTree {
     public static void main(String[] args) {

@@ -1,7 +1,7 @@
 package com.himanshu.practice.June18.hour1;
 
 /**
- * Created by himanshubhardwaj on 18/06/18.
+ * Created by Himanshu Bhardwaj on 18/06/18.
  */
 public class MatrixExpo {
     public static void main(String[] args) {

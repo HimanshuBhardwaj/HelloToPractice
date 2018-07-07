@@ -1,7 +1,7 @@
 package com.himanshu.practice.june22;
 
 /**
- * Created by himanshubhardwaj on 22/06/18.
+ * Created by Himanshu Bhardwaj on 22/06/18.
  */
 public class MinimumElement {
     public static void main(String[] args) {

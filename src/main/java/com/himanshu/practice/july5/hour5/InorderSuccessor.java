@@ -3,7 +3,7 @@ package com.himanshu.practice.july5.hour5;
 import java.util.LinkedList;
 
 /**
- * Created by himanshubhardwaj on 05/07/18.
+ * Created by Himanshu Bhardwaj on 05/07/18.
  */
 public class InorderSuccessor {
     public static void main(String[] args) {

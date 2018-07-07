@@ -5,7 +5,7 @@ import lombok.Getter;
 import java.util.Scanner;
 
 /**
- * Created by himanshubhardwaj on 13/06/18.
+ * Created by Himanshu Bhardwaj on 13/06/18.
  */
 public class AllPairShortestPath {
     public static void main(String[] args) {

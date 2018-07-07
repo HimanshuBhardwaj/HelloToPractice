@@ -3,7 +3,7 @@ package com.himanshu.practice.june_12_2018.com.himanshu.practice.com.himanshu.pr
 import java.util.Scanner;
 
 /**
- * Created by himanshubhardwaj on 12/06/18.
+ * Created by Himanshu Bhardwaj on 12/06/18.
  */
 public class ReverseLinkListInPairs {
     public static void main(String[] args) {

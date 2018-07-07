@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 
 /**
- * Created by himanshubhardwaj on 17/06/18.
+ * Created by Himanshu Bhardwaj on 17/06/18.
  * TODO: Do it
  */
 public class GraphColouring {

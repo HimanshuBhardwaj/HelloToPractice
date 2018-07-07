@@ -1,7 +1,7 @@
 package com.himanshu.practice.June17;
 
 /**
- * Created by himanshubhardwaj on 17/06/18.
+ * Created by Himanshu Bhardwaj on 17/06/18.
  */
 public class SpiralArrayPrint {
 

@@ -1,7 +1,7 @@
 package com.himanshu.practice.june_15;
 
 /**
- * Created by himanshubhardwaj on 15/06/18.
+ * Created by Himanshu Bhardwaj on 15/06/18.
  * //finished
  */
 public class MergeSorting {

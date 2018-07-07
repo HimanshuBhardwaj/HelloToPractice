@@ -9,7 +9,7 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 
 /**
- * Created by himanshubhardwaj on 29/06/18.
+ * Created by Himanshu Bhardwaj on 29/06/18.
  */
 public class Dijkstra {
     public static void main(String[] args) {

@@ -1,7 +1,7 @@
 package com.himanshu.practice.hour_3;
 
 /**
- * Created by himanshubhardwaj on 08/06/18.
+ * Created by Himanshu Bhardwaj on 08/06/18.
  */
 public class Sort {
     public static void main(String[] args) {

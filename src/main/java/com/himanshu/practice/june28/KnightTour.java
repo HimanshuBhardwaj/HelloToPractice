@@ -1,7 +1,7 @@
 package com.himanshu.practice.june28;
 
 /**
- * Created by himanshubhardwaj on 28/06/18.
+ * Created by Himanshu Bhardwaj on 28/06/18.
  */
 
 //fastest way to reach a position from 0,0

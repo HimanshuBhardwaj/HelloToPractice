@@ -1,7 +1,7 @@
 package com.himanshu.practice.june10.hour3;
 
 /**
- * Created by himanshubhardwaj on 10/06/18.
+ * Created by Himanshu Bhardwaj on 10/06/18.
  */
 public class HeapHelloWorld {
     public static void main(String[] args) {

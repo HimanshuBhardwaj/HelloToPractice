@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.HashSet;
 
 /**
- * Created by himanshubhardwaj on 27/06/18.
+ * Created by Himanshu Bhardwaj on 27/06/18.
  */
 public class AllPermutations {
     static HashSet<String> set = new HashSet<String>();

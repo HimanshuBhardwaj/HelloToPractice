@@ -1,7 +1,7 @@
 package com.himanshu.practice.June13;
 
 /**
- * Created by himanshubhardwaj on 13/06/18.
+ * Created by Himanshu Bhardwaj on 13/06/18.
  */
 public class MinHeap {
     public static void main(String[] args) {

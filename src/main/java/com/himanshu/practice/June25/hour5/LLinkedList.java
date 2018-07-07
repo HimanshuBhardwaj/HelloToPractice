@@ -2,7 +2,7 @@ package com.himanshu.practice.June25.hour5;
 
 
 /**
- * Created by himanshubhardwaj on 25/06/18.
+ * Created by Himanshu Bhardwaj on 25/06/18.
  */
 public class LLinkedList {
     public static void main(String[] args) {

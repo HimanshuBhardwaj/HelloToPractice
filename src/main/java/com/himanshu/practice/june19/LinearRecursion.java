@@ -3,7 +3,7 @@ package com.himanshu.practice.june19;
 import java.util.Scanner;
 
 /**
- * Created by himanshubhardwaj on 19/06/18.
+ * Created by Himanshu Bhardwaj on 19/06/18.
  */
 
 //An = An-1 + An-2 + ... +An-k

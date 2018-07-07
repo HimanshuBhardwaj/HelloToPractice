@@ -11,7 +11,7 @@ import java.util.Queue;
 import java.util.Stack;
 
 /**
- * Created by himanshubhardwaj on 09/06/18.
+ * Created by Himanshu Bhardwaj on 09/06/18.
  */
 public class BST {
     public static void main(String[] args) {
