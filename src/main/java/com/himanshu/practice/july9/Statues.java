@@ -1,12 +1,13 @@
-package com.himanshu.practice.july9;
+//package com.himanshu.practice.july9;
 
-import com.sun.tools.doclets.formats.html.SourceToHTMLConverter;
 
 import java.util.Scanner;
 
 /**
  * Created by himanshubhardwaj on 09/07/18.
  * Codeforces Problem: https://codeforces.com/problemset/problem/128/A
+ * //Shortcut is evil
+ * TODO: Not working
  */
 public class Statues {
     public static void main(String[] args) {
@@ -37,7 +38,6 @@ public class Statues {
 
         int[][] visited = new int[8][8];
         System.out.print((DFS(grid, 7, 0, 0, visited) == 1) ? "WIN" : "LOSE");
-
         System.out.println();
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
@@ -72,7 +72,11 @@ public class Statues {
 
                 switch (i) {
                     case 1: {
-                        result1 = valid(row - i, column + j, grid, 1) && valid(row , column + j, grid, 1);
+                        if (row != 1) {
+                            result1 = valid(row - i, column + j, grid, 1) && valid(row - i - 1, column + j, grid, 1);
+                        } else {
+                            result1 = valid(row - i, column + j, grid, 1);
+                        }
                     }
                     break;
                     case 2: {
@@ -83,15 +87,15 @@ public class Statues {
                     break;
                 }
 
-                if((row-i)==6)
-                System.out.println((row-i)+", "+(column+j)+": "+result1+", "+i);
+                //if ((row - i) == 5)
+                //System.out.println((row - i) + ", " + (column + j) + ": " + result1 + ", " + i);
                 if (result1) {
                     visited[row][column] = maximum(visited[row][column], DFS(grid, row - i, column + j, level + 1, visited));
                 }
             }
         }
 
-        System.out.println(row + ", " + column + ": " + visited[row][column]);
+        //System.out.println(row + ", " + column + ": " + visited[row][column]);
         return visited[row][column];
     }
 
