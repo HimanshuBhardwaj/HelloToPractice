@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- * Created by himanshubhardwaj on 12/07/18.
+ * Created by Himanshu Bhardwaj on 12/07/18.
  */
 public class BearAndForgottenTree3 {
     public static void main(String[] args) throws IOException {
