@@ -4,7 +4,7 @@ package com.himanshu.practice.july9;
 import java.util.Scanner;
 
 /**
- * Created by himanshubhardwaj on 09/07/18.
+ * Created by Himanshu Bhardwaj on 09/07/18.
  * Codeforces Problem: https://codeforces.com/problemset/problem/128/A
  * //Shortcut is evil
  * TODO: Not working

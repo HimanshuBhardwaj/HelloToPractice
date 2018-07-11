@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 
 /**
- * Created by himanshubhardwaj on 09/07/18.
+ * Created by Himanshu Bhardwaj on 09/07/18.
  * CodeForces: https://codeforces.com/problemset/problem/407/B
  * Algo: DP
  * Submission: https://codeforces.com/contest/407/submission/40096950

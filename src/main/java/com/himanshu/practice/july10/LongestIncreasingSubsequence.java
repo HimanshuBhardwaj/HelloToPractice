@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.Scanner;
 
 /**
- * Created by himanshubhardwaj on 10/07/18.
+ * Created by Himanshu Bhardwaj on 10/07/18.
  * Both nlogN and n^2
  */
 public class LongestIncreasingSubsequence {

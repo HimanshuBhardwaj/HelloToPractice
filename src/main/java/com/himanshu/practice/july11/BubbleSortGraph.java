@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- * Created by himanshubhardwaj on 11/07/18.
+ * Created by Himanshu Bhardwaj on 11/07/18.
  * Link: https://codeforces.com/contest/340/problem/D
  * Algorithm: LongestIncreasingSubsequence in nLogn Time
  * Submission: https://codeforces.com/contest/340/submission/40181780
