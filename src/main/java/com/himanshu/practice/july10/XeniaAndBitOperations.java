@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 /**
- * Created by himanshubhardwaj on 10/07/18.
+ * Created by Himanshu Bhardwaj on 10/07/18.
  * ProblemSet: https://codeforces.com/contest/339/problem/D
  * Algo: SegmentTree
  * Submission: https://codeforces.com/contest/339/submission/40156931

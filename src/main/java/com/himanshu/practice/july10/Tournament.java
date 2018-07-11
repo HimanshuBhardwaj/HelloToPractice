@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- * Created by himanshubhardwaj on 10/07/18.
+ * Created by Himanshu Bhardwaj on 10/07/18.
  * Algo: Transitive Closure
  * Submission: https://codeforces.com/contest/27/submission/40157471
  */
