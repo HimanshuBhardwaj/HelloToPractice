@@ -1,5 +1,6 @@
 package com.himanshu.practice.july11;
 
+
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -243,7 +244,6 @@ class Node implements Comparable<Node> {
 }
 
 
-//undirected Graph
 @AllArgsConstructor
 class Edge implements Comparable<Edge> {
     int node1;
