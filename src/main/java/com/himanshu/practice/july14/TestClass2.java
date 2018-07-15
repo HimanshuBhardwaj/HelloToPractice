@@ -9,7 +9,7 @@ import java.util.PriorityQueue;
  * Created by himanshubhardwaj on 15/07/18.
  * Coding Test
  */
-public class TestClass {
+public class TestClass2 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String str = br.readLine();
