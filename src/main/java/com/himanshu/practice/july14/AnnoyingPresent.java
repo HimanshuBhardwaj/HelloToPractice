@@ -3,6 +3,8 @@ package com.himanshu.practice.july14;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 /**
  * Created by himanshubhardwaj on 14/07/18.
@@ -15,32 +17,39 @@ public class AnnoyingPresent {
         String str[] = br.readLine().split(" ");
         int n = Integer.parseInt(str[0]);
         int m = Integer.parseInt(str[1]);
+        BigDecimal bigS = new BigDecimal(0);
         double sum = 0d;
         double tempMax = getMaximum(n);
         double tempMin = getMinimum(n);
         //System.out.println(tempMax);
         //System.out.println(tempMin);
-        String [] temoS = new String[2];
-        temoS[0]= "0";
-        temoS[1]= "1000";
+        String[] temoS = new String[2];
+        temoS[0] = "0";
+        temoS[1] = "1000";
+        double lS = 0;
 
         for (int i = 1; i <= m; i++) {
-            str = (i<2)?br.readLine().split(" "):temoS;
+            str = br.readLine().split(" ");
 
-            int x = Integer.parseInt(str[0]);
-            int d = Integer.parseInt(str[1]);
+            long x = Long.parseLong(str[0]);
+            long d = Long.parseLong(str[1]);
             //System.out.println("..x=" + x + "\td=" + d);
 
             if (d >= 0) {
                 sum += (x * n + (d * tempMax));
             } else {
-
                 sum += (x * n + (d * tempMin));
+            }
+            if ((1 + i) % 1000 == 0) {
+                lS += (sum / n);
+                sum = 0;
             }
         }
 
-        sum = sum / n;
-        System.out.printf("%.15f", sum);
+        lS += (sum / n);
+
+        BigDecimal bd = new BigDecimal(sum);
+        System.out.printf("%.15f",lS);
 
 
     }

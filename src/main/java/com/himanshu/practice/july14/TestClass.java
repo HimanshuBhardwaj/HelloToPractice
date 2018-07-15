@@ -1,82 +1,64 @@
+package com.himanshu.practice.july14;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.TreeSet;
 
 /**
  * Created by himanshubhardwaj on 15/07/18.
  */
-/* IMPORTANT: Multiple classes and nested static classes are supported */
-
-/*
- * uncomment this if you want to read input.
-//imports for BufferedReader
-*/
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-
-//import for Scanner and other utility classes
-import java.util.*;
-
-
-// Warning: Printing unwanted or ill-formatted data to output will cause the test cases to fail
-
-class TestClass {
-    public static void main(String args[]) throws Exception {
-        /* Sample code to perform I/O:
-         * Use either of these methods for input
-         */
-
-        //BufferedReader
+public class TestClass {
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int t = Integer.parseInt(br.readLine());
+        int n = Integer.parseInt(br.readLine());
+        String str[] = br.readLine().split(" ");
+        long arr[] = new long[str.length];
+        TreeSet<ANumber> aNumber = new TreeSet<ANumber>();
 
+        for (int i = 0; i < str.length; i++) {
+            arr[i] = Long.parseLong(str[i]);
+        }
+        Arrays.sort(arr);
+        long sum = 0;
 
-        for (int cc = 0; cc < t; cc++) {
-            String str[] = br.readLine().split(" ");
-            int n = Integer.parseInt(str[0]);
-            int k = Integer.parseInt(str[1]);
-            int arr[] = new int[n];
-            str = br.readLine().split(" ");
-            for (int i = 0; i < n; i++) {
-                arr[i] = Integer.parseInt(str[i]);
-
-            }
-            int prevMax = -1;
-            int count = 0;
-            int start = 0;
-            int i = 0;
-            int max = Integer.MIN_VALUE;
-            for (i = 0; i < n; i++) {
-                if (arr[i] > k) {
-                    if (start == 1 && max == k) {
-                        count = count + (i - prevMax);
-                        start = 0;
-                    }
-                    prevMax = -1;
-                    max = Integer.MIN_VALUE;
-                } else if (prevMax == -1 && arr[i] <= k) {
-                    start = 1;
-                    prevMax = i;
-                    max = Math.max(max,arr[i]);
-                } else {
-                    max = Math.max(max, arr[i]);
-                }
-            }
-            if (prevMax != -1 && max==k) {
-                count += (n - prevMax);
-            }
-
-            System.out.println(count);
+        for (int i = 0; i < arr.length; i++) {
+            sum += arr[i];
+            aNumber.add(new ANumber(i, ((double) sum) / (i + 1), sum));
         }
 
-/*
-        //Scanner
-        Scanner s = new Scanner(System.in);
-        String name = s.nextLine();                 // Reading input from STDIN
-        System.out.println("Hi, " + name + ".");    // Writing output to STDOUT
+        int q = Integer.parseInt(br.readLine());
+        ANumber temp = new ANumber(0, 0, 0);
 
-        */
 
-        // Write your code here
+        for (int i = 1; i <= q; i++) {
+            double maxAvg = Double.parseDouble(br.readLine());
+            temp.average = maxAvg;
+            ANumber an = aNumber.lower(temp);
+            if (an == null) {
+                System.out.println(0);
+            } else {
+                System.out.println(an.pos + 1);
+            }
+        }
+    }
+}
 
+
+class ANumber implements Comparable<ANumber> {
+    int pos;
+    double average;
+    long CommulativeSum;
+
+    public ANumber(int pos, double average, long CommulativeSum) {
+        this.pos = pos;
+        this.average = average;
+        this.CommulativeSum = CommulativeSum;
+    }
+
+    @Override
+    public int compareTo(ANumber o) {
+        return Double.compare(this.average, o.average);
     }
 }
