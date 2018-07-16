@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by himanshubhardwaj on 12/07/18.
  * https://codeforces.com/contest/813/problem/C
- * Algo: Preprocessing, DFS
+ * Algo: Preprocessing, dfsHelper
  * https://codeforces.com/contest/813/submission/40214883
  */
 public class TheTagGame {

@@ -73,7 +73,7 @@ class Graph {
         if (isVisited[root]) {
             return;
         }
-        int numChild = 0;//num child in DFS tree
+        int numChild = 0;//num child in dfsHelper tree
         isVisited[root] = true;
         timer++;
         discovery[root] = lowest[root] = timer;
