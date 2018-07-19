@@ -24,10 +24,13 @@ public class DSU {
         sdu.merge(10, 9);
         //System.out.println(sdu.sets[10] + "\t" + sdu.sets[6]);
         System.out.println(sdu.findSet(10) + "\t" + sdu.findSet(6));
-        sdu.merge(10, 6);
-        sdu.merge(1, 4);
         sdu.merge(9, 4);
         System.out.println(sdu.findSet(10) + "\t" + sdu.findSet(6));
+        sdu.printAllSet();
+        sdu.removeElementFromList(2);
+        sdu.removeElementFromList(8);
+        sdu.removeElementFromList(1);
+        System.out.println();
         sdu.printAllSet();
     }
 }
@@ -100,9 +103,42 @@ class DisjointSets {
     }
 
 
-    //element belongsto set, remove it fromt hat set and make seperate set out of it.
-    void disunionList(int set, int element) {
+    //remove element from any set;
+    //update height information
+    //TODO: Not corrent
+    void removeElementFromList(int element) {
+        if (sets[element] == 0) {
+            return;
+        }
 
+        if (sets[element] == element) {
+            System.out.println("1..");
+            //element if parent
+            int child = getChildWithParentElement(element);
+            sets[element] = child;
+
+            for (int i = 1; i <= size; i++) {
+                //this will do path compression
+                findSet(i);
+            }
+            sets[element] = 0;
+        } else {
+            System.out.println("2..");
+            for (int i = 1; i <= size; i++) {
+                findSet(i);
+            }
+            sets[element] = 0;
+        }
+
+    }
+
+    private int getChildWithParentElement(int element) {
+        for (int i = 1; i <= size; i++) {
+            if (sets[i] == element) {
+                return i;
+            }
+        }
+        return 0;
     }
 
 
