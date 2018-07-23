@@ -181,7 +181,7 @@ class Tree {
     }
 
     public void print() {
-        System.out.println("Node\tdepth");
+        System.out.println("DNode\tdepth");
         for (int i = 1; i < numNodes; i++) {
             System.out.println(i + "\t" + depth[i]);
         }

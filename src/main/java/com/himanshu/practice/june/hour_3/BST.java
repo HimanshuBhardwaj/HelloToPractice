@@ -12,50 +12,50 @@ import java.util.Stack;
  */
 public class BST {
     public static void main(String[] args) {
-        Node root = new Node(5);
-        root = Node.insert(root, 6);
-        root = Node.insert(root, 16);
-        root = Node.insert(root, 26);
-        root = Node.insert(root, 11);
-        root = Node.insert(root, 2);
-        root = Node.insert(root, 27);
-        root = Node.insert(root, 28);
-        root = Node.insert(root, -29);
-        root = Node.insert(root, -31);
-        root = Node.insert(root, -28);
+        DNode root = new DNode(5);
+        root = DNode.insert(root, 6);
+        root = DNode.insert(root, 16);
+        root = DNode.insert(root, 26);
+        root = DNode.insert(root, 11);
+        root = DNode.insert(root, 2);
+        root = DNode.insert(root, 27);
+        root = DNode.insert(root, 28);
+        root = DNode.insert(root, -29);
+        root = DNode.insert(root, -31);
+        root = DNode.insert(root, -28);
 
-        Node root2 = new Node(6);
-        root2 = Node.insert(root2, 16);
-        root2 = Node.insert(root2, 11);
-        root2 = Node.insert(root2, 26);
-        root2 = Node.insert(root2, 27);
-        root2 = Node.insert(root2, 28);
+        DNode root2 = new DNode(6);
+        root2 = DNode.insert(root2, 16);
+        root2 = DNode.insert(root2, 11);
+        root2 = DNode.insert(root2, 26);
+        root2 = DNode.insert(root2, 27);
+        root2 = DNode.insert(root2, 28);
 
 
-        Node.print(root);
+        DNode.print(root);
         System.out.println();
 
-        System.out.println(Node.inorder(root, null));
-        System.out.println(Node.preOrder(root, null));
-        Node newRoot = Node.constructTree(null, Node.inorder(root, null), Node.preOrder(root, null));
+        System.out.println(DNode.inorder(root, null));
+        System.out.println(DNode.preOrder(root, null));
+        DNode newRoot = DNode.constructTree(null, DNode.inorder(root, null), DNode.preOrder(root, null));
         System.out.print("Constructing tree: ");
-        System.out.println(Node.inorder(newRoot, null));
-        Node.width(root);
-        Node.print(root);
-        Queue<Node> rooot = new LinkedList<Node>();
+        System.out.println(DNode.inorder(newRoot, null));
+        DNode.width(root);
+        DNode.print(root);
+        Queue<DNode> rooot = new LinkedList<DNode>();
         rooot.add(root);
 
         System.out.println("Level order:");
-        Node.levelOrderTraversal(rooot);
+        DNode.levelOrderTraversal(rooot);
         System.out.println("Printing nodes at distance 2 from root");
-        Node.printNodeLevelwise(root, 3);
+        DNode.printNodeLevelwise(root, 3);
 
         System.out.println("Path from root to node");
-        Node.pathFromRoot(root, new LinkedList<Node>(), 11);
+        DNode.pathFromRoot(root, new LinkedList<DNode>(), 11);
 
 
         System.out.println("Checking identicality");
-        System.out.println(Node.areBinaryTreesIdentical(root, root));
+        System.out.println(DNode.areBinaryTreesIdentical(root, root));
 
 
         // Deletion wala code
@@ -84,27 +84,27 @@ public class BST {
 //        System.out.println(linkedList.subList(1, 3 + 1));
 //        System.out.println(linkedList.indexOf(51));
 
-        System.out.println("Checking for subtree: " + Node.isSubtree(root, root2));
+        System.out.println("Checking for subtree: " + DNode.isSubtree(root, root2));
     }
 
 }
 
 
 @Data
-class Node {
+class DNode {
     int value;
-    Node left;
-    Node right;
+    DNode left;
+    DNode right;
     int widthSlot;
     int level;
 
-    public Node(int value) {
+    public DNode(int value) {
         this.value = value;
         this.left = null;
         this.right = null;
     }
 
-    public static LinkedList<Integer> inorder(Node node, LinkedList<Integer> inorderT) {
+    public static LinkedList<Integer> inorder(DNode node, LinkedList<Integer> inorderT) {
         if (node == null) {
             return inorderT;
         }
@@ -120,7 +120,7 @@ class Node {
         return inorderT;
     }
 
-    public static LinkedList<Integer> preOrder(Node node, LinkedList<Integer> preOrderT) {
+    public static LinkedList<Integer> preOrder(DNode node, LinkedList<Integer> preOrderT) {
         if (node == null) {
             return preOrderT;
         }
@@ -134,10 +134,10 @@ class Node {
     }
 
 
-    public static Node insert(Node node, int value) {
+    public static DNode insert(DNode node, int value) {
 
         if (node == null) {
-            return new Node(value);
+            return new DNode(value);
         }
 
         if (node.value > value) {
@@ -149,7 +149,7 @@ class Node {
         return node;
     }
 
-    public static Node delete(Node node, int value) {
+    public static DNode delete(DNode node, int value) {
         if (node == null) {
             return null;
         }
@@ -164,7 +164,7 @@ class Node {
             if (node.right == null) {
                 return node.left;
             }
-            Node succ = getSuccessor(node);
+            DNode succ = getSuccessor(node);
             swap(succ, node);
 
             node.right = delete(node.right, value);
@@ -179,7 +179,7 @@ class Node {
         return node;
     }
 
-    private static void swap(Node succ, Node node) {
+    private static void swap(DNode succ, DNode node) {
         int temp = succ.getValue();
         succ.setValue(node.getValue());
         node.setValue(temp);
@@ -187,8 +187,8 @@ class Node {
 
     //this assumes that both child are not null.
     //node is also not null
-    public static Node getSuccessor(Node node) {
-        Node temp = node;
+    public static DNode getSuccessor(DNode node) {
+        DNode temp = node;
         temp = temp.right;
 
         while (temp.left != null) {
@@ -197,7 +197,7 @@ class Node {
         return temp;
     }
 
-    public static void print(Node node) {
+    public static void print(DNode node) {
         if (node == null) {
             return;
         }
@@ -207,18 +207,18 @@ class Node {
     }
 
 
-    public static void inorderWithourRecursion(Node node) {
+    public static void inorderWithourRecursion(DNode node) {
         if (node == null) {
             return;
         }
-        Stack<Node> frameStack = new Stack<>();
+        Stack<DNode> frameStack = new Stack<>();
 
         while (node != null) {
             frameStack.push(node);
             node = node.left;
         }
 
-        Node current = null;
+        DNode current = null;
 
 
         while (current == null && !frameStack.empty()) {
@@ -239,7 +239,7 @@ class Node {
 
 
     //Assume no repetation
-    public static Node constructTree(Node node, List<Integer> inorder, List<Integer> preorder) {
+    public static DNode constructTree(DNode node, List<Integer> inorder, List<Integer> preorder) {
         if (inorder.size() == 0 || preorder.size() == 0) {
             return null;
         }
@@ -248,7 +248,7 @@ class Node {
         preorder.remove(0);
         int index = inorder.indexOf(value);
 
-        Node node1 = new Node(value);
+        DNode node1 = new DNode(value);
         //preorder.remove(0);
 
 
@@ -272,7 +272,7 @@ class Node {
 
     //left, right width will not be null
     //widthSlot is the width slot of node
-    public static void width(Node node) {
+    public static void width(DNode node) {
         if (node == null) {
             return;
         }
@@ -292,12 +292,12 @@ class Node {
         }
     }
 
-    public static void levelOrderTraversal(Queue<Node> levelOrder) {
+    public static void levelOrderTraversal(Queue<DNode> levelOrder) {
         if (levelOrder.isEmpty()) {
             return;
         }
 
-        Node node = levelOrder.poll();
+        DNode node = levelOrder.poll();
         int nodeLevel = node.getLevel();
         System.out.println("<" + node.value + ", " + nodeLevel + ">");
 
@@ -313,7 +313,7 @@ class Node {
         levelOrderTraversal(levelOrder);
     }
 
-    public static void printNodeLevelwise(Node node, int distance) {
+    public static void printNodeLevelwise(DNode node, int distance) {
         if (node == null) {
             return;
         }
@@ -329,12 +329,12 @@ class Node {
 
     }
 
-    public static void pathFromRoot(Node node, LinkedList<Node> path, int requiredNode) {
+    public static void pathFromRoot(DNode node, LinkedList<DNode> path, int requiredNode) {
         if (node == null) {
             return;
         }
         if (node.value == requiredNode) {
-            for (Node node1 : path) {
+            for (DNode node1 : path) {
                 System.out.print(node1.getValue() + "-->");
             }
             System.out.println(requiredNode);
@@ -349,7 +349,7 @@ class Node {
         path.remove(node);
     }
 
-    public static boolean areBinaryTreesIdentical(Node node1, Node node2) {
+    public static boolean areBinaryTreesIdentical(DNode node1, DNode node2) {
         if (node1 == null && node2 == null) {
             return true;
         }
@@ -359,7 +359,7 @@ class Node {
         return areBinaryTreesIdentical(node1.right, node2.right) && areBinaryTreesIdentical(node1.left, node2.left);
     }
 
-    public static boolean isSubtree(Node root1, Node root2) {
+    public static boolean isSubtree(DNode root1, DNode root2) {
         if (root1 == null && root2 == null) {
             return true;
         }

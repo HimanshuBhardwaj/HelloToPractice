@@ -192,6 +192,6 @@ class Node {
     }
 
     public String toString() {
-        return "Node(index=" + this.index + ", colour=" + this.colour + ")";
+        return "DNode(index=" + this.index + ", colour=" + this.colour + ")";
     }
 }
