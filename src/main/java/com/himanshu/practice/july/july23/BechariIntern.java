@@ -41,3 +41,14 @@ class BechariIntern {
         return (pos < charsWhichYouDoNotWant.length) ? (s.contains(String.valueOf(charsWhichYouDoNotWant[pos])) || containsChar(s, pos + 1, charsWhichYouDoNotWant)) : false;
     }
 }
+
+
+
+/*
+Output:
+
+[Hello, Surabhi Gandhi, How are you?, Himanshu is a tapori idiot, Surabhi is a poor intern who do not know functional programming , and instead of learning she is taking shortcuts, by asking tapori people]
+[Surabhi Gandhi]
+
+*
+* */
