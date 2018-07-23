@@ -141,7 +141,7 @@ class Graph {
                 clusterId++;
             }
         }
-//        for (Node c : listOfCluster) {
+//        for (DNode c : listOfCluster) {
 //            System.out.println(c);
 //        }
         list.addAll(listOfCluster);
@@ -186,7 +186,7 @@ class Node implements Comparable<Node> {
     }
 
     public String toString() {
-        return "Node(index=" + this.index + ", beauty=" + this.beauty + ", weight=" + this.weight + ", cluster=" + this.cluster + ", justBeforStarting=" + this.justBeforStarting + ")";
+        return "DNode(index=" + this.index + ", beauty=" + this.beauty + ", weight=" + this.weight + ", cluster=" + this.cluster + ", justBeforStarting=" + this.justBeforStarting + ")";
     }
 }
 

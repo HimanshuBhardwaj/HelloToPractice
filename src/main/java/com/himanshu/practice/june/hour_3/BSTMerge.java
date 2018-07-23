@@ -1,6 +1,4 @@
-package com.himanshu.practice.hour_3;
-
-import lombok.NoArgsConstructor;
+package com.himanshu.practice.june.hour_3;
 
 /**
  * Created by Himanshu Bhardwaj on 10/06/18.
@@ -12,11 +10,11 @@ public class BSTMerge {
 
 class Node {
     int value;
-    Node left;
-    Node right;
+    DNode left;
+    DNode right;
 
     //a is heaver side
-    public static Node merge(Node node1, Node node2) {
+    public static DNode merge(DNode node1, DNode node2) {
         if (node1 == null && node2 == null) {
             return null;
         }
@@ -38,7 +36,7 @@ class Node {
 
     }
 
-    public static Node insert(Node a, Node b) {
+    public static DNode insert(DNode a, DNode b) {
         return null;
     }
 }
