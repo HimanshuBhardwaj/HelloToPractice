@@ -14,12 +14,12 @@ class BechariIntern {
         list.add("Surabhi Gandhi");
         list.add("How are you?");
         list.add("Himanshu is a tapori idiot");
-        list.add("Surabhi is a poor intern who do not know functional programming ");
+        list.add("Surabhi is a poor intern who does not know functional programming ");
         list.add("and instead of learning she is taking shortcuts");
         list.add("by asking tapori people");
 
         /*Just in case you do not like anyone containing H, etc */
-        char charactersToExclude[] = {'H','o'};
+        char charactersToExclude[] = {'H', 'o'};
 
         System.out.println(list);
         ArrayList<String> newString = excludeUnwantedCharContainingStrings(0, list, charactersToExclude, new ArrayList<String>());
@@ -47,7 +47,7 @@ class BechariIntern {
 /*
 Output:
 
-[Hello, Surabhi Gandhi, How are you?, Himanshu is a tapori idiot, Surabhi is a poor intern who do not know functional programming , and instead of learning she is taking shortcuts, by asking tapori people]
+[Hello, Surabhi Gandhi, How are you?, Himanshu is a tapori idiot, Surabhi is a poor intern who does not know functional programming , and instead of learning she is taking shortcuts, by asking tapori people]
 [Surabhi Gandhi]
 
 *
