@@ -19,7 +19,7 @@ class BechariIntern {
         list.add("by asking tapori people");
 
         /*Just in case you do not like anyone containing H, etc */
-        char charactersToExclude[] = {'H','o'};
+        char charactersToExclude[] = {'H', 'o'};
 
         System.out.println(list);
         ArrayList<String> newString = excludeUnwantedCharContainingStrings(0, list, charactersToExclude, new ArrayList<String>());
