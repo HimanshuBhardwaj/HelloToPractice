@@ -1,15 +1,17 @@
-package com.himanshu.practice.july.july24;
+//package com.himanshu.practice.july.july24;
+
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.HashMap;
 import java.util.Stack;
-import java.util.TreeMap;
 
 /**
  * Created by himanshubhardwaj on 24/07/18.
  * Problem Statement: https://codeforces.com/problemset/problem/935/E
- * TODO: Make it work
+ * TODO: Make it work, currently i am getting TLE onto it.
+ * https://codeforces.com/contest/935/submission/40734909
  */
 public class FafaAndAncientMathematics {
     static Stack<Node> stack = new Stack<>();
@@ -19,31 +21,30 @@ public class FafaAndAncientMathematics {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         char[] str = br.readLine().toCharArray();
 
-        for (int i = 0; i < str.length; ) {
-            i = stackOperation(i, str);
+        for (int i = 0; i < str.length; i++) {
+            stackOperation(i, str);
         }
 
         String str1[] = br.readLine().split(" ");
         int maxP = Integer.parseInt(str1[0]);
         int maxM = Integer.parseInt(str1[1]);
 
+
         Node root = stack.pop();
+        root.setNumChildren(root);
         if (!stack.isEmpty() || root == null) {
             System.out.println("Something wrong");
         } else {
-            root.print(root);
+            System.out.print(root.getMaxSum(root, maxP, maxM));
+//            System.out.print("Printing Tree:\t");
+//            root.print(root);
+//            System.out.println();
         }
 
-        System.out.println();
-        System.out.println("------");
-        System.out.println(root.getMaxSum(root, maxP, maxM));
-        System.out.println("------");
-        System.out.println(root.maxMap);
-        System.out.println(root.minMap);
-        System.out.println(Node.flagValidity);
+
     }
 
-    private static int stackOperation(int pos, char[] str) {
+    private static void stackOperation(int pos, char[] str) {
         char c = str[pos];
         Node newNode = new Node();
         switch (c) {
@@ -59,40 +60,9 @@ public class FafaAndAncientMathematics {
                 stack.push(newNode);
                 break;
             default:
-                int offset = 0;
-                while (isNumber(str, pos, offset)) {
-                    offset++;
-                }
-                newNode.number = getNumber(str, pos, offset - 1);
+                newNode.number = Integer.parseInt(String.valueOf(str[pos]));
                 stack.push(newNode);
-                return pos + offset;
         }
-        return ++pos;
-    }
-
-    //it is assumed that if this function is called, substring will form a number
-    private static int getNumber(char[] str, int pos, int off) {
-        String st = "";
-        for (int i = pos; i <= (pos + off); i++) {
-            st += String.valueOf(str[i]);
-        }
-        System.out.println(st + "\t" + Integer.parseInt(st));
-        return Integer.parseInt(st);
-    }
-
-    private static boolean isNumber(char[] str, int pos, int offset) {
-        String st = "";
-        for (int i = pos; i <= (pos + offset); i++) {
-            st += String.valueOf(str[i]);
-        }
-
-        try {
-            Integer.parseInt(st);
-        } catch (Exception e) {
-            return false;
-        }
-
-        return true;
     }
 
     private static void doCloseBracketOperations() {
@@ -111,33 +81,20 @@ public class FafaAndAncientMathematics {
 class Node {
     int function;
     int number;
+    int numOperators; //this will contains the number of non root children in the subtree starting from the root
     Node left = null;
     Node right = null;
-    TreeMap<String, Long> maxMap = new TreeMap<>();
-    TreeMap<String, Long> minMap = new TreeMap<>();
-    static boolean flagValidity = true;
+    HashMap<String, Long> maxMap = new HashMap<>();
+    HashMap<String, Long> minMap = new HashMap<>();
 
 
     public long getMaxSum(Node root, int plus, int minus) {
-        System.out.println(plus + "\t" + minus + "......");
-        if (root == null || (plus < 0 && minus < 0)) {
-            System.out.println("Something wrong...");
+        if (root == null || (plus < 0 || minus < 0) || (plus + minus != root.numOperators)) {
             return Long.MIN_VALUE;
         }
-
-
-        if (plus == 0 && minus == 0) {
-            if (root.function == 0) {
-                return root.number;
-            } else {
-                return Long.MIN_VALUE;
-            }
-        }
-
 
         if (root.function == 0) {
-            //inconsistent state
-            return Long.MIN_VALUE;
+            return root.number;
         }
 
 
@@ -147,48 +104,39 @@ class Node {
 
         long tempSum = Long.MIN_VALUE;
 
-        if (plus > 0) {
-            for (int i = 0; i < plus; i++) {
-                long sumL = getMaxSum(root.left, i, minus);
-                long sumR = getMaxSum(root.right, plus - 1 - i, minus);
-                tempSum = Math.max(sumL + sumR, tempSum);
+        for (int i = 0; i <= plus; i++) {
+
+            long maxL = getMaxSum(root.left, i, root.left.numOperators - i);
+            long maxR = getMaxSum(root.right, plus - i - 1, root.right.numOperators - (plus - i - 1));
+
+            if (maxL != Long.MIN_VALUE && maxR != Long.MIN_VALUE) {
+                tempSum = Math.max(maxL + maxR, tempSum);
             }
+
+            maxR = getMinSum(root.right, plus - i, root.right.numOperators - (plus - i));
+
+            if (maxL != Long.MIN_VALUE && maxR != Long.MAX_VALUE) {
+                tempSum = Math.max(maxL - maxR, tempSum);
+            }
+
         }
 
-        if (minus > 0) {
-            for (int i = 0; i < plus; i++) {
-                long sumL = getMaxSum(root.left, plus, i);
-                long sumR = getMinSum(root.right, plus, minus - 1 - i);
-                tempSum = Math.max(sumL - sumR, tempSum);
-            }
-        }
-
-        System.out.print("Max: ");
-        root.print(root);
-        System.out.println("\t" + tempSum);
-
+//        System.out.print("Max: (+)" + plus + " " + " (-)" + minus);
+//        root.print(root);
+//        System.out.println("\t" + tempSum);
         root.maxMap.put(getKey(plus, minus), tempSum);
         return tempSum;
     }
 
 
     private long getMinSum(Node root, int plus, int minus) {
-        if (root == null || (plus < 0 && minus < 0)) {
+        if (root == null || (plus < 0 || minus < 0) || (plus + minus != root.numOperators)) {
             return Long.MAX_VALUE;
         }
 
         if (root.function == 0) {
-            if (plus == 0 && minus == 0) {
-                return root.number;
-            } else {
-                return Long.MIN_VALUE;
-            }
+            return root.number;
         }
-
-        if (plus == 0 && minus == 0) {
-            return Long.MIN_VALUE;
-        }
-
 
         if (root.minMap.containsKey(getKey(plus, minus))) {
             return root.minMap.get(getKey(plus, minus));
@@ -196,20 +144,23 @@ class Node {
 
         long tempSum = Long.MAX_VALUE;
 
-        if (plus > 0) {
-            for (int i = 0; i < plus; i++) {
-                long sumL = getMinSum(root.left, i, minus);
-                long sumR = getMinSum(root.right, plus - 1 - i, minus);
-                tempSum = Math.min(sumL + sumR, tempSum);
+        for (int i = 0; i <= plus; i++) {
+            long maxL = getMinSum(root.left, i, root.left.numOperators - i);
+            long maxR = getMinSum(root.right, plus - i - 1, root.right.numOperators - (plus - i - 1));
+            if (maxL != Long.MAX_VALUE && maxR != Long.MAX_VALUE) {
+                tempSum = Math.min(maxL + maxR, tempSum);
             }
-        }
-        if (minus > 0) {
-            for (int i = 0; i < minus; i++) {
-                long sumL = getMinSum(root.left, plus, i);
-                long sumR = getMaxSum(root.right, plus, minus - 1 - i);
-                tempSum = Math.max(sumL - sumR, tempSum);
+
+            maxR = getMaxSum(root.right, plus - i, root.right.numOperators - (plus - i));
+            if (maxL != Long.MAX_VALUE && maxR != Long.MIN_VALUE) {
+                tempSum = Math.min(maxL - maxR, tempSum);
             }
+
         }
+
+//        System.out.print("Max: (+)" + plus + " " + " (-)" + minus);
+//        root.print(root);
+//        System.out.println("\t" + tempSum);
 
         root.minMap.put(getKey(plus, minus), tempSum);
         return tempSum;
@@ -225,20 +176,14 @@ class Node {
             return;
         }
 
-        if (root.function == 0) {
-            if (root.number == 0) {
-                flagValidity = false;
-            }
-        }
-
         System.out.print("(");
         print(root.left);
         switch (root.function) {
             case 0:
-                System.out.print(" " + root.number + " ");
+                System.out.print(root.number + ":" + root.numOperators);
                 break;
             case 1:
-                System.out.print(" " + "?" + " ");
+                System.out.print(" " + "?:" + root.numOperators + " ");
                 break;
             case 2:
                 System.out.print("Something Wrong");
@@ -249,9 +194,21 @@ class Node {
             default:
                 System.out.print("Something Wrong");
         }
-
         print(root.right);
         System.out.print(")");
+    }
+
+    public int setNumChildren(Node root) {
+        if (root == null || root.function == 0) {
+            return 0;
+        }
+
+        int sum = 1;
+        sum += setNumChildren(root.left) + setNumChildren(root.right);
+        root.numOperators = sum;
+        //System.out.println(root + " " + sum);
+
+        return sum;
     }
 }
 /*
@@ -260,6 +217,9 @@ class Node {
 (12?1)
 0 1
 
+
+((6?2)?7)
+0 2
 
 
 * */
