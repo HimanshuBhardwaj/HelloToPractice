@@ -1,4 +1,4 @@
-//package com.himanshu.practice.july.july24;
+package com.himanshu.practice.july.july24;
 
 
 import java.io.BufferedReader;
@@ -104,7 +104,7 @@ class Node {
 
         long tempSum = Long.MIN_VALUE;
 
-        for (int i = 0; i <= plus; i++) {
+        for (int i = 0; i <= root.numOperators; i++) {
 
             long maxL = getMaxSum(root.left, i, root.left.numOperators - i);
             long maxR = getMaxSum(root.right, plus - i - 1, root.right.numOperators - (plus - i - 1));
