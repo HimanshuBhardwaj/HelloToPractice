@@ -7,7 +7,7 @@ import java.util.LinkedList;
 /**
  * Created by himanshubhardwaj on 26/07/18.
  */
-public class StrippOfVovelsFromListOFStrings {
+public class StrippOfVowelsFromListOFStrings {
     static HashSet<Character> vowelsSet = new HashSet<>(Arrays.asList('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'));
 
 
