@@ -7,6 +7,8 @@ import java.util.TreeSet;
 
 /**
  * Created by himanshubhardwaj on 23/07/18.
+ * Problem Statemene: https://codeforces.com/contest/607/problem/A
+ * TODO: understand the mistake and correct it
  */
 public class ChainReaction {
     public static void main(String[] args) throws IOException {
