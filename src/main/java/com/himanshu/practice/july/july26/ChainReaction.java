@@ -1,6 +1,4 @@
-package com.himanshu.practice.july.july26;
-
-import lombok.AllArgsConstructor;
+//package com.himanshu.practice.july.july26;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -27,13 +25,11 @@ public class ChainReaction {
         }
 
         //DP[i] --> maximum bombs which could be saved by activating ith bomb
-
-
         DP[0] = 1;
 
-
         for (int i = 1; i < n; i++) {
-            Bomb justMinBomb = bT.lower(new Bomb(i, b[i].pos, 0));
+            Bomb justMinBomb = bT.lower(new Bomb(i, b[i].pos - b[i].power, 0));
+            //System.out.println(i + " " + (b[i].pos - b[i].power) + " " + justMinBomb);
             if (justMinBomb == null) {
                 DP[i] = 1;
             } else {
@@ -41,18 +37,33 @@ public class ChainReaction {
             }
         }
 
-    }
+        int max = 0;
+        for (int i = 0; i < n; i++) {
+            max = Math.max(max, DP[i]);
+        }
 
+        System.out.print((n-max));
+    }
 }
 
-@AllArgsConstructor
 class Bomb implements Comparable<Bomb> {
     int index;
     int pos;
     int power;
 
+    @java.beans.ConstructorProperties({"index", "pos", "power"})
+    public Bomb(int index, int pos, int power) {
+        this.index = index;
+        this.pos = pos;
+        this.power = power;
+    }
+
     @Override
     public int compareTo(Bomb o) {
-        return this.index - o.pos;
+        return this.pos - o.pos;
+    }
+
+    public String toString() {
+        return "Bomb(index=" + this.index + ", pos=" + this.pos + ", power=" + this.power + ")";
     }
 }
