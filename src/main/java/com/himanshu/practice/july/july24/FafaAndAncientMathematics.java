@@ -12,6 +12,7 @@ import java.util.Stack;
  * Problem Statement: https://codeforces.com/problemset/problem/935/E
  * TODO: Make it work, currently i am getting TLE onto it.
  * https://codeforces.com/contest/935/submission/40734909
+ *
  */
 public class FafaAndAncientMathematics {
     static Stack<Node> stack = new Stack<>();
@@ -104,7 +105,7 @@ class Node {
 
         long tempSum = Long.MIN_VALUE;
 
-        for (int i = 0; i <= root.numOperators; i++) {
+        for (int i = 0; i <= root.left.numOperators; i++) {
 
             long maxL = getMaxSum(root.left, i, root.left.numOperators - i);
             long maxR = getMaxSum(root.right, plus - i - 1, root.right.numOperators - (plus - i - 1));
@@ -144,7 +145,7 @@ class Node {
 
         long tempSum = Long.MAX_VALUE;
 
-        for (int i = 0; i <= plus; i++) {
+        for (int i = 0; i <= root.left.numOperators; i++) {
             long maxL = getMinSum(root.left, i, root.left.numOperators - i);
             long maxR = getMinSum(root.right, plus - i - 1, root.right.numOperators - (plus - i - 1));
             if (maxL != Long.MAX_VALUE && maxR != Long.MAX_VALUE) {
