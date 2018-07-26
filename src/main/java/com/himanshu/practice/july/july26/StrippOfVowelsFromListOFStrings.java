@@ -10,7 +10,6 @@ import java.util.LinkedList;
 public class StrippOfVowelsFromListOFStrings {
     static HashSet<Character> vowelsSet = new HashSet<>(Arrays.asList('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'));
 
-
     public static void main(String[] args) {
         LinkedList<String> list = new LinkedList<>();
         list.add("It matters not how strait the gate");
@@ -56,10 +55,7 @@ public class StrippOfVowelsFromListOFStrings {
 
 
 /*
-*
-*
 Output:
-
 
 It matters not how strait the gate
 How charged with punishments the scroll
@@ -70,6 +66,4 @@ t mttrs nt hw strt th gt
 Hw chrgd wth pnshmnts th scrll
 Y r th mstr f yr ft
 Y r th cptn f yr sl
-
-
 * */
