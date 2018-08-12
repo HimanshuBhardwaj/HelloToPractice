@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Collections;
 import java.util.LinkedList;
+import java.util.TreeMap;
 
 /**
  * Created by himanshubhardwaj on 03/08/18.
@@ -18,16 +19,20 @@ public class C {
     static long timer = -1;
     static long sumGlad = 0;
     static int remaininpos = 0;
+    static int n;
+    static TreeMap<Integer, TreeMap<Integer, Long>>[] DP = new TreeMap[2];
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int n = Integer.parseInt(br.readLine());
+        n = Integer.parseInt(br.readLine());
 
         glad = new long[2][n];
         visited = new boolean[2][n];
         collectedGlad = new long[2][n];
         sumGlad = 0;
         remaininpos = 2 * n;
+        DP[0] = new TreeMap<>();
+        DP[1] = new TreeMap<>();
 
 
         String str[] = br.readLine().split(" ");
@@ -44,10 +49,40 @@ public class C {
         }
 
 
-        System.out.print(getMaxGlad(0, 0));
-
+        System.out.print(getMaxGladBF(0, 0, -1));
 
     }
+
+
+    private static long getMaxGladBF(int row, int colum, int timer) {
+        if (notValidPos(row, colum) || timer > 2 * n) {
+            return 0l;
+        }
+
+        timer++;
+        visited[row][colum] = true;
+
+        if (DP[row].containsKey(colum) && DP[row].get(colum).containsKey(timer)) {
+            return DP[row].get(colum).get(timer);
+        }
+
+
+        LinkedList<Pos> getPositions = getPositions(row, colum, 0, 0);
+
+
+        long max = 0;
+        for (Pos p : getPositions) {
+            max = Math.max(max, getMaxGladBF(p.row, p.column, timer + 1));
+        }
+
+        if (DP[row].get(colum) == null) {
+            DP[row].put(colum, new TreeMap<Integer, Long>());
+        }
+
+        DP[row].get(colum).put(timer, max + timer * glad[row][colum]);
+        return DP[row].get(colum).get(timer);
+    }
+
 
     private static long getMaxGlad(int row, int colum) {
         if (notValidPos(row, colum)) {
@@ -72,6 +107,7 @@ public class C {
         return collectedGlad[row][colum];
     }
 
+
     private static LinkedList<Pos> getPositions(int row, int colum, long sumGlad, int time) {
         LinkedList<Pos> list = new LinkedList<>();
         Pos up = new Pos(row - 1, colum, getValue(row - 1, colum, sumGlad), (time + 1));
@@ -84,7 +120,7 @@ public class C {
         list.add(left);
         list.add(right);
 
-        Collections.sort(list);
+        //Collections.sort(list);
         return list;
     }
 
@@ -97,7 +133,7 @@ public class C {
             return 0;
         }
 
-        return (sumGlad - glad[row][colum]))+remaininpos * (sumGlad - glad[row][colum]));
+        return (sumGlad - glad[row][colum]) + remaininpos * (sumGlad - glad[row][colum]);
 
 
     }
