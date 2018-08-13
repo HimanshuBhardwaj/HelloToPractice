@@ -25,8 +25,8 @@ public class A {
             str = br.readLine().split(" ");
             p[0] = new Point(Integer.parseInt(str[0]), Integer.parseInt(str[1]));
             p[1] = new Point(Integer.parseInt(str[2]), Integer.parseInt(str[3]));
-            if(p[0].t==p[1].t && p[0].h==p[1].h) {
-                System.out.println(0);
+            if (p[0].t == p[1].t) {
+                System.out.println(Math.abs(p[0].h - p[1].h));
                 continue;
             }
 
@@ -35,14 +35,14 @@ public class A {
             } else if (p[1].h < a) {
                 System.out.println((Math.abs(p[0].t - p[1].t) + Math.abs(p[0].h - a) + Math.abs(p[1].h - a)));
             } else if (p[1].h > b) {
-                System.out.println(( Math.abs(p[0].t - p[1].t) + Math.abs(p[0].h - b) + Math.abs(p[1].h - b)));
+                System.out.println((Math.abs(p[0].t - p[1].t) + Math.abs(p[0].h - b) + Math.abs(p[1].h - b)));
             }
         }
     }
 }
 
 
-class Point implements Comparable<Point>{
+class Point implements Comparable<Point> {
     long t;
     long h;
 
