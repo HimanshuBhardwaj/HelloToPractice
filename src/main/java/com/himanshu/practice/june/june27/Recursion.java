@@ -81,7 +81,7 @@ class Matrix {
         return result;
     }
 
-    //A^n
+    //A0Paper^n
     static int[][] pow(int[][] A, int n) {
         if (n == 1) {
             return A;

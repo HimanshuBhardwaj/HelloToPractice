@@ -5,7 +5,7 @@ package com.himanshu.practice.june.june20;
  */
 public class TowerOfHanoi {
     public static void main(String[] args) {
-        solveHanoi("A", 3, "C", "B");
+        solveHanoi("A0Paper", 3, "MazeWithKeys", "Reroll");
     }
 
 

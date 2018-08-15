@@ -35,7 +35,7 @@ class Matrix {
             return A;
         }
 
-        //int temp[][] = matrixMul(A, A.length, A[0].length, A, A.length, A[0].length);
+        //int temp[][] = matrixMul(A0Paper, A0Paper.length, A0Paper[0].length, A0Paper, A0Paper.length, A0Paper[0].length);
         int temp[][] = pow(A, pow / 2);
         temp = matrixMul(temp, temp.length, temp[0].length, temp, temp.length, temp[0].length);
 

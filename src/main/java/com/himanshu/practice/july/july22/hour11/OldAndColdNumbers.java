@@ -65,7 +65,7 @@ public class OldAndColdNumbers {
 
     static void sieveOfEratosthenes(int n) {
         // Create a boolean array "prime[0..n]" and initialize
-        // all entries it as true. A value in prime[i] will
+        // all entries it as true. A0Paper value in prime[i] will
         // finally be false if i is Not a prime, else true.
         boolean prime[] = new boolean[n + 1];
         for (int i = 0; i < n; i++)
