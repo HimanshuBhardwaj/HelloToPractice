@@ -1,10 +1,9 @@
-package com.himanshu.practice.aug14.educationalround;
+package com.himanshu.practice.Aug.educationalround;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.LinkedList;
-import java.util.Queue;
 
 /**
  * Created by himanshubhardwaj on 13/08/18.
