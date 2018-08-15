@@ -103,7 +103,7 @@ public class DevuAndFlowers {
 
     //seems okay
     //k will never be negative
-    public static long getChoose(long n, long k) { // C(n+k-1,k)%PRIME
+    public static long getChoose(long n, long k) { // MazeWithKeys(n+k-1,k)%PRIME
         long result = 1;
 
         for (long i = 1; i < n; i++) {

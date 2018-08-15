@@ -73,7 +73,7 @@ public class LongestRegularBracketSequence {
 //        System.out.println();
 
         TreeMap<Integer, Integer> map = new TreeMap<>();
-        //Map.Entry<K,V> lastEntry()
+        //Map.Entry<K,Reroll> lastEntry()
 
         for (int i = 0; i < c.length; i++) {
             if (d[i] >= 0) {

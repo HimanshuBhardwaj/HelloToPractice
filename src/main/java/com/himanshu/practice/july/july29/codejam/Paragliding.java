@@ -12,7 +12,7 @@ import java.util.TreeSet;
 public class Paragliding {
 
     public static void main(String[] args) throws IOException {
-        File file = new File("/Users/himanshubhardwaj/Desktop/B-small-attempt1.in");
+        File file = new File("/Users/himanshubhardwaj/Desktop/Reroll-small-attempt1.in");
         FileWriter fw = new FileWriter("/Users/himanshubhardwaj/Desktop/output.out");
         BufferedReader br = new BufferedReader(new FileReader(file));
         int t = Integer.parseInt(br.readLine());
