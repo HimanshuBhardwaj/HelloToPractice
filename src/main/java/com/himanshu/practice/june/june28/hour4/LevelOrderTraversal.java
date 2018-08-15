@@ -11,7 +11,7 @@ import java.util.StringTokenizer;
  * Created by Himanshu Bhardwaj on 28/06/18.
  */
 
-//undirected Graph
+//undirected Tree
 public class LevelOrderTraversal {
 
     public static void main(String[] args) {

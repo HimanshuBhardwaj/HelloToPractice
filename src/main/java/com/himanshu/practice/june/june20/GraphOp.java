@@ -100,7 +100,7 @@ class Graph {
             if (!visited[adjMatrix[root].get(i)]) {
                 queue.add(adjMatrix[root].get(i));
                 visited[adjMatrix[root].get(i)] = true;
-                System.out.println("Graph: " + adjMatrix[root].get(i));
+                System.out.println("Tree: " + adjMatrix[root].get(i));
             }
         }
 

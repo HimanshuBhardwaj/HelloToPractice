@@ -1,4 +1,4 @@
-package com.himanshu.practice.aug14.educationalround;
+package com.himanshu.practice.Aug.educationalround;
 
 import java.io.BufferedReader;
 import java.io.IOException;

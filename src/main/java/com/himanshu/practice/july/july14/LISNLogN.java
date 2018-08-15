@@ -36,7 +36,7 @@ public class LISNLogN {
             max = Math.max(max, i);
         }
 
-        System.out.println("N^2 Solution: " + max);
+        System.out.println("N^2 C: " + max);
         System.out.println("NlogN solution: " + getMaximumIncreasingSubSeq(arr));
 
 

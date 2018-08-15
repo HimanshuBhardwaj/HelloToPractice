@@ -30,7 +30,7 @@ public class KColouring {
 
 
         if (result != null) {
-            System.out.println("Graph\t\tColour");
+            System.out.println("Tree\t\tColour");
             for (int i = 0; i < result.length; i++) {
                 System.out.println(i + "\t\t" + result[i]);
             }
