@@ -4,14 +4,11 @@ import java.util.HashSet;
 import java.util.Scanner;
 
 /**
- * Created by Himanshu Bhardwaj on 07/07/18.
+ * Created by himanshubhardwaj on 22/08/18.
  *
- * Q: Given an array, find distinct subarrays which contains atmax m odd numbers;
- *      Array size is n;
- *      m: subbarray with maximum m is permitted
  *
  */
-public class GivenOddNumbersSubstring {
+public class Solution {
     private static String[] segmentTree = null;
     private static int lastPos;
 
@@ -35,7 +32,7 @@ public class GivenOddNumbersSubstring {
         for (int i = 0; i < arr.length; i++) {
             for (int j = i; j < arr.length; j++) {
                 if ((leftOdd[j] - leftOdd[i] + arr[i] % 2) <= m) {
-                    String bruteforce = getStringFromArray(i, j, arr);
+                    //String bruteforce = getStringFromArray(i, j, arr);
                     String segmentTreeResult = getString(0, segmentTree.length / 2, i, j, 0);
                     //System.out.println("(" + i + "," + j + ")\tComparision: " + bruteforce + "\t\t" + segmentTreeResult);
                     if (!hasReadBefore.contains(segmentTreeResult)) {
