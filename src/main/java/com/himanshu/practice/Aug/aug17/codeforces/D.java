@@ -1,4 +1,4 @@
-//package com.himanshu.practice.Aug.aug17.codeforces;
+package com.himanshu.practice.Aug.aug17.codeforces;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -180,10 +180,8 @@ class SegmentTree {
         if (index > (lastPos - (segmentTree.length / 2))) {
             return;
         }
-
         int diff = newValue - segmentTree[segmentTree.length / 2 + index];
         changeElementHelper(0, segmentTree.length / 2, diff, index, 0);
-
     }
 
 
