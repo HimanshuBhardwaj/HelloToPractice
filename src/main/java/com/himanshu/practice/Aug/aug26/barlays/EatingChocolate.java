@@ -42,7 +42,7 @@ public class EatingChocolate {
         if (position == 0) {
             System.out.println("B");
         } else {
-            System.out.println("A");
+            System.out.println("TestClass");
         }
     }
 }
