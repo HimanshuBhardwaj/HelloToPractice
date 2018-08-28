@@ -9,6 +9,7 @@ import java.io.PrintWriter;
  * Created by himanshubhardwaj on 29/08/18.
  * Statement: https://codeforces.com/contest/628/problem/C
  * Algo: Timepass
+ * Submission: https://codeforces.com/contest/628/problem/C
  */
 public class BearAndStringDistance {
     public static void main(String[] args) throws IOException {
