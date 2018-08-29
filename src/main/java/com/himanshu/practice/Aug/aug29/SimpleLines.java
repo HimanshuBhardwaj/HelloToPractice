@@ -1,9 +1,12 @@
 package com.himanshu.practice.Aug.aug29;
 
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 /**
@@ -14,9 +17,96 @@ import java.util.Stack;
  */
 public class SimpleLines {
     public static void main(String[] args) throws IOException {
-        mySolution();
+        //mySolution();
+        greedySolution();
     }
 
+    //greedy tok 171 ms
+    private static void greedySolution() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        char str[] = br.readLine().toCharArray();
+        int ch = str[0] - 'a';
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(0);
+
+
+        for (int i = 1; i < str.length; i++) {
+            if ((str[i] - 'a') == ch) {
+                queue.add(i);
+                continue;
+            } else {
+                changeGreedy(str, queue, i);
+            }
+            ch = str[i] - 'a';
+            queue.add(i);
+        }
+
+        changeGreedy(str, queue, str.length);
+        PrintWriter pr = new PrintWriter(System.out);
+
+        for (char c : str) {
+            pr.append(c);
+        }
+        pr.flush();
+    }
+
+
+    static void changeGreedy(char str[], Queue<Integer> queue, int i) {
+        if (queue.size() <= 1) {
+            queue.poll();
+            return;
+        }
+
+        System.out.println(queue);
+
+        int diffCh = -1;
+
+        for (int j = 0; j < 26; j++) {
+            if (j == (str[queue.peek()] - 'a')) {
+                continue;
+            }
+            if (queue.peek() == 0 && i < str.length) {
+                if ((str[i] - 'a') != j) {
+                    diffCh = j;
+                    break;
+                }
+            } else if (queue.peek() == 0 && i == str.length) {
+                if (j != (str[queue.peek()] - 'a')) {
+                    diffCh = j;
+                    break;
+                }
+            } else if (queue.peek() != 0 && (i == str.length)) {
+                if (j != (str[queue.peek() - 1] - 'a')) {
+                    diffCh = j;
+                    break;
+                }
+            } else {
+                if (((str[i] - 'a') != j) && ((str[queue.peek() - 1] - 'a') != j)) {
+                    diffCh = j;
+                    break;
+                }
+            }
+        }
+
+        //System.out.println("Diff:\t" + diffCh + "\t" + str[i]);
+
+        if (queue.size() % 2 == 1) {
+            queue.poll();
+        }
+
+        while (!queue.isEmpty()) {
+            str[queue.peek()] = (char) (diffCh + 'a');
+            //System.out.println(((char) (diffCh + 'a')) + "\t" + queue.peek());
+            queue.poll();
+            if (!queue.isEmpty()) {
+                queue.poll();
+            }
+        }
+
+    }
+
+
+    //took 810ms
     private static void mySolution() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         char str[] = br.readLine().toCharArray();
