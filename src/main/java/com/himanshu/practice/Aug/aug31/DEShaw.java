@@ -39,7 +39,6 @@ class Solution {
                     nextPalindrome = Nextplaindrome.nextPalindrome(max);
                 }
             }
-
         }
 
         return max;
