@@ -1,77 +1,56 @@
 package com.himanshu.practice.july.july10;
 
-import java.io.*;
-import java.util.*;
+//package com.himanshu.practice.july10;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.List;
 
 /**
- * Created by Himanshu Bhardwaj on 10/07/18.
- * TODO: Not working
+ * Created by himanshubhardwaj on 10/07/18.
  */
 public class IlyaAndTheTree {
     public static void main(String[] args) throws IOException {
-
+        long startTime = System.currentTimeMillis();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        //int n = Integer.parseInt(br.readLine());
-        int n = 200000;
+        int n = Integer.parseInt(br.readLine());
         int a[] = new int[n + 1];
 
-        //StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-        int pos = 1;
-        while (pos<=n) {
-            //a[pos] = Integer.parseInt(st.nextToken());
-            a[pos] = 196560;
-            pos++;
-        }
 
+        String st[] = br.readLine().split(" ");
+
+        for (int i = 0; i < st.length; i++) {
+            a[i + 1] = Integer.parseInt(st[i]);
+        }
         Tree tree = new Tree(n, a);
 
+
+        //Inserting nodes in tree
         String[] stings = null;
         for (int i = 1; i <= (n - 1); i++) {
-            //String str = br.readLine();
-            //stings = str.split(" ");
-            //int source = Integer.parseInt(stings[0]);
-            //int destination = Integer.parseInt(stings[1]);
-            int source = i;
-            int destination = i + 1;
+            String str = br.readLine();
+            stings = str.split(" ");
+            int source = Integer.parseInt(stings[0]);
+            int destination = Integer.parseInt(stings[1]);
             tree.insert(source, destination);
         }
-
-
-        //thatsPrePRocesssing
-        //tree.getMAxGCDBrute(1, 0);
-
 
         HashMap<Integer, Value> map = new HashMap<>();
 
         for (int key : tree.getAllDivisors(tree.a[1], null)) {
             map.put(key, new Value(0));
         }
+
+
         tree.setMap(map);
-
-        long startTime = System.currentTimeMillis();
         tree.maximumGCDFunc(1, 0, 0);
-        long end = System.currentTimeMillis();
-
-        if (n != 200000) {
-            tree.printResult();
-        } else {
-            System.out.print(end - startTime);
-        }
-
-//        System.out.println();
-//        tree.printGraph();
-
-
-// TODO: Correct it and make it run later
-// int maxNumber[] = new int[n + 1];
-//        maxNumber[1] = a[1];
-//
-//
-//        tree.getMAxNumber(1, 0, 0, 0, maxNumber, a);
-//
-//        for (int i = 1; i < a.length; i++) {
-//            System.out.print(maxNumber[i] + " ");
-//        }
+        tree.printResult();
     }
 }
 
@@ -207,13 +186,13 @@ class Tree {
 
 
     void printResult() throws IOException {
-        BufferedWriter br = new BufferedWriter(new OutputStreamWriter(System.out));
+        PrintWriter pr = new PrintWriter(System.out);
 
 
         for (int i = 1; i < maximumGCD.length; i++) {
-            br.write(maximumGCD[i] + " ");
+            pr.append(maximumGCD[i] + " ");
         }
-        br.flush();
+        pr.flush();
 
     }
 

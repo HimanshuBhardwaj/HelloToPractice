@@ -6,7 +6,7 @@ package com.himanshu.practice.Aug.aug29;
 public class MaxElement {
     int maxProfit(int[] arr, int money) {
         int maxR[] = new int[30];
-        maxR[arr.length - 1] = arr[30 - 1];
+        maxR[30 - 1] = arr[30 - 1];
         int maxRPOS[] = new int[30];
         maxRPOS[29] = -1;
         int pos = 29;
@@ -24,19 +24,28 @@ public class MaxElement {
         }
 
 
-        //assuming we can  buy and sell only once,
-        int profit = Integer.MIN_VALUE;
+        int profitPerShare = Integer.MIN_VALUE;
+        int newMoney = money;
+        int buy = Integer.MAX_VALUE;
+        int newTotalProfit = 0;
 
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i] <= money) {
-                int tProfit = (money / arr[i]) * (maxR[i] - arr[i]);
-
-                if (tProfit > profit) {
-                    profit = tProfit;
+            //suppose we sell stock today then money we will be having
+            if (buy < Integer.MAX_VALUE) {
+                profitPerShare = arr[i] - buy;
+                if (profitPerShare > 0) {
+                    newTotalProfit = (newMoney / buy) * profitPerShare;
+                    newMoney = newMoney + newTotalProfit;
                 }
+            }
+            //this will always greater than money(orignal money)
+            if (arr[i] <= newMoney) {
+                buy = arr[i];
             }
         }
 
-        return money + ((profit >= 0) ? profit : 0);
+        return money + ((profitPerShare >= 0) ? profitPerShare : 0);
     }
 }
+
+//2, 3, 4, 5
