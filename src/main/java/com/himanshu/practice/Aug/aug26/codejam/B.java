@@ -12,7 +12,7 @@ public class B {
     static String[] output;
 
     public static void main(String[] args) throws IOException {
-        readFile("/Users/himanshubhardwaj/Desktop/b/B-small-attempt1.in");
+        readFile("/Users/himanshubhardwaj/Desktop/b/Source-small-attempt1.in");
         writeFile("/Users/himanshubhardwaj/Desktop/b/hello.output");
 
     }

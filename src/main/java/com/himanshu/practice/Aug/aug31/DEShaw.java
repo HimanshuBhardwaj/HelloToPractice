@@ -79,7 +79,7 @@ class Nextplaindrome {
         // if n is odd or even
         int j = (n % 2 == 0) ? mid : mid + 1;
 
-        // A bool variable to check if copy of left
+        // Source bool variable to check if copy of left
         // side to right
         // is sufficient or not
         boolean leftsmaller = false;
@@ -164,7 +164,7 @@ class Nextplaindrome {
         return num;
     }
 
-    // A utility function to check if num has all 9s
+    // Source utility function to check if num has all 9s
     static boolean isAll9(int num[], int n) {
         for (int i = 0; i < n; i++)
             if (num[i] != 9)
