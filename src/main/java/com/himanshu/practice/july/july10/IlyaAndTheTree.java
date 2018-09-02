@@ -1,203 +1,212 @@
 package com.himanshu.practice.july.july10;
 
-//package com.himanshu.practice.july10;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.List;
+import java.util.*;
+
 
 /**
  * Created by himanshubhardwaj on 10/07/18.
+ * Problem statement: https://codeforces.com/contest/842/problem/C
+ * Could not get an AC :-(
  */
 public class IlyaAndTheTree {
     public static void main(String[] args) throws IOException {
-        long startTime = System.currentTimeMillis();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
-        int a[] = new int[n + 1];
-
-
+        long a[] = new long[n];
         String st[] = br.readLine().split(" ");
 
+
         for (int i = 0; i < st.length; i++) {
-            a[i + 1] = Integer.parseInt(st[i]);
+            a[i] = Long.parseLong(st[i]);
         }
         Tree tree = new Tree(n, a);
-
 
         //Inserting nodes in tree
         String[] stings = null;
         for (int i = 1; i <= (n - 1); i++) {
             String str = br.readLine();
             stings = str.split(" ");
-            int source = Integer.parseInt(stings[0]);
-            int destination = Integer.parseInt(stings[1]);
+            int source = Integer.parseInt(stings[0]) - 1;
+            int destination = Integer.parseInt(stings[1]) - 1;
             tree.insert(source, destination);
         }
 
-        HashMap<Integer, Value> map = new HashMap<>();
 
-        for (int key : tree.getAllDivisors(tree.a[1], null)) {
-            map.put(key, new Value(0));
-        }
+        tree.maximumGCDEditorialSolution();
+//        System.out.println("");
+//        tree.maximumGCDMySolution(0, 0, 0, 0);
+//        tree.printGraph();
+//        tree.print();
 
-
-        tree.setMap(map);
-        tree.maximumGCDFunc(1, 0, 0);
-        tree.printResult();
     }
 }
 
 
 class Tree {
     ArrayList<Integer>[] adjList;
-    int numNodes; //1...n
-    int[] maximumGCD; //1...i
-    int[] a;
-    HashMap<Integer, Value> map = null;
+    long number[];
+    int n;
+    long maximum[];
+    long mySolutionWithoutRoot[];
+    long mySolutionwithRoot[];
+    TreeSet<Long> factorsOfRoot;
+    long[] factors;
+    int[] frequency;
 
+    public Tree(int n, long[] a) {
+        this.n = n;
+        this.number = a;
+        adjList = new ArrayList[n];
+        mySolutionWithoutRoot = new long[n];
+        mySolutionwithRoot = new long[n];
+        maximum = new long[n];
 
-    public static void setDivisorsList() {
-
-    }
-
-    public Tree(int numNodes, int[] arr) {
-        this.numNodes = numNodes;
-        adjList = new ArrayList[numNodes + 1];
-
-        for (int i = 0; i <= numNodes; i++) {
+        for (int i = 0; i < n; i++) {
             adjList[i] = new ArrayList<>();
+            mySolutionWithoutRoot[i] = 1l;
+            mySolutionwithRoot[i] = 1l;
+            maximum[i] = 1l;
         }
-        maximumGCD = new int[numNodes + 1];
-        this.a = arr;
     }
 
-    public void insert(int source, int destination) {
+    void insert(int source, int destination) {
         adjList[source].add(destination);
     }
 
-
-    public List<Integer> getAllDivisors(int n, Set<Integer> intersectionSet) {
-        List list = new ArrayList<>();
-
-        if (intersectionSet != null) {
-            for (int i : intersectionSet) {
-                if (n % i == 0) {
-                    list.add(i);
-                }
-            }
-        } else {
-            for (int i = 2; i <= n / 2; i++) {
-                if ((n % i) == 0) {
-                    list.add(i);
-                }
-            }
-            list.add(n);
-        }
-        return list;
-    }
-
-
-    //root not included
-    public void getMAxGCDBrute(int node, int commulativeGCD) {
-        if (node == 1) {
-            maximumGCD[node] = 0;
-        } else {
-            maximumGCD[node] = gcd(commulativeGCD, a[node]);
-        }
-        for (int i = 0; i < adjList[node].size(); i++) {
-            getMAxGCDBrute(adjList[node].get(i), maximumGCD[node]);
-        }
-    }
-
-
-    //not working
-    //TODO: Make it run
-    public void getMAxNumber(int node, int maxExcluding, int maxIncluding, int maxIncludingPPRevious,
-                             int[] maxNumber, int[] a) {
-        int newMaxExcluding = -1;
-        int newMaxIncluding = 1;
-        if (node != 1) {
-            newMaxExcluding = Math.max(Math.max(maxIncluding, gcd(maxExcluding, a[node])), gcd(maxIncludingPPRevious, a[node]));
-            newMaxIncluding = gcd(maxIncluding, a[node]);
-        } else {
-            newMaxExcluding = 0;
-            newMaxIncluding = a[node];
-        }
-        maxNumber[node] = Math.max(newMaxIncluding, newMaxExcluding);
-//        System.out.println(node + ", " + newMaxExcluding + ", " + newMaxIncluding);
-
-        for (int i = 0; i < adjList[node].size(); i++) {
-            getMAxNumber(adjList[node].get(i), newMaxExcluding, newMaxIncluding, maxIncluding, maxNumber, a);
-        }
-    }
-
-    public static int gcd(int a, int b) {
-        if (a * b == 0) {
-            return (a == 0) ? b : a;
-        }
-        return (a > b) ? gcd(a % b, b) : gcd(b % a, a);
-    }
-
-    public void maximumGCDFunc(int node, int depth, int commGCD) {
-//        System.out.println(map.size());
-
-        if (node == 1) {
-            maximumGCD[1] = a[1];
-            for (int i = 0; i < adjList[node].size(); i++) {
-                maximumGCDFunc(adjList[node].get(i), depth + 1, commGCD);
+    void maximumGCDMySolution(int index, long gcdMaximumIncludingParent, long gcdMaximumExcludingParent, long continourGCD) {
+        if (index == 0) {
+            maximum[0] = number[0];
+            for (int neightbour : adjList[index]) {
+                maximumGCDMySolution(neightbour, number[0], 0, number[0]);
             }
         } else {
 
-            for (Map.Entry<Integer, Value> entry : map.entrySet()) {
-                if (a[node] % entry.getKey() == 0) {
-                    //System.out.println("Coming here:\t" + node);
-                    entry.getValue().inc();
-                }
-            }
+            maximum[index] = Math.max(maximum[index], gcd(number[index], gcdMaximumExcludingParent));
+            maximum[index] = Math.max(maximum[index], gcd(number[index], gcdMaximumIncludingParent));
+            long x = maximum[index];
+            maximum[index] = Math.max(maximum[index], continourGCD);
 
-            int temp = gcd(commGCD, a[node]);
-            maximumGCD[node] = temp;
-            //System.out.println(maximumGCD[node] + "..." + commGCD + "..." + a[node]);
-            for (Map.Entry<Integer, Value> entry : map.entrySet()) {
-                if (entry.getValue().value == (depth - 1)) {
-                    maximumGCD[node] = Math.max(maximumGCD[node], entry.getKey());
-                }
-            }
-
-            for (int i = 0; i < adjList[node].size(); i++) {
-                maximumGCDFunc(adjList[node].get(i), depth + 1, temp);
-            }
-
-            for (Map.Entry<Integer, Value> entry : map.entrySet()) {
-                if (a[node] % entry.getKey() == 0) {
-                    //System.out.println("Coming here Also:\t" + node);
-                    entry.getValue().dec();
-                }
+            for (int neightbour : adjList[index]) {
+                maximumGCDMySolution(neightbour, x, continourGCD, gcd(continourGCD, number[index]));
             }
         }
     }
 
 
-    void printResult() throws IOException {
+    void maximumGCDEditorialSolution() {
+        //System.out.println("@maximumGCDEditorialSolution");
+        computeMaximumwithoutRoot(0, 0);
+        computeFactorsMap(number[0]);
+        System.out.println(factorsOfRoot);
+        int s = factorsOfRoot.size();
+        factors = new long[s];
+        int pos = 0;
+        for (long x : factorsOfRoot) {
+            factors[pos] = x;
+            pos++;
+
+        }
+        Arrays.sort(factors);
+        frequency = new int[factors.length];
+
+
+        computeMaximumwithRoot(0, 1);
         PrintWriter pr = new PrintWriter(System.out);
 
 
-        for (int i = 1; i < maximumGCD.length; i++) {
-            pr.append(maximumGCD[i] + " ");
+        //System.out.println(mySolutionwithRoot.length);
+        for (int i = 0; i < mySolutionwithRoot.length; i++) {
+            if (mySolutionWithoutRoot[i] <= 0 || mySolutionwithRoot[i] <= 0) {
+                throw new RuntimeException("negative number" +
+                        ((mySolutionWithoutRoot[i] <= 0) ? ("mySolutionWithoutRoot: " + mySolutionWithoutRoot[i]) : "mySolutionwithRoot: " + mySolutionwithRoot[i]) + "\t" + i + "Number: " + number[i] +
+                        "\t GCD" + gcd(0, number[i]));
+            }
+            long n = Math.max(mySolutionWithoutRoot[i], mySolutionwithRoot[i]);
+            pr.append(String.valueOf(n));
+            pr.append(" ");
         }
         pr.flush();
-
+        pr.close();
     }
 
+    private void computeMaximumwithRoot(int node, int depth) {
+        //System.out.println("Node: " + node + "\tdepth: " + depth + "\t factoMap: " + factorsOfRoot + "\tFactors: " + factors + "\tadjList: " + adjList[node]);
+
+        for (int i = 0; i < factors.length; i++) {
+            if (number[node] % factors[i] == 0) {
+                frequency[i]++;
+            }
+        }
+
+
+        for (int i = 0; i < factors.length; i++) {
+            if (frequency[i] >= (depth - 1)) {
+                mySolutionwithRoot[node] = Math.max(mySolutionwithRoot[node], factors[i]);
+            }
+        }
+
+        for (int neighboours : adjList[node]) {
+            computeMaximumwithRoot(neighboours, depth + 1);
+        }
+
+        for (int i = 0; i < factors.length; i++) {
+            if (number[node] % factors[i] == 0) {
+                frequency[i]--;
+            }
+        }
+    }
+
+
+    private void computeFactorsMap(long number) {
+        int sqrt = (int) Math.ceil(Math.sqrt(number));
+        factorsOfRoot = new TreeSet<>();
+        for (long i = 1; i <= sqrt; i++) {
+            long fac = number / i;
+            if ((fac * i) == number) {
+                factorsOfRoot.add(i);
+                factorsOfRoot.add(fac);
+            }
+        }
+    }
+
+
+    private void computeMaximumwithoutRoot(int index, long gcd) {
+        if (index == 0) {
+            mySolutionWithoutRoot[index] = number[index];
+            for (int neighbour : adjList[index]) {
+                computeMaximumwithoutRoot(neighbour, 0);
+            }
+        } else {
+            mySolutionWithoutRoot[index] = gcd(gcd, number[index]);
+            for (int neighbour : adjList[index]) {
+                computeMaximumwithoutRoot(neighbour, mySolutionWithoutRoot[index]);
+            }
+        }
+    }
+
+
+    //assume a>=b
+    public static long gcd(long a, long b) {
+        if (a < b) {
+            return gcd(b, a);
+        }
+        if (b == 1) {
+            return 1l;
+        }
+        if (b == 0) {
+            return a;
+        }
+        return gcd(b, a % b);
+    }
+
+
     void printGraph() {
-        for (int i = 1; i < adjList.length; i++) {
+        for (int i = 0; i < adjList.length; i++) {
             System.out.print(i + ": ");
             for (int j = 0; j < adjList[i].size(); j++) {
                 System.out.print(adjList[i].get(j) + ",");
@@ -206,53 +215,13 @@ class Tree {
         }
     }
 
-    public void setMap(HashMap<Integer, Value> map) {
-        this.map = map;
-    }
-}
-
-
-class Value {
-    int value;
-
-    public void inc() {
-        value++;
-    }
-
-    public void dec() {
-        value++;
-    }
-
-    @java.beans.ConstructorProperties({"value"})
-    public Value(int value) {
-        this.value = value;
-    }
-
-    public int getValue() {
-        return this.value;
-    }
-
-    public void setValue(int value) {
-        this.value = value;
-    }
-
-    public boolean equals(Object o) {
-        if (o == this) return true;
-        if (!(o instanceof Value)) return false;
-        final Value other = (Value) o;
-        if (!other.canEqual((Object) this)) return false;
-        if (this.getValue() != other.getValue()) return false;
-        return true;
-    }
-
-    public int hashCode() {
-        final int PRIME = 59;
-        int result = 1;
-        result = result * PRIME + this.getValue();
-        return result;
-    }
-
-    protected boolean canEqual(Object other) {
-        return other instanceof Value;
+    void print() {
+        PrintWriter pr = new PrintWriter(System.out);
+        for (long x : maximum) {
+            pr.append(String.valueOf(x));
+            pr.append(" ");
+        }
+        pr.flush();
+        pr.close();
     }
 }
