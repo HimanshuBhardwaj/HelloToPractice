@@ -1,4 +1,4 @@
-package com.himanshu.practice.sept;
+package com.himanshu.practice.sept.sept1;
 
 import java.io.BufferedReader;
 import java.io.IOException;
