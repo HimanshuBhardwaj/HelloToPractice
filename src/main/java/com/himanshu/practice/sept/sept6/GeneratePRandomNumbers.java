@@ -17,6 +17,7 @@ public class GeneratePRandomNumbers {
     static int numberofIterationsforEachPrime;
     static HashSet<Long> oneMillionRandomNumbers;
     static int numberOFtimesFunctionCalled = 0;
+    private static long randomMaths;
 
     public static void main(String[] args) {
         numberOFPrimesUnderConsideration = 1000000;
@@ -29,16 +30,17 @@ public class GeneratePRandomNumbers {
         System.out.println(listofPrimes);
         int number = 0;
 
-        while (oneMillionRandomNumbers.size() < totalNumberRequired) {
-            long getRandom = getRandom();
+//        while (oneMillionRandomNumbers.size() < totalNumberRequired) {
+//            long getRandom = getRandom();
+//
+//            //System.out.println(getRandom + "\t" + oneMillionRandomNumbers.contains(getRandom) + "\t" + oneMillionRandomNumbers.size());
+//            if (!oneMillionRandomNumbers.contains(getRandom)) {
+//                oneMillionRandomNumbers.add(getRandom);
+//            }
+//        }
+//
+//        System.out.println("Collissions: " + (numberOFtimesFunctionCalled - totalNumberRequired));
 
-            //System.out.println(getRandom + "\t" + oneMillionRandomNumbers.contains(getRandom) + "\t" + oneMillionRandomNumbers.size());
-            if (!oneMillionRandomNumbers.contains(getRandom)) {
-                oneMillionRandomNumbers.add(getRandom);
-            }
-        }
-
-        System.out.println("Collissions: " + (numberOFtimesFunctionCalled - totalNumberRequired));
         /**
          *
          * My second method
@@ -48,8 +50,23 @@ public class GeneratePRandomNumbers {
          *1000000: 4808891
          */
 
+        numberOFtimesFunctionCalled = 0;
+        oneMillionRandomNumbers = new HashSet<>();
+        while (oneMillionRandomNumbers.size() < totalNumberRequired) {
+            long getRandom = getRandomMaths();
 
+            //System.out.println(getRandom + "\t" + oneMillionRandomNumbers.contains(getRandom) + "\t" + oneMillionRandomNumbers.size());
+            if (!oneMillionRandomNumbers.contains(getRandom)) {
+                oneMillionRandomNumbers.add(getRandom);
+            }
+        }
+        System.out.println("Collissions: " + (numberOFtimesFunctionCalled - totalNumberRequired));
+        System.out.println(oneMillionRandomNumbers.size());
 
+        /*
+        * Using this I did not any collissio at all
+        *
+        * */
 
 
     }
@@ -95,5 +112,11 @@ public class GeneratePRandomNumbers {
         }
 
         return seed;
+    }
+
+    public static long getRandomMaths() {
+        numberOFtimesFunctionCalled++;
+
+        return (long) (Math.random() * 100000000d);
     }
 }
