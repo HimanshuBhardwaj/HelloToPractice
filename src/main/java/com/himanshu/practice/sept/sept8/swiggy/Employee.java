@@ -2,9 +2,7 @@ package com.himanshu.practice.sept.sept8.swiggy;
 
 import lombok.Builder;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.ToString;
-
 import java.util.HashSet;
 import java.util.Set;
 

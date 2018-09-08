@@ -2,10 +2,7 @@ package com.himanshu.practice.sept.sept8.swiggy;
 
 import lombok.Getter;
 
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.PriorityQueue;
+import java.util.*;
 
 /**
  * Created by himanshubhardwaj on 08/09/18.
@@ -14,7 +11,8 @@ public class DeliveryExecutive extends Employee {
 
     @Getter
     private FleetManager fleetManager;
-    private static PriorityQueue<DeliveryExecutive> deliveryExecutives = new PriorityQueue<>(new DeliveryExecutiveComparator());
+    //Array list because while sorting this will have locality of refrence. Also i'm doing .get(i)
+    private static ArrayList<DeliveryExecutive> deliveryExecutives = new ArrayList<>();
 
     public DeliveryExecutive(FleetManager f, String name, int id, double salary, int raiting) {
         this(name, id, salary, raiting);
@@ -54,20 +52,20 @@ public class DeliveryExecutive extends Employee {
     }
 
     static public List<DeliveryExecutive> getTopKDeliveryExecutive(int k) {
+        //assuming this function will be called very rarely; otherwise we will have to implement fibonacci heap which
+        // could take care of dynamically changing priorities because of bonus distribution. PriorityQueue of java can
+        // not handle that.
+        Collections.sort(deliveryExecutives, new DeliveryExecutiveComparator());
         if (deliveryExecutives.size() < k) {
+            //you dont know what all operations the caller is doing, so printing lones version.
             return new LinkedList<>(deliveryExecutives);
         }
-
-        //this is a hack
-        PriorityQueue<DeliveryExecutive> pq = new PriorityQueue<>(new DeliveryExecutiveComparator());
-        pq.addAll(deliveryExecutives);
-        deliveryExecutives = pq;
 
 
         LinkedList<DeliveryExecutive> listReq = new LinkedList<>();
 
         for (int i = 0; i < k; i++) {
-            listReq.addLast(deliveryExecutives.poll());
+            listReq.addLast(deliveryExecutives.get(i));
         }
         deliveryExecutives.addAll(listReq);
         return listReq;
@@ -80,10 +78,8 @@ public class DeliveryExecutive extends Employee {
     private static class DeliveryExecutiveComparator implements Comparator<DeliveryExecutive> {
         @Override
         public int compare(DeliveryExecutive o1, DeliveryExecutive o2) {
-            if (Double.compare(0d, o2.salary) == 0) {
-                return 1;
-            } else if (Double.compare(0d, o1.salary) == 0) {
-                return -1;
+            if (Double.compare(0d, o2.salary) == 0 || Double.compare(0d, o1.salary) == 0) {
+                return Double.compare(o2.bonus, o1.bonus);
             } else {
                 return Double.compare(o2.bonus / o2.salary, o1.bonus / o1.salary);
             }

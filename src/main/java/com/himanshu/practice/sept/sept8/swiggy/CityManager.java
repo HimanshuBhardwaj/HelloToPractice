@@ -40,6 +40,7 @@ public class CityManager extends Employee {
         printHierarchyHelper(this);
     }
 
+    //We can make this generic :-(
     private void printHierarchyHelper(CityManager f) {
         System.out.println(f);
         for (FleetManager fm : f.list) {
@@ -48,6 +49,7 @@ public class CityManager extends Employee {
     }
 
     public String toString() {
+        //change this according to your needs
         return super.toString() + "Commulative Raiting: " + commulativeRaiting;
     }
 
@@ -56,13 +58,14 @@ public class CityManager extends Employee {
             System.out.println(this + " City manager is not valid");
             return;
         }
+        //with could losse some bonus into precision
         for (FleetManager f : list) {
             f.distributeBonus((f.commulativeRaiting * bonus / (double) commulativeRaiting));
-
         }
     }
 
     public boolean isValidCityManager() {
+        //lazy checking
         if (list.size() > 0) {
             return true;
         }
