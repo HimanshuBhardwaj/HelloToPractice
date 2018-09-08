@@ -58,6 +58,12 @@ public class DeliveryExecutive extends Employee {
             return new LinkedList<>(deliveryExecutives);
         }
 
+        //this is a hack
+        PriorityQueue<DeliveryExecutive> pq = new PriorityQueue<>(new DeliveryExecutiveComparator());
+        pq.addAll(deliveryExecutives);
+        deliveryExecutives = pq;
+
+
         LinkedList<DeliveryExecutive> listReq = new LinkedList<>();
 
         for (int i = 0; i < k; i++) {
@@ -79,7 +85,7 @@ public class DeliveryExecutive extends Employee {
             } else if (Double.compare(0d, o1.salary) == 0) {
                 return -1;
             } else {
-                return Double.compare(o1.bonus / o1.salary, o2.bonus / o2.salary);
+                return Double.compare(o2.bonus / o2.salary, o1.bonus / o1.salary);
             }
         }
 

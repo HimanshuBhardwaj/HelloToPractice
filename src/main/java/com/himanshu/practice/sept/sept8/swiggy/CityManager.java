@@ -1,10 +1,8 @@
 package com.himanshu.practice.sept.sept8.swiggy;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
+import lombok.Getter;
+import lombok.Setter;
 import java.util.LinkedList;
 import java.util.List;
 
