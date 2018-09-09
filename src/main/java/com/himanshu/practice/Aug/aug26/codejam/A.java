@@ -12,7 +12,7 @@ public class A {
     static String[] output;
 
     public static void main(String[] args) throws IOException {
-        readFile("/Users/himanshubhardwaj/Desktop/a/TestClass-large.in");
+        readFile("/Users/himanshubhardwaj/Desktop/a/RotateAndSpeakGame-large.in");
         writeFile("/Users/himanshubhardwaj/Desktop/a/output");
 
     }

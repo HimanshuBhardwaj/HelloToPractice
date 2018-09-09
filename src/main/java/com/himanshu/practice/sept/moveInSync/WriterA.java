@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 
 /**
  * Created by himanshubhardwaj on 05/09/18.
- * A process which will append odd numbers to file
+ * RotateAndSpeakGame process which will append odd numbers to file
  */
 public class WriterA {
     public static void main(String[] args) throws IOException, InterruptedException {
