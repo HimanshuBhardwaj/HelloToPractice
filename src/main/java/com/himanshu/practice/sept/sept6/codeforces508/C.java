@@ -36,7 +36,7 @@ public class C {
         long sum = 0l;
 
         for (int i = n - 1; i >= 0; i--) {
-            //A's chance
+            //RotateAndSpeakGame's chance
             if (posA >= 0 && posB >= 0) {
                 if (A[posA] >= B[posB]) {
                     sum += A[posA];
@@ -51,7 +51,7 @@ public class C {
                 posB--;
             }
 
-            //B's chance
+            //TestClass's chance
             if (posA >= 0 && posB >= 0) {
                 if (A[posA] <= B[posB]) {
                     sum -= B[posB];

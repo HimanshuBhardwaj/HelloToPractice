@@ -17,7 +17,7 @@ public class C {
     static int win = 0;
 
     public static void main(String[] args) throws IOException {
-        readFile("/Users/himanshubhardwaj/Desktop/apac/c/C-small-attempt0.in");
+        readFile("/Users/himanshubhardwaj/Desktop/apac/c/LargestBalancedString-small-attempt0.in");
         writeFile("/Users/himanshubhardwaj/Desktop/apac/c/hello.output");
     }
 

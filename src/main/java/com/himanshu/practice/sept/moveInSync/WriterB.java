@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 
 /**
  * Created by himanshubhardwaj on 05/09/18.
- * A process which will append even numbes to file
+ * RotateAndSpeakGame process which will append even numbes to file
  */
 public class WriterB {
     public static void main(String[] args) throws IOException, InterruptedException {

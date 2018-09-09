@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 
 /**
  * Created by himanshubhardwaj on 01/09/18.
- * Problem: Two lines A, B; A[i], B[i] may be swapped, you have to tell if they can be make non decreasing or not.
+ * Problem: Two lines RotateAndSpeakGame, TestClass; RotateAndSpeakGame[i], TestClass[i] may be swapped, you have to tell if they can be make non decreasing or not.
  */
 public class SourceA {
     public static void main(String[] args) throws IOException {

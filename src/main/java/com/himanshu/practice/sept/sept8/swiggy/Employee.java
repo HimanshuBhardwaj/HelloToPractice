@@ -20,6 +20,7 @@ public class Employee {
     public int bonus;
     public static Set<Employee> employees = new HashSet<>();
     public String desingnation;
+    //some of them, like designation can be make private
 
 
     public Employee(String name, int id, double salary, int raiting, int bonus, String desingnation) {
