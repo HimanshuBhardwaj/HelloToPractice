@@ -23,7 +23,6 @@ public class LargestBalancedString {
         map.put('{', 4);
         map.put('}', 5);
 
-
         while ((t--) > 0) {
             int count[] = new int[6];
             String s = br.readLine();
