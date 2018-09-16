@@ -9,8 +9,8 @@ import java.io.PrintWriter;
  * Created by himanshubhardwaj on 28/08/18.
  * Statement: https://codeforces.com/contest/622/problem/C
  * 4:05 pm -- 7:00 pm
- * Algo: Segment Tree Solution: https://codeforces.com/contest/622/submission/42209283
- * Notmal Solution: O(n): https://codeforces.com/contest/622/submission/42209185
+ * Algo: Segment Tree SolutionA: https://codeforces.com/contest/622/submission/42209283
+ * Notmal SolutionA: O(n): https://codeforces.com/contest/622/submission/42209185
  * Segment Tree is giving TLE into this: https://codeforces.com/contest/622/submission/42207230 ; this is because i was using System.out.println, which is slow
  * later I used PrintWriter, then both segment treeO(nlogn) and O(n) solution got passed.
  * LEarning: use PrintWriter for tight limits

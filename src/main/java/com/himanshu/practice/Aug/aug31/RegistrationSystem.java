@@ -9,8 +9,8 @@ import java.util.HashSet;
 
 /**
  * Created by himanshubhardwaj on 31/08/18.
- * PrintWriter Solution: https://codeforces.com/contest/4/submission/42318977 : 374 ms
- * sout Solution: https://codeforces.com/contest/4/submission/42318959: 1934 ms
+ * PrintWriter SolutionA: https://codeforces.com/contest/4/submission/42318977 : 374 ms
+ * sout SolutionA: https://codeforces.com/contest/4/submission/42318959: 1934 ms
  * though problem was simple, here sout was 6 times slower than PrintWriter
  *
  */
