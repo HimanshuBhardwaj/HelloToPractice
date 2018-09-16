@@ -25,8 +25,8 @@ public class PatternMatching {
 
 //        System.out.println(s.length() + "\t" + p.length());
         System.out.println(sol.isMatch(s, p));
-//        System.out.println(Solution.count);
-//        System.out.println(Solution.map.size());
+//        System.out.println(SolutionA.count);
+//        System.out.println(SolutionA.map.size());
     }
 
     public boolean equals(Object o) {
