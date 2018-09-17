@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 /**
  * Created by himanshubhardwaj on 15/09/18.
+ * given 5 points, detect if they form T
  */
 public class SolutionA {
     public static void main(String[] args) throws IOException {

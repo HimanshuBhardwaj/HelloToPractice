@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 
 /**
  * Created by himanshubhardwaj on 15/09/18.
+ * find sum of all or of all subArrays.
  */
 public class Solution {
     public static void main(String[] args) throws IOException {
