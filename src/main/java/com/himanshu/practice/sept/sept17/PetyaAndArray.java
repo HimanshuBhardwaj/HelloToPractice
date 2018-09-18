@@ -12,12 +12,12 @@ import java.util.Collections;
  * Algo:
  * 1. Sqrt Decomposition: Submission, https://codeforces.com/contest/1042/submission/43010464 time: 1747 ms
  * 2.Persistant segment tree decomposition, Submission: https://codeforces.com/contest/1042/submission/43025040 time: 795ms
- * 3. Normal Segment Tre gave TLE
+ * 3. Normal Segment Tre gave TLE, Submission: https://codeforces.com/contest/1042/submission/43025346
  *
  */
 public class PetyaAndArray {
     public static void main(String[] args) throws IOException {
-        SegmentTreeSolution.solve();
+        PersistandSegmentTreeSolution.solve();
     }
 }
 
