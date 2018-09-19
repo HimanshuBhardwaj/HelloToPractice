@@ -1,5 +1,13 @@
 package com.himanshu.practice.sept.sept19.googlepractice;
 
+import lombok.AllArgsConstructor;
+import lombok.ToString;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
 /**
  * Created by himanshubhardwaj on 19/09/18.
  */
@@ -13,22 +21,11 @@ public class TreeFunctions {
         root = Tree.insert(root, 8);
         root = Tree.insert(root, 9);
         root = Tree.insert(root, 7);
+        root = Tree.insert(root, 6);
+        root = Tree.insert(root, 5);
+        root = Tree.insert(root, 2);
 
-        System.out.println(Tree.height(root));
-        Tree.inorderTraversal(root);
-        System.out.println();
-        System.out.println(Tree.getSuccesor(root).value);
-        root = Tree.delete(root,10);
-        root = Tree.delete(root,11);
-        root = Tree.delete(root,13);
-        root = Tree.delete(root,13);
-        root = Tree.delete(root,8);
-        root = Tree.delete(root,7);
-        root = Tree.delete(root,13);
-        root = Tree.delete(root,9);
-        Tree.inorderTraversal(root);
-        System.out.println();
-        System.out.println((root!=null)?root.value:root);
+        Tree.printBoundary(root);
 
 
     }
@@ -36,9 +33,10 @@ public class TreeFunctions {
 
 
 //3:20 -- 3:33 : Finished in 13 mins
-
 //ETA: 25 mins+7 mins to test
 class Tree {
+    static Queue<Node> queue = new LinkedList<Node>();
+
     static Node insert(Node root, int value) {
         if (root == null) {
             return new Node(value);
@@ -107,12 +105,84 @@ class Tree {
         return root;
     }
 
+    static void printBoundary(Node root) {
+        if (root == null) {
+            return;
+        }
+
+
+        Node marker = new Node(-1, null, null);
+        queue.add(root);
+        queue.add(marker);
+        LinkedList<Node> front = new LinkedList<Node>();
+        LinkedList<Node> leaf = new LinkedList<Node>();
+        LinkedList<Node> back = new LinkedList<Node>();
+        int round = 0;
+
+        while (!queue.isEmpty()) {
+            round++;
+            ArrayList<Node> levelNodes = getLevelNodes(queue);
+
+            for (int i = 0; i < levelNodes.size(); i++) {
+                Node currentNode = levelNodes.get(i);
+                if (i == 0) {
+                    front.add(currentNode);
+                }else if (isLeaf(currentNode)) {
+                    leaf.addLast(currentNode);
+                } else if (i == (levelNodes.size() - 2)) {
+                    back.add(currentNode);
+                } else if (i == (levelNodes.size() - 1)) {
+                    System.out.println("Marker: " + queue + "\t" + marker);
+                    if (queue.size() > 0) {
+                        queue.add(currentNode);
+                    }
+                }
+
+                if (currentNode.left != null) {
+                    queue.add(currentNode.left);
+                }
+
+                if (currentNode.right != null) {
+                    queue.add(currentNode.right);
+                }
+
+            }
+        }
+        System.out.println(front + "\t" + leaf + "\t" + back);
+
+
+    }
+
+    private static ArrayList<Node> getLevelNodes(Queue<Node> queue) {
+        System.out.println(queue);
+        ArrayList<Node> list = new ArrayList<>();
+
+        while (queue.peek().value != -1) {
+            list.add(queue.poll());
+        }
+        list.add(queue.poll());
+        return list;
+    }
+
+    static private boolean isLeaf(Node currentNode) {
+        if (currentNode == null) {
+            return true;
+        }
+        if (currentNode.left == null && currentNode.right == null && currentNode.value != -1) {
+            return true;
+        }
+
+        return false;
+    }
 }
 
-
+@AllArgsConstructor
+@ToString
 class Node {
     int value;
+    @ToString.Exclude
     Node left;
+    @ToString.Exclude
     Node right;
 
 
