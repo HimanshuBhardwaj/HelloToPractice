@@ -19,7 +19,6 @@ public class ArrayUtils {
         }
         System.out.println();
         System.out.println(Util.ceil(arr,199));
-
     }
 }
 
