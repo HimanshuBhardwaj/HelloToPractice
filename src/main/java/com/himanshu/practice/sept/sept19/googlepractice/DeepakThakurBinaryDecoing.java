@@ -23,7 +23,11 @@ public class DeepakThakurBinaryDecoing {
                     }
                     idx++;
                 }
+                if(Character.toChars(sum)[0]==' ') {
+                    System.out.println(st);
+                }
                 sb.append(Character.toChars(sum));
+
             }
         }
         System.out.println(sb.toString());
