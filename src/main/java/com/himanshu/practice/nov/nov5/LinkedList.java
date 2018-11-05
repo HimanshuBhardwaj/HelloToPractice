@@ -5,13 +5,13 @@ package com.himanshu.practice.nov.nov5;
  */
 public class LinkedList {
     public static void main(String[] args) {
-        Node root = Node.insert(null, 1);
-        root = Node.insert(root, 1);
-        root = Node.insert(root, 21);
-        root = Node.insert(root, 31);
-        root = Node.insert(root, 1);
-        root = Node.insert(root, 31);
-        root = Node.insert(root, 41);
+        LNode root = LNode.insert(null, 1);
+        root = LNode.insert(root, 1);
+        root = LNode.insert(root, 21);
+        root = LNode.insert(root, 31);
+        root = LNode.insert(root, 1);
+        root = LNode.insert(root, 31);
+        root = LNode.insert(root, 41);
 
         root.print(root);
     }
@@ -19,28 +19,28 @@ public class LinkedList {
 }
 
 
-class Node {
+class LNode {
     int value;
-    Node next;
-    Node prev;
+    LNode next;
+    LNode prev;
 
 
-    public Node(int value) {
+    public LNode(int value) {
         this.value = value;
         this.next = null;
         this.prev = null;
     }
 
-    static Node insert(Node root, int value) {
+    static LNode insert(LNode root, int value) {
         if (root == null) {
-            return new Node(value);
+            return new LNode(value);
         }
 
-        Node newNode = new Node(value);
+        LNode newLNode = new LNode(value);
 
-        newNode.next = root;
-        root.prev = newNode;
-        return newNode;
+        newLNode.next = root;
+        root.prev = newLNode;
+        return newLNode;
     }
 
 
@@ -51,7 +51,7 @@ class Node {
         return Integer.toString(this.value);
     }
 
-    public void print(Node root) {
+    public void print(LNode root) {
         while (root != null) {
             System.out.print(root+" ");
             root = root.next;

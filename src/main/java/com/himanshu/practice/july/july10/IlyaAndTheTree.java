@@ -135,7 +135,7 @@ class Tree {
     }
 
     private void computeMaximumwithRoot(int node, int depth) {
-        //System.out.println("Node: " + node + "\tdepth: " + depth + "\t factoMap: " + factorsOfRoot + "\tFactors: " + factors + "\tadjList: " + adjList[node]);
+        //System.out.println("LNode: " + node + "\tdepth: " + depth + "\t factoMap: " + factorsOfRoot + "\tFactors: " + factors + "\tadjList: " + adjList[node]);
 
         for (int i = 0; i < factors.length; i++) {
             if (number[node] % factors[i] == 0) {
