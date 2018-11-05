@@ -7,15 +7,15 @@ import lombok.AllArgsConstructor;
  */
 public class Tree {
     public static void main(String[] args) {
-        TNode root = TNode.insert(null,5);
-        root = TNode.insert(root,6);
-        root = TNode.insert(root,4);
-        root = TNode.insert(root,7);
-        root = TNode.insert(root,3);
-        root = TNode.insert(root,8);
-        root = TNode.insert(root,2);
-        root = TNode.insert(root,1);
-        root = TNode.insert(root,100);
+        TNode root = TNode.insert(null, 5);
+        root = TNode.insert(root, 6);
+        root = TNode.insert(root, 4);
+        root = TNode.insert(root, 7);
+        root = TNode.insert(root, 3);
+        root = TNode.insert(root, 8);
+        root = TNode.insert(root, 2);
+        root = TNode.insert(root, 1);
+        root = TNode.insert(root, 100);
         TNode.inorder(root);
 
     }
@@ -56,7 +56,4 @@ class TNode {
 
         }
     }
-
-
-
 }
