@@ -17,6 +17,9 @@ public class Tree {
         root = TNode.insert(root, 1);
         root = TNode.insert(root, 100);
         TNode.inorder(root);
+        root = TNode.delete(root, 100);
+        System.out.println();
+        TNode.inorder(root);
 
     }
 }
@@ -55,5 +58,43 @@ class TNode {
             TNode.inorder(root.right);
 
         }
+    }
+
+    static TNode delete(TNode root, int value) {
+
+        if (root == null) {
+            return null;
+        }
+
+        if (value == root.value) {
+            if (root.left == null && root.right == null) {
+                return null;
+            } else if (root.left == null) {
+                return root.right;
+            } else if (root.right == null) {
+                return root.left;
+            } else {
+                TNode succ = TNode.getSuccessor(root);
+                root.value = succ.value;
+                succ.value = value;
+                root.right = TNode.delete(root.right, value);
+                return root;
+            }
+        } else if (value >= root.value) {
+            root.right = TNode.delete(root.right, value);
+            return root;
+        } else {
+            root.left = TNode.delete(root.left, value);
+            return root;
+        }
+    }
+
+    private static TNode getSuccessor(TNode root) {
+        root = root.right;
+
+        while (root.left != null) {
+            root = root.left;
+        }
+        return root;
     }
 }
