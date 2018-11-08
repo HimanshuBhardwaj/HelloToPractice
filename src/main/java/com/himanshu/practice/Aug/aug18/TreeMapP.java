@@ -7,7 +7,7 @@ import java.util.TreeSet;
 /**
  * Created by himanshubhardwaj on 19/08/18.
  */
-public class TreeMap {
+public class TreeMapP {
     public static void main(String[] args) {
         TreeSet<A> treeMap = new TreeSet<A>();
         A a1 = new A(2);

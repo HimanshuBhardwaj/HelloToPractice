@@ -18,7 +18,7 @@ public class ThreePartsOfTheArray {
         String s[] = br.readLine().split(" ");
         long a[] = new long[s.length];
         TreeMap<Long, TreeSet<Integer>> endRight = new TreeMap<Long, TreeSet<Integer>>();
-        //TreeMap<Long, TreeSet<Integer>> endleft = new TreeMap<Long, TreeSet<Integer>>();
+        //TreeMapP<Long, TreeSet<Integer>> endleft = new TreeMapP<Long, TreeSet<Integer>>();
         long sl = 0;
         long sr = 0;
 

@@ -3,7 +3,7 @@ package com.himanshu.practice.nov.nov5;
 /**
  * Created by himanshubhardwaj on 05/11/18.
  */
-public class LinkedList {
+public class LinkedListP {
     public static void main(String[] args) {
         LNode root = LNode.insert(null, 1);
         root = LNode.insert(root, 1);
