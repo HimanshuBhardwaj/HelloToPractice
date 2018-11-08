@@ -4,7 +4,7 @@ package com.himanshu.practice.nov.nov07;
  * Created by himanshubhardwaj on 07/11/18.
  */
 //reversing linkedlist and also reversing it in pairs in pairs
-public class Linkedlist {
+public class LinkedlistP {
     public static void main(String[] args) {
         Node root = Node.insert(null, 5);
         root = Node.insert(root, 25);
