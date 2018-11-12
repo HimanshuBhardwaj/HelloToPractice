@@ -26,8 +26,6 @@ public class UndirectedGraphOperations {
         g.print();
         g.computeArtuculationPoint(0, -1);
         g.printArticulationPoints();
-
-
     }
 }
 
@@ -168,18 +166,18 @@ class Graph {
 
 
 
-9 12
-3 4
-1 0
-0 3
+9 11
+0 1
 1 2
+0 3
 2 3
 2 4
 2 5
 5 6
 5 8
-4 8
+6 8
 6 7
-8 7
+7 8
+
 
 * */
