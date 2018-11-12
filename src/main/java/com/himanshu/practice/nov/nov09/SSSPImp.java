@@ -24,7 +24,7 @@ public class SSSPImp {
         int n = Integer.parseInt(str[0]);
         int m = Integer.parseInt(str[1]);
 
-        Graph g = new Graph(n);
+        UGraph g = new UGraph(n);
 
         for (int i = 0; i < m; i++) {
             str = br.readLine().split(" ");
@@ -65,11 +65,11 @@ public class SSSPImp {
     }
 }
 
-class Graph {
+class UGraph {
     ArrayList<Edge> adjList[];
 
 
-    public Graph(int numNodes) {
+    public UGraph(int numNodes) {
         adjList = new ArrayList[numNodes];
 
         for (int i = 0; i < numNodes; i++) {
@@ -205,7 +205,7 @@ class Node implements Comparable<Node> {
 
 class SSSP {
 
-    static int[] bellmanFord(int source, Graph g) {
+    static int[] bellmanFord(int source, UGraph g) {
         int sssp[] = new int[g.adjList.length];
         for (int i = 0; i < g.adjList.length; i++) {
             if (i == source) {
@@ -232,7 +232,7 @@ class SSSP {
         return sssp;
     }
 
-    static int[] dijkstra(int source, Graph g) {
+    static int[] dijkstra(int source, UGraph g) {
         int sssp[] = new int[g.adjList.length];
         Node[] nodes = new Node[g.adjList.length];
         PriorityQueue<Node> priorityQueue = new PriorityQueue<>();
@@ -247,13 +247,11 @@ class SSSP {
 
         while (!priorityQueue.isEmpty()) {
             Node top = priorityQueue.poll();
-            //System.out.println(top);
 
             if (top.comulativedistance != Integer.MAX_VALUE) {
                 for (Edge neighbour : g.adjList[top.index]) {
                     int des = (neighbour.node1 == top.index) ? neighbour.node2 : neighbour.node1;
                     Node desNode = nodes[des];
-                    // System.out.println(((desNode.comulativedistance) < (top.comulativedistance + neighbour.weight)));
                     if ((desNode.comulativedistance) > (top.comulativedistance + neighbour.weight)) {
                         priorityQueue.remove(desNode);
                         desNode.comulativedistance = top.comulativedistance + neighbour.weight;
@@ -269,7 +267,7 @@ class SSSP {
 
     //4:27 -- 4:39
     //
-    static int[][] floydWarshall(Graph g) {
+    static int[][] floydWarshall(UGraph g) {
         int n = g.adjList.length;
         int[][] distance = new int[n][n];
 
