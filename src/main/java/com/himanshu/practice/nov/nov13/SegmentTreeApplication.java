@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
  * Created by himanshubhardwaj on 13/11/18.
  * maximum j-i such that A[j]>A[i]
  * 4:00
- * time complexity is O(n) :p :p
+ * time complexity is O(n^2) :p :p
  */
 public class SegmentTreeApplication {
     public static void main(String[] args) {
