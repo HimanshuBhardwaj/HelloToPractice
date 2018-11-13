@@ -42,7 +42,7 @@ public class GraphOperations {
 }
 
 
-//GRAPH is Directed Graph
+//GRAPH is Directed UGraph
 class Graph {
     ArrayList<Integer>[] adjList;
 
