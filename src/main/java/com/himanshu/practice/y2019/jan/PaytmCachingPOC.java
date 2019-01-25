@@ -1,11 +1,15 @@
 package com.himanshu.practice.y2019.jan;
 
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
+
 /**
  * Created by himanshubhardwaj on 25/01/19.
  */
 
 public class PaytmCachingPOC implements Runnable {
     int threadId;
+    AtomicInteger ai=new AtomicInteger(0);
 
     public PaytmCachingPOC(int threadId) {
         this.threadId = threadId;
@@ -36,10 +40,10 @@ public class PaytmCachingPOC implements Runnable {
 
 class UtilClass {
     static int value = 1;
-    static boolean flag=true;
+    static AtomicBoolean flag=new AtomicBoolean(true);
 
     static void thread1Mainipulations() {
-        while (flag) {
+        while (flag.equals(false)) {
             value++;
         }
         System.out.println("thread1Mainipulations ended "+ value);
@@ -49,7 +53,7 @@ class UtilClass {
     static void thread2Mainipulations() {
         try {
             Thread.sleep(1000);
-            flag=false;
+            flag.getAndSet(false);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
