@@ -5,6 +5,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Created by himanshubhardwaj on 25/01/19.
+ * This is to understand that threads sometimes cache variables which they are not modifying. Eventhough those
+ * values could be modified through other threads.
  */
 
 public class PaytmCachingPOC implements Runnable {
