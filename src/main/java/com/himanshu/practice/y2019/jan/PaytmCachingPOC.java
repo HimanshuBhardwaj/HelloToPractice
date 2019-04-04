@@ -36,7 +36,7 @@ public class PaytmCachingPOC implements Runnable {
 
 class UtilClass {
     static int value = 1;
-    static boolean flag=true;
+    static boolean  flag=true;
 
     static void thread1Mainipulations() {
         while (flag) {
