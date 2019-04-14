@@ -37,7 +37,7 @@ public class FafaAndAncientMathematics {
             System.out.println("Something wrong");
         } else {
             System.out.print(root.getMaxSum(root, maxP, maxM));
-//            System.out.print("Printing Tree:\t");
+//            System.out.print("Printing PTree:\t");
 //            root.print(root);
 //            System.out.println();
         }

@@ -19,7 +19,7 @@ public class RangeMinimumQuery {
 
         SegmentTree segmentTree = new SegmentTree(arr);
         segmentTree.change(27, 3);
-        System.out.println("Index Tree after changing 3rd index to 44");
+        System.out.println("Index PTree after changing 3rd index to 44");
         segmentTree.printSegmentTree();
 
     }

@@ -10,7 +10,7 @@ import java.util.TreeSet;
  * Problem Set: https://codeforces.com/contest/1008/problem/C
  * This I should have been able to solve in contest
  * Submission: https://codeforces.com/contest/1008/submission/40302243
- * Algo: Balanced Tree
+ * Algo: Balanced PTree
  */
 public class ReorderTheArray {
     public static void main(String[] args) throws IOException {

@@ -51,7 +51,7 @@ class SegmentTree {
 
         int endPos = ((int) sizeSegT / 2) - 1 + arr.length;
 
-        System.out.println("Segment Tree Array Size: " + sizeSegT);
+        System.out.println("Segment PTree Array Size: " + sizeSegT);
         System.out.println("Array Size: " + arr.length);
         System.out.println("endPos: " + endPos);
 

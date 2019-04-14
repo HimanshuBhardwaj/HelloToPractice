@@ -9,15 +9,15 @@ import java.io.PrintWriter;
  * Created by himanshubhardwaj on 28/08/18.
  * Statement: https://codeforces.com/contest/622/problem/C
  * 4:05 pm -- 7:00 pm
- * Algo: Segment Tree SolutionA: https://codeforces.com/contest/622/submission/42209283
+ * Algo: Segment PTree SolutionA: https://codeforces.com/contest/622/submission/42209283
  * Notmal SolutionA: O(n): https://codeforces.com/contest/622/submission/42209185
- * Segment Tree is giving TLE into this: https://codeforces.com/contest/622/submission/42207230 ; this is because i was using System.out.println, which is slow
+ * Segment PTree is giving TLE into this: https://codeforces.com/contest/622/submission/42207230 ; this is because i was using System.out.println, which is slow
  * later I used PrintWriter, then both segment treeO(nlogn) and O(n) solution got passed.
  * LEarning: use PrintWriter for tight limits
  */
 public class NotEqualOnASegment {
     public static void main(String[] args) throws IOException {
-        //Segment Tree was giving TLE
+        //Segment PTree was giving TLE
         segTreeSolution();
 
         //Ad-Hoc
