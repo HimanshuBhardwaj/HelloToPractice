@@ -11,7 +11,7 @@ import java.util.StringTokenizer;
  *
  Statement:
 
- Write a program to sort a set of given units and output a single relationship equation among the units in descending order of size.
+ Write a program to insertionSort a set of given units and output a single relationship equation among the units in descending order of size.
  The input given will be a series of comma separated units and a set of relationship equations between them.
  From these equations, you are expected to derive a single relationship equation in descending order of the units, with the largest unit on the left.
  Further, the following are given: The number of equations given will be 1 less than the number of units given

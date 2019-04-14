@@ -10,7 +10,7 @@ import java.util.Collections;
  * Created by himanshubhardwaj on 08/11/18.
  * 5:06--5:51
  * Statement: https://codeforces.com/contest/985/problem/C
- * Algo: Sorting. This problem was specially designed to recall that sort function of arrays in java uses quic sort. while of collection uses merge sort.
+ * Algo: Sorting. This problem was specially designed to recall that insertionSort function of arrays in java uses quic insertionSort. while of collection uses merge insertionSort.
  * Submission: https://codeforces.com/contest/985/submission/45443584
  */
 public class LiebigsBarrels {
