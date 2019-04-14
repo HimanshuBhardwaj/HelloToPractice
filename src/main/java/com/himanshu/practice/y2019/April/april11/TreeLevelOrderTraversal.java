@@ -6,7 +6,7 @@ import java.util.Queue;
 /**
  * Created by himanshubhardwaj on 11/04/19.
  * Started: 10:16 --> 10:30
- * Tree Construction: LGTM
+ * PTree Construction: LGTM
  */
 public class TreeLevelOrderTraversal {
     public static void main(String[] args) {

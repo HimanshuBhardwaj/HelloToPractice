@@ -22,7 +22,7 @@ public class APSP {
         }
 
 
-        System.out.println("---------------Printing Tree---------------");
+        System.out.println("---------------Printing PTree---------------");
         graph.print(graph.adjMat);
         System.out.println("---------------floydWarshall---------------");
         graph.print(graph.floydWarshall());

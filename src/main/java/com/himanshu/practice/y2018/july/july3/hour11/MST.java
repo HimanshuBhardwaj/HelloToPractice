@@ -26,7 +26,7 @@ public class MST {
                 graph.insert(source, destination, weight);
             }
         }
-        System.out.println("Printing Tree");
+        System.out.println("Printing PTree");
         graph.print();
 
 

@@ -13,7 +13,7 @@ public class RangeMinimumQuery {
         }
         System.out.println();
 
-        System.out.println("Preparing Sgment Tree");
+        System.out.println("Preparing Sgment PTree");
         SegTree segTree = new SegTree(arr);
         System.out.println("Segment tree minimum: (3,5):\t" + segTree.getRangeMinimum(3, 5));
         segTree.update(5, 12);

@@ -8,7 +8,7 @@ import java.io.InputStreamReader;
 /**
  * Created by himanshubhardwaj on 20/07/18.
  * Problem Set: http://codeforces.com/contest/482/problem/B
- * Algo: DP and Segment Tree construction
+ * Algo: DP and Segment PTree construction
  * Submission: http://codeforces.com/contest/482/submission/40579144
  */
 public class InterestingArray {
@@ -159,7 +159,7 @@ class SegentTree {
     }
 
     public void printSegmentTree() {
-        System.out.println("SEgment Tree Size: " + segmentTree.length);
+        System.out.println("SEgment PTree Size: " + segmentTree.length);
         for (int i = 0; i < segmentTree.length; i++) {
             System.out.print(segmentTree[i] + "  ");
         }

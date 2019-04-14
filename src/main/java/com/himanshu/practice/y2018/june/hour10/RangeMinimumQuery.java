@@ -53,7 +53,7 @@ class SegmentTree {
 
         System.out.println();
         System.out.println("last Pos: " + lastPos);
-        System.out.println("segment Tree size: " + segmentTree.length);
+        System.out.println("segment PTree size: " + segmentTree.length);
         for (int i = (segmentTree.length / 2 - 1); i >= 0; i--) {
             segmentTree[i] = Math.min(segmentTree[2 * i + 1], segmentTree[2 * i + 2]);
         }
@@ -61,7 +61,7 @@ class SegmentTree {
 
     public void print() {
         System.out.println("last Pos: " + lastPos);
-        System.out.println("segment Tree size: " + segmentTree.length);
+        System.out.println("segment PTree size: " + segmentTree.length);
         for (int i = 0; i <= lastPos; i++) {
             System.out.print(segmentTree[i] + " ");
         }

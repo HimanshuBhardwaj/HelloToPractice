@@ -10,7 +10,7 @@ import java.util.LinkedList;
 /**
  * Created by himanshubhardwaj on 15/07/18.
  * Problem set: https://codeforces.com/problemset/problem/741/B
- * Algo: DP, Tree, dfsHelper, ConnectedComponents, Beautiful question
+ * Algo: DP, PTree, dfsHelper, ConnectedComponents, Beautiful question
  * Submission: https://codeforces.com/contest/741/submission/40386853
  */
 public class ArpasWeakAmphitheaterAndMehrdadsValuableHoses {
