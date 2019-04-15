@@ -3,9 +3,11 @@ package com.himanshu.practice.y2019.April.april15;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 
 /**
  * Created by himanshubhardwaj on 14/04/19.
+ * MergeSort: 10:01 -10:15
  */
 public class Sorting {
     public static void main(String[] arr) throws IOException {
@@ -16,12 +18,94 @@ public class Sorting {
             array[i] = Integer.parseInt(str[i]);
         }
 
-        new QSort().sort(array);
+        array = new MergeSort().sort(array);
         for (int x : array) {
             System.out.print(x + ", ");
         }
         System.out.println();
     }
+}
+
+
+class MergeSort {
+    public int[] sort(int arr[]) {
+        return sortHelper(arr, 0, arr.length - 1);
+    }
+
+    private int[] sortHelper(int[] arr, int start, int end) {
+        if (start == end || arr == null) {
+            return arr;
+        }
+
+        if (start + 1 == end) {
+            Arrays.sort(arr);
+        }
+
+        int mid = (start + end) / 2;
+        int[] A = new int[mid - start + 1];
+        int[] B = new int[(end - start + 1) - (mid - start + 1)];
+
+
+        for (int i = 0; i < A.length; i++) {
+            A[i] = arr[i];
+        }
+
+        for (int i = 0; i < B.length; i++) {
+            B[i] = arr[A.length + i];
+        }
+
+        A= sortHelper(A, 0, A.length - 1);
+        B = sortHelper(B, 0, B.length - 1);
+        //Arrays.sort(A);
+        //Arrays.sort(B);
+
+        return merge(A, B);
+
+    }
+
+    private int[] merge(int[] a, int[] b) {
+        System.out.print("Merging: ");
+        for (int x : a) {
+            System.out.print(x + ",");
+        }
+
+        System.out.print("\t\t");
+        for (int x : b) {
+            System.out.print(x + ",");
+        }
+
+//        System.out.println();
+        int pA = 0;
+        int pB = 0;
+        int result[] = new int[a.length + b.length];
+        int i = 0;
+
+        while (pA < a.length && pB < b.length) {
+            if (a[pA] < b[pB]) {
+                result[i++] = a[pA++];
+            } else {
+                result[i++] = b[pB++];
+            }
+        }
+
+
+        while (pA < a.length) {
+            result[i++] = a[pA++];
+        }
+        while (pB < b.length) {
+            result[i++] = b[pB++];
+        }
+
+        System.out.print("\t\t\t Result: ");
+        for (int x : result) {
+            System.out.print(x + ", ");
+        }
+        System.out.println();
+
+
+        return result;
+    }
+
 }
 
 
@@ -78,7 +162,7 @@ class QSort {
 
         pi++;
         swapElements(arr, pi, end);
-        System.out.println("Pivot:"+pi);
+        System.out.println("Pivot:" + pi);
 
 
         for (int i = start; i <= end; i++) {
