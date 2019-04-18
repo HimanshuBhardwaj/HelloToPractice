@@ -94,13 +94,13 @@ class Graph {
     //Tested
     //assuming graph is unweighted
     ArrayList<Edge> transitiveClosure() {
-        int adjMat[][] = this.adjMat.clone();
+        int adjMatC[][] = this.adjMat.clone();
 
         for (int i = 0; i < nodes; i++) {
             for (int j = 0; j < nodes; j++) {
                 for (int k = 0; k < nodes; k++) {
-                    if (Math.abs(adjMat[j][i]) > 0 && Math.abs(adjMat[i][k]) > 0) {
-                        adjMat[j][k] = 1;
+                    if (Math.abs(adjMatC[j][i]) > 0 && Math.abs(adjMatC[i][k]) > 0) {
+                        adjMatC[j][k] = 1;
                     }
                 }
             }
@@ -110,7 +110,7 @@ class Graph {
 
         for (int i = 0; i < nodes; i++) {
             for (int j = 0; j < nodes; j++) {
-                if (adjMat[i][j] > 0) {
+                if (adjMatC[i][j] > 0) {
                     list.add(new Edge(i, j, 1));
                 }
             }
@@ -188,9 +188,7 @@ class Graph {
                 }
             }
         }
-
         return sPaths;
-
     }
 
 
