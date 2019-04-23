@@ -1,7 +1,5 @@
 package com.himanshu.practice.y2019.April.april1;
 
-import sun.plugin.javascript.navig4.Link;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
