@@ -119,7 +119,7 @@ public class C {
         list.add(left);
         list.add(right);
 
-        //Collections.sort(list);
+        //Collections.insertionSort(list);
         return list;
     }
 

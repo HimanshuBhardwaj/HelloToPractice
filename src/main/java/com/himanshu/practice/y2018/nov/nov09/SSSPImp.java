@@ -141,7 +141,7 @@ class UGraph {
         }
     }
 
-    //This is wrong as Topologial sort makes sense only in DAs
+    //This is wrong as Topologial insertionSort makes sense only in DAs
     public void topologicalSort() {
         boolean visited[] = new boolean[adjList.length];
 

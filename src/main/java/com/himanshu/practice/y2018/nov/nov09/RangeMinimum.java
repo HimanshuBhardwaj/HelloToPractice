@@ -4,7 +4,7 @@ package com.himanshu.practice.y2018.nov.nov09;
  * Created by himanshubhardwaj on 12/11/18.
  * 1. Prepare: 6:20-6:33
  * 2. Return Range Minimum: 6:33-6:43
- * 3. Update Tree: 6:35--7 pm; 10 mins could been saved
+ * 3. Update PTree: 6:35--7 pm; 10 mins could been saved
  */
 public class RangeMinimum {
     public static void main(String[] args) {

@@ -30,7 +30,7 @@ public class DirectedGraphOperations {
         System.out.println("Topological Sort: ");
         LinkedList<Integer> topologiclSort = new LinkedList<>();
         g.topologicalSort(0, new HashSet<>(), topologiclSort);
-        System.out.println("Topological sort: " + topologiclSort);
+        System.out.println("Topological insertionSort: " + topologiclSort);
         System.out.println(g.hasCycle(0, new int[g.adjList.length]));
 
 

@@ -7,7 +7,7 @@ import java.util.LinkedList;
 
 /**
  * Created by Himanshu Bhardwaj on 09/07/18.
- *Algo: Tree traversal
+ *Algo: PTree traversal
  *Submission: https://codeforces.com/contest/913/submission/40140598
  */
 public class ChristmasSpruce {

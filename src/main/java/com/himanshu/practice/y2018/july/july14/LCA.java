@@ -9,7 +9,7 @@ import java.util.LinkedList;
 /**
  * Created by himanshubhardwaj on 14/07/18.
  * One of the most beautiful question I've ever solved.
- * <h1></>Algo: Tree Traversal, Binary raise</>
+ * <h1></>Algo: PTree Traversal, Binary raise</>
  * http://codeforces.com/contest/519/problem/E
  */
 public class LCA {

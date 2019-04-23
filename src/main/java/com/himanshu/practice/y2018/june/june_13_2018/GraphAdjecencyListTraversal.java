@@ -82,7 +82,7 @@ class Graph {
     }
 
     //Assumption is that this visited would be of the same size of number of nodes
-    //through this topological sort is also done
+    //through this topological insertionSort is also done
     public void DFS (int root, int visited[]) {
         if(visited[root] == 1) {
             return;

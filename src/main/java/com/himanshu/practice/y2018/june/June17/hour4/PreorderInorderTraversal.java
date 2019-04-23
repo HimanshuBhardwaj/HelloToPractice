@@ -5,7 +5,7 @@ import java.util.LinkedList;
 /**
  * Created by Himanshu Bhardwaj on 17/06/18.
  * 3.36
- * Tree insertion: 18 mins
+ * PTree insertion: 18 mins
  * treeConstruction: 20 mins
  */
 public class PreorderInorderTraversal {
