@@ -6,8 +6,8 @@ import java.io.InputStreamReader;
 
 /**
  * Created by himanshubhardwaj on 28/04/19.
- * 2:09 pm
- * 20 mins
+ * 2:09 -- 2:34 pm
+ * 20 mins; Exceed
  */
 public class FrequencyOfAnElement {
     public static void main(String[] args) throws IOException {

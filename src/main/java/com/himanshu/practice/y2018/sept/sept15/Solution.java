@@ -21,7 +21,7 @@ public class Solution {
 
 
         System.out.println(smart(arr));
-//        System.out.println(bruteForce(arr));
+//        System.out.println(getCount(arr));
 
     }
 
