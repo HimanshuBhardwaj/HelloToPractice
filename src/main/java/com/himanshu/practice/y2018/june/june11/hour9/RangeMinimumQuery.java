@@ -52,7 +52,7 @@ class SegmentTree {
             segMentArr[i] = Math.min(segMentArr[2 * i + 1], segMentArr[2 * i + 2]);
         }
         System.out.println("Array Size: " + arr.length);
-        System.out.println("Segment Array Size:" + segmentArrSize);
+        System.out.println("SegmentP Array Size:" + segmentArrSize);
         for (int i : segMentArr) {
             System.out.print(i + " ");
         }

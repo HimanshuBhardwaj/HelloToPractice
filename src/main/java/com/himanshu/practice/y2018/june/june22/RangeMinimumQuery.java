@@ -15,11 +15,11 @@ public class RangeMinimumQuery {
 
         System.out.println("Preparing Sgment PTree");
         SegTree segTree = new SegTree(arr);
-        System.out.println("Segment tree minimum: (3,5):\t" + segTree.getRangeMinimum(3, 5));
+        System.out.println("SegmentP tree minimum: (3,5):\t" + segTree.getRangeMinimum(3, 5));
         segTree.update(5, 12);
         segTree.update(4, 11);
         segTree.update(7, 1);
-        System.out.println("Segment tree minimum: (3,5):\t" + segTree.getRangeMinimum(3, 5));
+        System.out.println("SegmentP tree minimum: (3,5):\t" + segTree.getRangeMinimum(3, 5));
         segTree.print();
     }
 }
@@ -32,7 +32,7 @@ class SegTree {
     public SegTree(int arr[]) {
         int segTreeSize = (int) Math.pow(2d, Math.ceil(Math.log(arr.length) / Math.log(2)));
         segTreeSize = 2 * segTreeSize - 1;
-        System.out.println("Segment tree Size:\t" + segTreeSize);
+        System.out.println("SegmentP tree Size:\t" + segTreeSize);
 
         segTree = new int[segTreeSize];
 

@@ -9,7 +9,7 @@ import java.util.TreeMap;
 /**
  * Created by himanshubhardwaj on 09/11/18.
  * Statement: https://codeforces.com/contest/1000/problem/C
- * Algo: Reverse Segment construction
+ * Algo: Reverse SegmentP construction
  * Submission: https://codeforces.com/contest/1000/submission/45474797
  */
 public class CoveredPointsCount {

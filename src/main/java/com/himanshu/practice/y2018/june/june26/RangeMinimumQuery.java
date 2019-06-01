@@ -54,8 +54,8 @@ class SegmentTree {
     }
 
     public void print() {
-        System.out.println("Segment PTree size: " + segmentTree.length);
-        System.out.println("Segment PTree end: " + endNode);
+        System.out.println("SegmentP PTree size: " + segmentTree.length);
+        System.out.println("SegmentP PTree end: " + endNode);
 
         for (int i = 0; i < segmentTree.length; i++) {
             System.out.print(segmentTree[i] + " ");

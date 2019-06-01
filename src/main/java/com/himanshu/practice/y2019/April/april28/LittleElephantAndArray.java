@@ -12,7 +12,7 @@ import java.util.TreeMap;
 
 /**
  * Created by himanshubhardwaj on 28/04/19.
- * TODO: Implement it via SQRT Decomposition and Persistant Segment Tree
+ * TODO: Implement it via SQRT Decomposition and Persistant SegmentP Tree
  */
 public class LittleElephantAndArray {
     public static void main(String[] args) throws IOException {

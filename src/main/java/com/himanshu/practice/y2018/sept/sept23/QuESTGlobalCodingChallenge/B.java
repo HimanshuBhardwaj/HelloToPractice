@@ -51,7 +51,7 @@ public class B {
             };
 
             Collections.sort(segmentList, comparator);
-            //System.out.println("Segment List:\t" + segmentList);
+            //System.out.println("SegmentP List:\t" + segmentList);
 
             for (int i = 0; i < segmentList.size(); i++) {
                 boolean listFound = false;
@@ -189,7 +189,7 @@ class Segment implements Comparable<Segment> {
     }
 
     public String toString() {
-        return "Segment(start=" + this.start + ", end=" + this.end + ")";
+        return "SegmentP(start=" + this.start + ", end=" + this.end + ")";
     }
 }
 
