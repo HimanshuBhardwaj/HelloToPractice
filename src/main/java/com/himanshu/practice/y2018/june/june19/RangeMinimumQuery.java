@@ -20,7 +20,7 @@ public class RangeMinimumQuery {
             System.out.print(i + " ");
         }
         System.out.println();
-        System.out.println("Segment PTree:");
+        System.out.println("SegmentP PTree:");
         SegmentTre segmentTre = new SegmentTre(arr);
         segmentTre.printSegmentArray();
         System.out.println();
@@ -28,7 +28,7 @@ public class RangeMinimumQuery {
         segmentTre.update(5, 2);
 
         System.out.println();
-        System.out.println("New Segment PTree");
+        System.out.println("New SegmentP PTree");
         segmentTre.printSegmentArray();
     }
 }

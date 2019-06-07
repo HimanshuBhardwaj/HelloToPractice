@@ -12,7 +12,7 @@ import java.util.Collections;
  * Algo:
  * 1. Sqrt Decomposition: Submission, https://codeforces.com/contest/1042/submission/43010464 time: 1747 ms
  * 2.Persistant segment tree decomposition, Submission: https://codeforces.com/contest/1042/submission/43025040 time: 795ms
- * 3. Normal Segment Tre gave TLE, Submission: https://codeforces.com/contest/1042/submission/43025346
+ * 3. Normal SegmentP Tre gave TLE, Submission: https://codeforces.com/contest/1042/submission/43025346
  *
  */
 public class PetyaAndArray {

@@ -51,11 +51,11 @@ class SegmentTree {
 
         int endPos = ((int) sizeSegT / 2) - 1 + arr.length;
 
-        System.out.println("Segment PTree Array Size: " + sizeSegT);
+        System.out.println("SegmentP PTree Array Size: " + sizeSegT);
         System.out.println("Array Size: " + arr.length);
         System.out.println("endPos: " + endPos);
 
-        System.out.println("iterating Segment tree: ");
+        System.out.println("iterating SegmentP tree: ");
         for (int i = ((((int) sizeSegT) / 2) - 1); i >= 0; i--) {
             int parent1 = 2 * i + 1;
             int parent2 = 2 * i + 2;

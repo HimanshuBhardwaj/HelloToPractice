@@ -8,7 +8,7 @@ import java.util.Stack;
 /**
  * Created by himanshubhardwaj on 17/08/18.
  * Statement: https://codeforces.com/contest/1023/problem/D
- * Algo: Segment PTree
+ * Algo: SegmentP PTree
  * Submission: https://codeforces.com/contest/1023/submission/41730821
  */
 public class D {

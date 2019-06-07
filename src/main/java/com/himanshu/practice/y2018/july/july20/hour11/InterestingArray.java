@@ -8,7 +8,7 @@ import java.io.InputStreamReader;
 /**
  * Created by himanshubhardwaj on 20/07/18.
  * Problem Set: http://codeforces.com/contest/482/problem/B
- * Algo: DP and Segment PTree construction
+ * Algo: DP and SegmentP PTree construction
  * Submission: http://codeforces.com/contest/482/submission/40579144
  */
 public class InterestingArray {
