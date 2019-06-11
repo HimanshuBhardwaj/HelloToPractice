@@ -7,7 +7,9 @@ import java.util.ArrayList;
 
 /**
  * Created by himanshubhardwaj on 11/06/19.10:06 pm
- * 15 mins
+ * Statement: https://codeforces.com/contest/763/problem/A
+ * Algo: DFS
+ * Submission: https://codeforces.com/contest/763/submission/55471627
  */
 public class TimofeyAndATree {
     public static void main(String[] args) throws IOException {
@@ -25,9 +27,10 @@ public class TimofeyAndATree {
         graph.setColour(str);
 
         if (graph.isAnnoyed()) {
-            System.out.println("NO");
-        } else {
             System.out.println("YES");
+            System.out.print(graph.answer);
+        } else {
+            System.out.print("NO");
         }
 
 
@@ -38,6 +41,7 @@ class NGraph {
     ArrayList<Integer> adjList[];
     int size;
     int colour[];
+    int answer;
 
     public NGraph(int n) {
         this.size = n;
@@ -67,52 +71,71 @@ class NGraph {
         Integer v2 = null;
 
         for (int i = 0; i < adjList.length; i++) {
+            //   System.out.println(i+": "+adjList[i]);
             for (int j = 0; j < adjList[i].size(); j++) {
-                if (colour[i] != colour[j]) {
+                if (colour[i] != colour[adjList[i].get(j)]) {
                     v1 = i;
-                    v2 = j;
+                    v2 = adjList[i].get(j);
                 }
             }
         }
+        //    System.out.println();
 
-        System.out.println(v1+"\t"+colour[v1]);
-        System.out.println(v2+"\t"+colour[v2]);
+        //      System.out.println(v1 + "\t" + colour[v1]);
+//        System.out.println(v2 + "\t" + colour[v2]);
 
         if (v1 == null || v2 == null) {
-            return false;
-        }
-        int answer1 = countNodes(v1, -1, colour[v1]);
-        System.out.println(answer1+"answer1");
-        if (answer1 == size - 1) {
-            return false;
+            answer = 1;
+            return true;
         }
 
+        boolean result = true;
 
-
-
-        int answer2 = countNodes(v2, -1, colour[v2]);
-        System.out.println(answer2+"answer2");
-        if (answer2 == size - 1) {
-            return false;
+        for (int neighbour : adjList[v1]) {
+            result = result && checkColour(neighbour, v1, colour[neighbour]);
+            if (!result) {
+                break;
+            }
         }
-        return true;
+
+        if (result) {
+            answer = v1 + 1;
+            return result;
+        } else {
+            result = true;
+        }
+
+        for (int neighbour : adjList[v2]) {
+            result = result && checkColour(neighbour, v2, colour[neighbour]);
+        }
+
+        if (result) {
+            answer = v2 + 1;
+        }
+
+        return result;
+
     }
 
 
-    //return number of nodes with given colour in graph
-    public int countNodes(int node, int parent, int c) {
-        int count = 0;
-        if (colour[node] == c) {
-            count = 1;
+    //return if all nodes constains the same colour c or not
+    public boolean checkColour(int node, int parent, int c) {
+        boolean result = (c == colour[node]);
+
+        if (!result) {
+            return result;
         }
 
         for (int neighbour : adjList[node]) {
             if (neighbour != parent) {
-                count += countNodes(neighbour, node, c);
+                result = result && checkColour(neighbour, node, c);
+                if (!result) {
+                    break;
+                }
             }
         }
 
-        return count;
+        return result;
     }
 }
 
