@@ -50,7 +50,7 @@ class Graph {
 
     public void insert(int v1, int v2, int weight) {
         v1--;
-        v2--;Dijkstra
+        v2--;
         Edge edge = new Edge(vertices[v1], vertices[v2], weight);
         adjList[v1].add(edge);
         adjList[v2].add(edge);
