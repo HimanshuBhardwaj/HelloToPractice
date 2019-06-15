@@ -12,7 +12,7 @@ import java.util.TreeSet;
 /**
  * Created by himanshubhardwaj on 04/09/18.
  * ProblemStateent: https://codeforces.com/contest/1037/problem/E
- * Algo: Graph, Ad-Hoc
+ * Algo: DGraph, Ad-Hoc
  * Submission: https://codeforces.com/contest/1037/submission/42457749
  */
 public class AllVertecesWithMinimimKRemainingdegree {

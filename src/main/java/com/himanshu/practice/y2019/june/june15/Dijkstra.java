@@ -20,7 +20,7 @@ public class Dijkstra {
         int n = Integer.parseInt(str[0]);
         int m = Integer.parseInt(str[1]);
 
-        Graph graph = new Graph(n);
+        DGraph graph = new DGraph(n);
 
         for (int i = 0; i < m; i++) {
             str = br.readLine().split(" ");
@@ -32,45 +32,45 @@ public class Dijkstra {
 }
 
 
-class Graph {
-    ArrayList<Edge>[] adjList;
+class DGraph {
+    ArrayList<DEdge>[] adjList;
     int numNodes;
-    Vertex[] vertices;
+    DVertex[] vertices;
     long impossibleDisance = Long.MAX_VALUE - (Integer.MAX_VALUE * 10000l);
 
-    public Graph(int n) {
+    public DGraph(int n) {
         numNodes = n;
         adjList = new ArrayList[n];
-        vertices = new Vertex[n];
+        vertices = new DVertex[n];
         for (int i = 0; i < n; i++) {
             adjList[i] = new ArrayList<>();
-            vertices[i] = new Vertex(i, impossibleDisance);
+            vertices[i] = new DVertex(i, impossibleDisance);
         }
     }
 
     public void insert(int v1, int v2, int weight) {
         v1--;
         v2--;
-        Edge edge = new Edge(vertices[v1], vertices[v2], weight);
+        DEdge edge = new DEdge(vertices[v1], vertices[v2], weight);
         adjList[v1].add(edge);
         adjList[v2].add(edge);
     }
 
     String shortestDistanceDijkstra(int source) {
         vertices[source].shortestDistance = 0;
-        TreeSet<Vertex> nearestNodes = new TreeSet<>();
+        TreeSet<DVertex> nearestNodes = new TreeSet<>();
         nearestNodes.add(vertices[source]);
 
         while (!nearestNodes.isEmpty()) {
-            Vertex nearest = nearestNodes.first();
+            DVertex nearest = nearestNodes.first();
             nearestNodes.remove(nearest);
 
             if (nearest.shortestDistance == impossibleDisance) {
                 continue;
             }
 
-            for (Edge nEdge : adjList[nearest.index]) {
-                Vertex neighbour = null;
+            for (DEdge nEdge : adjList[nearest.index]) {
+                DVertex neighbour = null;
                 if (nEdge.vertex1.index == nearest.index) {
                     neighbour = nEdge.vertex2;
                 } else {
@@ -120,20 +120,20 @@ class Graph {
 }
 
 
-class Edge implements Comparable<Edge> {
-    Vertex vertex1;
-    Vertex vertex2;
+class DEdge implements Comparable<DEdge> {
+    DVertex vertex1;
+    DVertex vertex2;
     long weight;
 
     @java.beans.ConstructorProperties({"vertex1", "vertex2", "weight"})
-    public Edge(Vertex vertex1, Vertex vertex2, long weight) {
+    public DEdge(DVertex vertex1, DVertex vertex2, long weight) {
         this.vertex1 = vertex1;
         this.vertex2 = vertex2;
         this.weight = weight;
     }
 
     @Override
-    public int compareTo(Edge o) {
+    public int compareTo(DEdge o) {
         if ((this.vertex1 == o.vertex1 && this.vertex2 == o.vertex2) || (this.vertex2 == o.vertex1 && this.vertex1 == o.vertex2)) {
             if (this.weight == o.weight) {
                 return 0;
@@ -147,19 +147,19 @@ class Edge implements Comparable<Edge> {
 }
 
 
-class Vertex implements Comparable<Vertex> {
+class DVertex implements Comparable<DVertex> {
     int index;
     long shortestDistance;
     int parent = -1;
 
 
-    public Vertex(int index, long shortestDistance) {
+    public DVertex(int index, long shortestDistance) {
         this.index = index;
         this.shortestDistance = shortestDistance;
     }
 
     @Override
-    public int compareTo(Vertex o) {
+    public int compareTo(DVertex o) {
         if (this.shortestDistance != o.shortestDistance) {
             return (int) (this.shortestDistance - o.shortestDistance);
         } else {
