@@ -31,9 +31,9 @@ public class April18 {
             g.insert(s, d, w);
         }
 
-        //List<Graph.Edge> edges = g.transitiveClosure();
+        //List<DGraph.DEdge> edges = g.transitiveClosure();
 //        System.out.println("Transitive closure.");
-//        for (Graph.Edge e : edges) {
+//        for (DGraph.DEdge e : edges) {
 //            System.out.println(e);
 //        }
 //
@@ -42,7 +42,7 @@ public class April18 {
 //        System.out.println();
 //        System.out.println("BellmonFord algorithm");
 //        edges = g.bellmonFordSSSP(0);
-//        for (Graph.Edge e : edges) {
+//        for (DGraph.DEdge e : edges) {
 //            System.out.println(e);
 //        }
 

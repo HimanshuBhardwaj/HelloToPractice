@@ -192,7 +192,7 @@ class Graph {
 
         System.out.println();
         System.out.println();
-        System.out.println("Edge List");
+        System.out.println("DEdge List");
         for (Edge e : edgelist) {
             System.out.println(e);
         }

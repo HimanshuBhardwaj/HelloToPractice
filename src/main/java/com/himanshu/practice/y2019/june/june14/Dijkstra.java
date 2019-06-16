@@ -32,9 +32,9 @@ public class Dijkstra {
 }
 
 class Graph {
-    private final Map<String, Vertex> graph; // mapping of vertex names to Vertex objects, built from a set of Edges
+    private final Map<String, Vertex> graph; // mapping of vertex names to DVertex objects, built from a set of Edges
 
-    /** One edge of the graph (only used by Graph constructor) */
+    /** One edge of the graph (only used by DGraph constructor) */
     public static class Edge {
         public final String v1, v2;
         public final int dist;
@@ -108,7 +108,7 @@ class Graph {
     /** Runs dijkstra using a specified source vertex */
     public void dijkstra(String startName) {
         if (!graph.containsKey(startName)) {
-            System.err.printf("Graph doesn't contain start vertex \"%s\"\n", startName);
+            System.err.printf("DGraph doesn't contain start vertex \"%s\"\n", startName);
             return;
         }
         final Vertex source = graph.get(startName);
@@ -150,7 +150,7 @@ class Graph {
     /** Prints a path from the source to the specified vertex */
     public void printPath(String endName) {
         if (!graph.containsKey(endName)) {
-            System.err.printf("Graph doesn't contain end vertex \"%s\"\n", endName);
+            System.err.printf("DGraph doesn't contain end vertex \"%s\"\n", endName);
             return;
         }
 

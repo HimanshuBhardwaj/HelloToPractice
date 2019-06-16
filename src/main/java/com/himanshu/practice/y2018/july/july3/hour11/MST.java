@@ -32,7 +32,7 @@ public class MST {
 
         System.out.println();
         System.out.println();
-        //LinkedListP<Edge> mst = graph.mst();
+        //LinkedListP<DEdge> mst = graph.mst();
 
         System.out.println("Contains Cycle: " + graph.containsCycleHelperTest());
         System.out.println(graph.mstKurashkal());

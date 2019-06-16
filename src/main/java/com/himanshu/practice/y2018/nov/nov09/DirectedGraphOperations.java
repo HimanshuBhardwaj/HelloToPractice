@@ -10,7 +10,7 @@ import java.util.LinkedList;
 
 /**
  * Created by himanshubhardwaj on 12/11/18.
- * Topological Sort, DAG1 Graph Prep: 5:53--6:08
+ * Topological Sort, DAG1 DGraph Prep: 5:53--6:08
  */
 public class DirectedGraphOperations {
     public static void main(String[] args) throws IOException {
