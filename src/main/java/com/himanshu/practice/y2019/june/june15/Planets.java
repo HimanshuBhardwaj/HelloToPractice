@@ -19,7 +19,7 @@ public class Planets {
         int n = Integer.parseInt(str[0]);
         int m = Integer.parseInt(str[1]);
 
-        Graph graph = new Graph(n);
+        PGraph graph = new PGraph(n);
 
         for (int i = 0; i < m; i++) {
             str = br.readLine().split(" ");
@@ -38,27 +38,27 @@ public class Planets {
 }
 
 
-class Graph {
-    ArrayList<Edge>[] adjList;
+class PGraph {
+    ArrayList<PEdge>[] adjList;
     int numNodes;
-    Vertex[] vertices;
+    PVertex[] vertices;
     long maxPossibleTime = Long.MAX_VALUE - (200000l * Integer.MAX_VALUE);
 
-    public Graph(int n) {
+    public PGraph(int n) {
         this.numNodes = n;
         adjList = new ArrayList[n];
-        vertices = new Vertex[n];
+        vertices = new PVertex[n];
 
         for (int i = 0; i < n; i++) {
             adjList[i] = new ArrayList<>();
-            vertices[i] = new Vertex(i, maxPossibleTime, maxPossibleTime, new TreeSet<>());
+            vertices[i] = new PVertex(i, maxPossibleTime, maxPossibleTime, new TreeSet<>());
         }
     }
 
     public void insert(int v1, int v2, int weight) {
         v1--;
         v2--;
-        Edge e = new Edge(vertices[v1], vertices[v2], weight);
+        PEdge e = new PEdge(vertices[v1], vertices[v2], weight);
         adjList[v1].add(e);
         adjList[v2].add(e);
     }
@@ -67,11 +67,11 @@ class Graph {
         vertices[source].timeOfArrival = 0;
         vertices[source].computeDepartureTime();
 
-        TreeSet<Vertex> explorableVertices = new TreeSet<>();
+        TreeSet<PVertex> explorableVertices = new TreeSet<>();
         explorableVertices.add(vertices[source]);
 
         while (!explorableVertices.isEmpty()) {
-            Vertex nearestVertex = explorableVertices.first();
+            PVertex nearestVertex = explorableVertices.first();
             explorableVertices.remove(nearestVertex);
 
 
@@ -80,8 +80,8 @@ class Graph {
             }
 
 
-            for (Edge e : adjList[nearestVertex.index]) {
-                Vertex neighbour = (e.v1.index == nearestVertex.index) ? e.v2 : e.v1;
+            for (PEdge e : adjList[nearestVertex.index]) {
+                PVertex neighbour = (e.v1.index == nearestVertex.index) ? e.v2 : e.v1;
                 if (neighbour.timeOfArrival > nearestVertex.timeofdeparture + e.weight) {
                     explorableVertices.remove(neighbour);
                     neighbour.timeOfArrival = nearestVertex.timeofdeparture + e.weight;
@@ -104,13 +104,13 @@ class Graph {
 }
 
 
-class Edge {
-    Vertex v1;
-    Vertex v2;
+class PEdge {
+    PVertex v1;
+    PVertex v2;
     int weight;
 
     @java.beans.ConstructorProperties({"v1", "v2", "weight"})
-    public Edge(Vertex v1, Vertex v2, int weight) {
+    public PEdge(PVertex v1, PVertex v2, int weight) {
         this.v1 = v1;
         this.v2 = v2;
         this.weight = weight;
@@ -118,14 +118,14 @@ class Edge {
 }
 
 
-class Vertex implements Comparable<Vertex> {
+class PVertex implements Comparable<PVertex> {
     int index;
     long timeOfArrival;
     long timeofdeparture;
     TreeSet<Long> guestArrivalTime;
 
     @java.beans.ConstructorProperties({"index", "timeOfArrival", "timeofdeparture", "guestArrivalTime"})
-    public Vertex(int index, long timeOfArrival, long timeofdeparture, TreeSet<Long> guestArrivalTime) {
+    public PVertex(int index, long timeOfArrival, long timeofdeparture, TreeSet<Long> guestArrivalTime) {
         this.index = index;
         this.timeOfArrival = timeOfArrival;
         this.timeofdeparture = timeofdeparture;
@@ -133,7 +133,7 @@ class Vertex implements Comparable<Vertex> {
     }
 
     @Override
-    public int compareTo(Vertex o) {
+    public int compareTo(PVertex o) {
         if (this.timeofdeparture != o.timeofdeparture) {
             return (int) (this.timeofdeparture - o.timeofdeparture);
         } else {
