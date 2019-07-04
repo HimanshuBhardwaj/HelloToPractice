@@ -1,6 +1,4 @@
-package com.himanshu.practice.y2019.july;
-
-import lombok.Data;
+package com.himanshu.practice.y2019.july.july5;
 
 import java.io.BufferedReader;
 import java.io.IOException;
