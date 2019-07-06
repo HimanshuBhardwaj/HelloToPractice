@@ -1,9 +1,16 @@
 package com.himanshu.practice.y2019.july.july6;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.ToString;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.TreeSet;
 
 /**
  * Created by himanshubhardwaj on 06/07/19.
@@ -31,6 +38,22 @@ public class DirectedGraph {
 
         Graph transitiveClosire = GraphUtils.transitiveClosire(graph);
         transitiveClosire.printGraph();
+
+
+        ArrayList<Integer> topologicalOrdering = GraphUtils.topologcalSortTraditional(graph);
+
+        System.out.println();
+        for (int x : topologicalOrdering) {
+            System.out.print(x + ", ");
+        }
+        System.out.println();
+        System.out.println("---------------");
+        System.out.println();
+        topologicalOrdering = GraphUtils.topologicalSortTimer(graph);
+        System.out.println();
+        for (int x : topologicalOrdering) {
+            System.out.print(x + ", ");
+        }
 
 
     }
@@ -99,6 +122,116 @@ class GraphUtils {
             }
         }
         return transitiveClosureGrah;
+    }
+
+    //1:40-->1:48
+    public static ArrayList<Integer> topologcalSortTraditional(Graph graph) {
+        if (graph == null) {
+            return new ArrayList<>();
+        }
+
+
+        int graphS = graph.size;
+        boolean[] isVisited = new boolean[graphS];
+        ArrayList<Integer> topologicalOrdering = new ArrayList<>();
+
+        for (int i = 0; i < isVisited.length; i++) {
+            if (!isVisited[i]) {
+                isVisited[i] = true;
+                DFSTopologicalOrder(topologicalOrdering, i, isVisited, graph);
+            }
+        }
+
+        return topologicalOrdering;
+    }
+
+    //DAG
+    private static void DFSTopologicalOrder(ArrayList<Integer> topologicalOrdering, int index, boolean[] isVisited, Graph graph) {
+
+        for (int neighbour : graph.adjList[index]) {
+            if (!isVisited[neighbour]) {
+                isVisited[neighbour] = true;
+                DFSTopologicalOrder(topologicalOrdering, neighbour, isVisited, graph);
+            }
+        }
+
+        topologicalOrdering.add(index);
+    }
+
+    public static ArrayList<Integer> topologicalSortTimer(Graph graph) {
+        if (graph == null) {
+            return null;
+        }
+
+        TreeSet<TopologicalClassNodeContext> graphNodes = new TreeSet<>();
+        boolean[] isVisited = new boolean[graph.size];
+        Timer timer = new Timer(0);
+
+        for (int i = 0; i < isVisited.length; i++) {
+            if (!isVisited[i]) {
+                DFSHelperTimed(graphNodes, i, isVisited, timer, graph);
+            }
+        }
+
+        ArrayList<TopologicalClassNodeContext> arrayList = new ArrayList<>(graphNodes);
+        Comparator<TopologicalClassNodeContext> comparator = new Comparator<TopologicalClassNodeContext>() {
+            @Override
+            public int compare(TopologicalClassNodeContext o1, TopologicalClassNodeContext o2) {
+                return (int) (o1.endTime - o2.endTime);
+            }
+        };
+
+        Collections.sort(arrayList, comparator);
+        ArrayList<Integer> topologicalOrdering = new ArrayList<>();
+        for (int i = 0; i < arrayList.size(); i++) {
+            topologicalOrdering.add(arrayList.get(i).index);
+        }
+
+        return topologicalOrdering;
+    }
+
+    private static void DFSHelperTimed(TreeSet<TopologicalClassNodeContext> graphNodes, int index, boolean[] isVisited, Timer timer, Graph graph) {
+        timer.incrementTimer();
+
+        isVisited[index] = true;
+        graphNodes.add(new TopologicalClassNodeContext(index, timer.time));
+
+        for (int neighbout : graph.adjList[index]) {
+            if (!isVisited[neighbout]) {
+                DFSHelperTimed(graphNodes, neighbout, isVisited, timer, graph);
+            }
+        }
+        timer.incrementTimer();
+        graphNodes.ceiling(new TopologicalClassNodeContext(index, -1)).endTime = timer.getTime();
+    }
+
+
+    @AllArgsConstructor
+    @Getter
+    private static class Timer {
+        private long time;
+
+        void incrementTimer() {
+            time++;
+        }
+    }
+
+    @ToString
+    private static class TopologicalClassNodeContext implements Comparable<TopologicalClassNodeContext> {
+        int index;
+        long startTime;
+        long endTime;
+
+        public TopologicalClassNodeContext(int index, long startTime) {
+            this.index = index;
+            this.startTime = startTime;
+        }
+
+
+        @Override
+        public int compareTo(TopologicalClassNodeContext o) {
+            return this.index - o.index;
+        }
     }
 
 }
