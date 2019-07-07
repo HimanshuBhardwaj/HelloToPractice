@@ -56,8 +56,17 @@ public class DirectedGraph {
         }
 
 
+        System.out.println();
+        System.out.println();
+        System.out.println("Finding cycle");
+        System.out.println();
+        System.out.println();
+        System.out.println(GraphUtils.hasCycle(graph));
+
+
     }
 }
+
 
 class Graph {
     ArrayList<Integer>[] adjList;
@@ -234,16 +243,51 @@ class GraphUtils {
         }
     }
 
+
+    static public boolean hasCycle(Graph graph) {
+        int state[] = new int[graph.size];
+
+        for (int i = 0; i < graph.size; i++) {
+            if (state[i] == 0) {
+                if (hasCycleHelper(i, state, graph)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+
+    }
+
+    static private boolean hasCycleHelper(int index, int[] state, Graph graph) {
+        state[index] = 1;
+
+        for (int neighbour : graph.adjList[index]) {
+            if (state[neighbour] == 1) {
+                return true;
+            }
+            if (state[neighbour] == 2) {
+                continue;
+            }
+            if (hasCycleHelper(neighbour, state, graph)) {
+                return true;
+            }
+
+        }
+        state[index] = 2;
+        return false;
+    }
+
+
 }
 /*
 
-5 8
+5 7
 0 1
 0 2
 1 4
 2 3
 2 4
-3 1
 4 3
-4 0
+0 4
  */
