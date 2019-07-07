@@ -16,14 +16,14 @@ public class ArrayOperations {
             elements[i] = Double.parseDouble(str[i]);
         }
 
-        System.out.println(ArrayUtils.binarySearch(elements, 0.6));
+        System.out.println(ArrayUtils.binarySearch(elements, -1.4));
 
     }
 }
 
 
 class ArrayUtils {
-    //11:15 pm
+    //11:15 pm--11:25
     static Integer binarySearch(double[] arr, double element) {
         return binarySearchHelper(0, arr.length - 1, arr, element);
     }
