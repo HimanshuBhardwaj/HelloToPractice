@@ -24,14 +24,11 @@ public class ArrayOperations {
         }else {
             System.out.println("Ceil not found");
         }
-
-
     }
 }
 
 
 class ArrayUtils {
-
     //12:56 am --> 1:07
     static Integer ceilIndex(double[] arr, double element) {
         return ceilIndexHelper(0, arr.length - 1, arr, element);
