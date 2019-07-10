@@ -37,8 +37,6 @@ public class GraphOperations {
         for (Edge e : spanningTree) {
             System.out.println(e);
         }
-
-
     }
 }
 
